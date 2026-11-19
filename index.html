@@ -648,7 +648,7 @@ function vCoach() {
   <button class="btn cy" data-act="${m.act}" data-n="${m.n || ''}" data-s="${m.s || ''}">${ic(m.icon, 22, '#111A2B', 2.2, m.icon === 'play' ? '#111A2B' : 'none')}${esc(m.cta)}</button>
   <div class="tiles">
     <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="mix">${ic('shuffle', 28, '#FF6A1F', 2.3)}Mix do dia</button>
-    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="game" data-g="${lessonStarted(2) ? 'l2' : 'l1'}">${ic('mic', 28, '#2DD4EF', 2.3)}Conversar</button>
+    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="game" data-g="${'l2'}">${ic('mic', 28, '#2DD4EF', 2.3)}Conversar</button>
   </div>
   <p class="muted center" style="font-size:13px">${ic('bell', 16, '#B8C2D6', 2.3)} Próxima mensagem do coach: <b style="color:#fff">${esc(nextTime)}</b></p>
 </div>${nav('coach')}`;
@@ -921,7 +921,7 @@ function gameUpdate() {
 let DICTON = false, DICTTXT = '';
 function gameInput() {
   const el = document.getElementById('ginput'); if (!el || !G) return;
-  if (G.status === 'idle') { el.innerHTML = `<button class="btn or" data-act="gstart">${ic('play', 20, '#111A2B', 2, '#111A2B')}Começar a conversa</button><p class="muted center" style="font-size:12px;margin-top:8px">${G.def.audio ? 'Ligue o som: o Teacher Pedro fala com você.' : 'Nesta lição, as falas do coach aparecem em texto. A voz chega em breve.'}</p>`; return; }
+  if (G.status === 'idle') { el.innerHTML = `<button class="btn or" data-act="gstart">${ic('play', 20, '#111A2B', 2, '#111A2B')}Começar a conversa</button><p class="muted center" style="font-size:12px;margin-top:8px">${G.def.audio ? 'Ligue o som: o Teacher Pedro fala com você.' : 'Atenção: nesta lição o coach ainda não fala, as falas aparecem só em texto. Para ouvir a voz do coach, faça a conversa da Lição 2.'}</p>`; return; }
   if (G.status === 'done') {
     const stars = G.stars.filter(Boolean).length;
     el.innerHTML = `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><div><b style="color:#0D5866">Conversa concluída!</b><p style="font-size:14px;font-weight:600">${stars} de ${G.def.stages.length} respostas certas de primeira.</p></div></div><div class="tiles" style="margin-top:10px"><button class="btn wh" data-act="game" data-g="${G.gid}">${ic('redo', 20, '#C94E0E', 2.4)}De novo</button><button class="btn cy" data-act="close">Concluir</button></div>`;
@@ -1023,7 +1023,7 @@ function vPraticar() {
 }
 function vGames() {
   return `<div class="page">${head('Conversa com o coach')}
-  ${[['l1', 1], ['l2', 2]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:var(--cyan-t)">LIÇÃO ${n}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
+  ${[['l2', 2], ['l1', 1]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:${GAMES[g].audio ? 'var(--cyan-t)' : 'var(--muted)'}">LIÇÃO ${n} · ${GAMES[g].audio ? 'COM VOZ' : 'SÓ TEXTO, VOZ EM BREVE'}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
   <p class="muted" style="font-size:13px">A conversa livre com a inteligência artificial, sem roteiro, chega no ciclo Pro.</p></div>`;
 }
 function weekDays() {
@@ -1133,7 +1133,7 @@ document.addEventListener('click', e => {
     if (EX.i + 1 < o.items.length) { EX.i++; EX.sel = null; EX.order = []; EX.checked = false; render(); return; }
     const tags = [...new Set(EX.wrongTags)];
     if (o.mode === 'lesson') { markStep(o.n, 'ex', { score: EX.right, total: o.items.length }); V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Exercícios da Lição ' + o.n + ' concluídos', tags, next: nextStepAction(o.n, 'ex') }; }
-    else V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Mix do dia concluído', tags, next: { act: 'game', g: lessonStarted(2) ? 'l2' : 'l1', label: 'Treinar conversa', icon: 'mic' } };
+    else V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Mix do dia concluído', tags, next: { act: 'game', g: 'l2', label: 'Treinar conversa', icon: 'mic' } };
     render(); return;
   }
   if (a === 'mix' || a === 'mix-err') {
