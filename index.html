@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111A2B">
+<meta name="description" content="Fluent: um coach de inglês que acompanha você todos os dias.">
+<meta property="og:title" content="Fluent · Conheça a plataforma">
+<meta property="og:description" content="Aulas curtas, prática de conversa e um coach que cuida da sua rotina.">
+<meta property="og:image" content="media/l1_card.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="media/pedro-sorrindo.png">
+<title>Fluent · Conheça a plataforma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap">
+<style>
+:root{--navy:#111A2B;--navy2:#1E2A44;--navy3:#2E3B58;--cyan:#2DD4EF;--cyan-d:#1A9FB8;--cyan-l:#E3F8FC;--cyan-t:#0D5866;--orange:#FF6A1F;--orange-d:#C94E0E;--orange-l:#FFE8DB;--orange-t:#A8430B;--bg:#F2F4F8;--line:#E1E6EE;--muted:#5F6B80;--muted2:#B8C2D6}
+*{box-sizing:border-box}
+html,body{margin:0;background:#E7EBF2;font-family:Montserrat,system-ui,sans-serif;color:var(--navy);-webkit-tap-highlight-color:transparent}
+button,input{font-family:inherit;color:inherit}
+button{cursor:pointer}
+#app{max-width:480px;margin:0 auto;min-height:100vh;background:var(--bg);display:flex;flex-direction:column;position:relative}
+.page{flex:1;padding:20px 20px 110px;display:flex;flex-direction:column;gap:16px}
+.page.dark{background:var(--navy);color:#fff}
+h1{margin:0;font-size:28px;font-weight:900;letter-spacing:-.03em}
+h2{margin:0;font-size:18px;font-weight:900}
+p{margin:0}
+.top{display:flex;align-items:center;justify-content:space-between;min-height:48px;gap:12px}
+.logo{display:flex;align-items:flex-end;gap:3px;font-size:30px;font-weight:900;line-height:1}
+.logo i{width:9px;height:9px;border-radius:5px;background:var(--orange);margin-bottom:3px;display:block}
+.chip-streak{display:flex;align-items:center;gap:4px;padding:6px 12px;border-radius:999px;background:#fff;font-size:14px;font-weight:900}
+.dark .chip-streak{background:#2A2620;color:#FF9A5E}
+.avbtn{width:44px;height:44px;border-radius:22px;border:none;background:var(--navy);color:var(--cyan);font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}
+.dark .avbtn{background:var(--navy2)}
+.card{background:#fff;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.card.dk{background:var(--navy2);color:#fff}
+.muted{color:var(--muted);font-size:14px;font-weight:600;line-height:1.45}
+.dark .muted,.card.dk .muted{color:var(--muted2)}
+.dark .card:not(.dk) .muted{color:var(--muted)}
+.small{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 20px;border-radius:18px;border:none;font-size:16px;font-weight:900;text-decoration:none;color:var(--navy);width:100%}
+.btn.or{background:var(--orange);box-shadow:0 5px 0 var(--orange-d)}
+.btn.cy{background:var(--cyan);box-shadow:0 5px 0 var(--cyan-d)}
+.btn.wh{background:#fff;box-shadow:0 5px 0 var(--line)}
+.btn.gh{background:transparent;min-height:48px;color:var(--muted)}
+.dark .btn.gh{color:var(--muted2)}
+.btn.dk{background:var(--navy2);color:#fff}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn[disabled]{opacity:.45}
+.row{display:flex;align-items:center;gap:12px}
+.grow{flex:1;min-width:0}
+.iconbox{width:52px;height:52px;flex-shrink:0;border-radius:16px;display:flex;align-items:center;justify-content:center}
+.ib-c{background:var(--cyan-l)}.ib-o{background:var(--orange-l)}.ib-n{background:var(--navy)}.ib-g{background:#EEF1F6}
+.back{width:48px;height:48px;flex-shrink:0;border-radius:16px;border:none;background:#fff;display:flex;align-items:center;justify-content:center}
+.dark .back{background:var(--navy2)}
+nav.bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;display:grid;grid-template-columns:repeat(5,1fr);background:var(--navy);padding:8px 6px 14px;border-radius:26px 26px 0 0;z-index:5}
+nav.bar a{min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:800;color:var(--muted2);text-decoration:none}
+nav.bar a span.pill{width:56px;height:40px;border-radius:16px;display:flex;align-items:center;justify-content:center}
+nav.bar a.on{color:#fff}nav.bar a.on span.pill{background:var(--cyan)}
+.nav-av{width:32px;height:32px;border-radius:16px;overflow:hidden;background:var(--cyan)}
+.nav-av img{width:100%;height:100%;display:block}
+.field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:800;color:var(--muted)}
+.field input{min-height:52px;border-radius:16px;border:2px solid var(--line);background:#fff;padding:0 16px;font-size:16px;font-weight:600;color:var(--navy);outline:none}
+.field input:focus{border-color:var(--cyan)}
+.err{color:#B3261E;font-size:13px;font-weight:700}
+.toast{position:fixed;left:50%;top:16px;pointer-events:none;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;font-weight:800;z-index:20;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.lesson-card{border-radius:24px;background:#fff;overflow:hidden;border:none;padding:0;text-align:left;width:100%;display:block}
+.lesson-card.now{box-shadow:0 0 0 3px var(--orange)}
+.lesson-card img{display:block;width:100%;height:130px;object-fit:cover}
+.lrow{display:flex;align-items:center;gap:12px;padding:8px;border-radius:20px;background:#fff;border:none;width:100%;text-align:left}
+.lrow.lock{background:#E8ECF2;color:#4F5A6E}
+.lrow img{width:56px;height:56px;border-radius:14px;object-fit:cover;flex-shrink:0}
+.ln{width:56px;height:56px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#DCE1E9;font-weight:900;font-size:18px;color:#4F5A6E}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.st{position:relative;aspect-ratio:1;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.st .ok{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:10px;background:var(--cyan);border:2px solid #fff;display:flex;align-items:center;justify-content:center}
+.steprow{display:flex;align-items:center;gap:14px;min-height:64px;padding:8px 12px 8px 8px;border-radius:20px;background:#fff;border:none;width:100%;text-align:left}
+.steprow.cur{box-shadow:0 0 0 3px var(--orange)}
+.unit-h{display:flex;align-items:center;gap:10px;margin-top:6px}
+.unit-h b{width:30px;height:30px;border-radius:10px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.prog{height:10px;border-radius:5px;background:#E1E6EE;overflow:hidden}
+.prog>i{display:block;height:100%;background:var(--cyan);border-radius:5px}
+.dark .prog{background:#24314D}
+.opt{display:flex;align-items:center;gap:14px;min-height:64px;padding:8px 16px 8px 8px;border-radius:20px;background:#fff;border:3px solid var(--line);box-shadow:0 4px 0 var(--line);font-size:17px;font-weight:800;text-align:left;width:100%}
+.opt .k{width:42px;height:42px;flex-shrink:0;border-radius:13px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900}
+.opt.sel{border-color:var(--navy)}
+.opt.right{background:var(--cyan-l);border-color:var(--cyan);box-shadow:0 4px 0 var(--cyan)}
+.opt.wrong{background:var(--orange-l);border-color:var(--orange);box-shadow:0 4px 0 var(--orange)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.wchip{min-height:48px;padding:0 16px;border-radius:14px;border:2px solid var(--line);background:#fff;font-size:16px;font-weight:800;box-shadow:0 3px 0 var(--line)}
+.ansline{min-height:64px;border-radius:18px;border:2px dashed #C9D1DE;padding:8px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ansline .wchip{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:none}
+.fb{border-radius:22px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.fb.ok{background:var(--cyan-l)}.fb.no{background:var(--orange-l)}
+.fb img{width:48px;height:48px;border-radius:24px;flex-shrink:0}
+.flash{flex:1;min-height:360px;background:#fff;border-radius:32px;box-shadow:0 6px 0 var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;text-align:center;border:none;width:100%}
+.flash .en{font-size:44px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.flash .pr{font-size:19px;font-weight:900;padding:6px 14px;border-radius:12px;background:var(--cyan)}
+.flash .ipa{font-family:'DejaVu Sans',Arial,sans-serif;font-size:17px;color:var(--muted)}
+.flash .pt{font-size:26px;font-weight:800;color:var(--cyan-t)}
+.speak{width:80px;height:80px;border-radius:40px;border:none;background:var(--orange);box-shadow:0 6px 0 var(--orange-d);display:flex;align-items:center;justify-content:center}
+video{width:100%;border-radius:22px;background:#000;display:block;max-height:62vh}
+.stage{position:relative;height:230px;border-radius:28px;background:var(--navy);overflow:hidden;flex-shrink:0}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.stage .who{position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:8px;color:#fff;font-size:12px;font-weight:800}
+.stage .who img{width:36px;height:36px;border-radius:18px}
+.stage .stt{position:absolute;right:14px;top:20px;display:flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:var(--muted2)}
+.stage .stt i{width:8px;height:8px;border-radius:4px;background:var(--orange);display:block}
+.glog{display:flex;flex-direction:column;gap:10px}
+.b-c{align-self:flex-start;background:#fff;border-radius:22px 22px 22px 6px;padding:12px 16px;max-width:88%;font-size:16px;font-weight:700;line-height:1.4}
+.b-u{align-self:flex-end;background:var(--navy);color:#fff;border-radius:22px 22px 6px 22px;padding:12px 16px;max-width:88%;font-size:16px;font-weight:700;line-height:1.4}
+.b-t{align-self:stretch;background:var(--cyan-l);border:2px solid var(--cyan);border-radius:18px;padding:12px 14px;font-size:15px;font-weight:800;white-space:pre-line}
+.ginput{background:var(--navy);border-radius:26px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.gchip{min-height:52px;border-radius:16px;border:2px solid var(--navy3);background:var(--navy2);color:#fff;font-size:15px;font-weight:800;text-align:left;padding:8px 14px;width:100%}
+.gtools{display:flex;gap:10px;align-items:center;justify-content:center}
+.gtools button{width:56px;height:56px;border-radius:18px;border:2px solid var(--navy3);background:var(--navy2);display:flex;align-items:center;justify-content:center}
+.gtools button.mic{width:72px;height:72px;border-radius:36px;border:none;background:var(--orange);box-shadow:0 5px 0 var(--orange-d)}
+.gtools button.mic.on{background:var(--cyan);box-shadow:0 5px 0 var(--cyan-d)}
+.gtype{display:flex;gap:8px}
+.gtype input{flex:1;min-height:50px;border-radius:14px;border:2px solid var(--navy3);background:var(--navy2);color:#fff;padding:0 14px;font-size:16px;font-weight:600;outline:none}
+.gtype button{min-width:50px;border-radius:14px;border:none;background:var(--cyan)}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile{background:#fff;border-radius:22px;padding:14px;display:flex;align-items:center;gap:12px}
+.tile .v{font-size:24px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.tile .l{font-size:12px;font-weight:700;color:var(--muted)}
+.chart{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:end;height:130px}
+.chart div{display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end;height:130px}
+.chart i{width:100%;border-radius:8px;background:var(--cyan);display:block}
+.chart b{font-size:11px;font-weight:900;color:var(--muted)}
+.chart span{font-size:11px;font-weight:800;color:var(--muted)}
+.seg{display:grid;gap:8px}
+.segb{min-height:60px;border-radius:16px;border:2px solid var(--line);background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:13px;font-weight:800;color:var(--muted)}
+.segb.on{border-color:var(--navy);background:var(--navy);color:#fff}
+.segb.onc{border-color:var(--cyan);background:var(--cyan-l);color:var(--navy)}
+.segb.ono{border-color:var(--orange);background:var(--orange-l);color:var(--navy)}
+.timein{flex:1;min-height:48px;border-radius:14px;border:none;background:var(--cyan-l);color:var(--cyan-t);font-size:16px;font-weight:900;text-align:center}
+.hero{position:relative;height:300px;margin:0 -20px}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero img{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:75px}
+.speech{position:relative;background:#fff;color:var(--navy);border-radius:24px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.speech:before{content:'';position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;background:#fff;transform:rotate(45deg)}
+.overlay{position:fixed;inset:0;background:rgba(17,26,43,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:30}
+.dialog{background:#fff;border-radius:24px;padding:20px;max-width:380px;width:100%;display:flex;flex-direction:column;gap:14px}
+.timer{height:8px;border-radius:4px;background:#E1E6EE;overflow:hidden}
+.timer i{display:block;height:100%;background:var(--orange);transition:width .1s linear}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.center{text-align:center}
+.vocab-tag{font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--cyan-t)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+'use strict';
+// ---------------- ícones ----------------
+const P = {
+  map:'<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/>',
+  chart:'<path d="M4 20V11M10 20V5M16 20v-6M2 20h20"/>',
+  bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+  zap:'<path d="M13 3 4 14h7l-1 7 9-11h-7z"/>',
+  video:'<rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>',
+  book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>',
+  food:'<path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3zm0 0v7"/>',
+  pencil:'<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+  mic:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4"/>',
+  flame:'<path d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-3.5 2-5.5 1.2 1 2 2 2 3.5 1-1.5 1-4.5 1-8z"/>',
+  checkc:'<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  chat:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+  task:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 12l2 2 4-4"/>',
+  redo:'<path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>',
+  lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  check:'<path d="m5 12 5 5 9-10"/>',
+  play:'<path d="M7 4v16l13-8z"/>',
+  back:'<path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>',
+  x:'<path d="M6 6l12 12M18 6 6 18"/>',
+  speaker:'<path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>',
+  quiz:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6"/><path d="M12 17h.01"/>',
+  podcast:'<circle cx="12" cy="11" r="3"/><path d="M12 14v7"/><path d="M7.8 15.5a6 6 0 1 1 8.4 0"/><path d="M5 18.5a10 10 0 1 1 14 0"/>',
+  shuffle:'<path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/>',
+  keyboard:'<rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>',
+  send:'<path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/>',
+  star:'<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
+  file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  l1:'<path d="M5 20v-4"/><path d="M12 20v-9" stroke-opacity=".25"/><path d="M19 20V5" stroke-opacity=".25"/>',
+  l2:'<path d="M5 20v-4M12 20v-9"/><path d="M19 20V5" stroke-opacity=".25"/>',
+  l3:'<path d="M5 20v-4M12 20v-9M19 20V5"/>'
+};
+const ic = (n, s = 22, c = '#111A2B', w = 2.2, f = 'none') => `<svg aria-hidden="true" width="${s}" height="${s}" viewBox="0 0 24 24" fill="${f}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${P[n]}</svg>`;
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const todayKey = (d = new Date()) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+
+// ---------------- conteúdo ----------------
+const TRACK = [
+  { t: 'Primeiros contatos', l: ['Falar de você e do que você faz', 'Pedir comida no restaurante', 'Cumprimentar e se despedir', 'Falar de outras pessoas', 'Trocar contatos', 'Revisão + desafio: apresente-se para um colega novo'] },
+  { t: 'Pessoas e lugares', l: ['Apresentar a sua família', 'Descrever pessoas', 'Falar da sua casa', 'Dizer onde as coisas estão', 'Falar da sua cidade', 'Revisão + desafio: mostre a sua casa e o seu bairro'] },
+  { t: 'Meu dia', l: ['Dizer as horas e os dias da semana', 'Contar a sua rotina', 'Falar da rotina de outra pessoa', 'Perguntar sobre hábitos', 'Falar dos seus hobbies e do fim de semana', 'Revisão + desafio: descreva um dia típico'] },
+  { t: 'Comer e comprar', l: ['Dizer do que gosta e do que não gosta', 'Fazer a lista do mercado', 'Perguntar preços', 'Comprar roupas', 'Pedir na cafeteria', 'Revisão + desafio: faça as compras para um jantar'] },
+  { t: 'Sair e viajar', l: ['Usar o transporte', 'Pedir informações na rua', 'Fazer check-in no hotel', 'Passar pela imigração no aeroporto', 'Falar do tempo e das estações', 'Revisão + desafio: chegue a uma cidade nova'] },
+  { t: 'Indo além', l: ['Dizer o que você sabe fazer', 'Pedir ajuda quando não entende', 'Falar de datas e aniversários', 'Dizer onde você estava', 'Contar como foi', 'Desafio final: apresente-se em 1 minuto'] }
+];
+const TOTAL = 36;
+let VOC = { l1: [], l2a: [], l2b: [] };
+
+const LESSONS = {
+  1: { title: 'Falar de você e do que você faz', short: "I'm…, profissões", img: 'media/l1_card.png',
+    steps: [
+      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l1_video.mp4', poster: 'media/l1_video.jpg' },
+      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 20 profissões', src: 'media/l1_vocab.mp4', poster: 'media/l1_vocab.jpg', deck: 'l1' },
+      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
+      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l1' }
+    ],
+    ex: [
+      { t: 'choice', tag: 'a / an', q: 'Como dizer “Eu sou professor”?', o: ["I'm teacher.", "I'm a teacher.", 'I a teacher.'], a: 1, ok: 'Em inglês, a profissão vem sempre com a ou an.', no: "Faltou o artigo. O certo é: I'm a teacher." },
+      { t: 'choice', tag: 'a / an', q: "Complete: I'm ___ engineer.", o: ['a', 'an'], a: 1, ok: 'Engineer começa com som de vogal, então usamos an.', no: 'Antes de som de vogal, use an: an engineer.' },
+      { t: 'choice', tag: 'I live in', q: 'Complete: I ___ in Curitiba.', o: ['live', 'work', 'love'], a: 0, ok: 'I live in + cidade: é onde você mora.', no: 'Para dizer onde mora, use I live in: I live in Curitiba.' },
+      { t: 'order', tag: 'I work at', q: 'Monte a frase: “Eu trabalho num banco.”', w: ['at', 'I', 'a', 'bank.', 'work'], a: ['I', 'work', 'at', 'a', 'bank.'], ok: 'I work at + o lugar onde você trabalha.', no: 'A ordem certa é: I work at a bank.' },
+      { t: 'choice', tag: 'I work', q: 'Qual frase está correta?', o: ["I'm work at a startup.", 'I work at a startup.', 'I working at a startup.'], a: 1, ok: 'Para falar do trabalho, use só o verbo: I work.', no: "Não use I'm com work. O certo é: I work at a startup." },
+      { t: 'listen', tag: 'Profissões', q: 'Ouça e escolha a profissão.', audio: 'media/accountant_en.mp3', o: ['contador(a)', 'arquiteto(a)', 'advogado(a)'], a: 0, ok: 'Accountant é contador ou contadora: a-KÁUN-tant.', no: 'Você ouviu accountant: contador ou contadora.' },
+      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de engineer?', o: ['EN-dji-nir', 'en-DJI-nir', 'en-dji-NÍR'], a: 2, ok: 'Isso: en-dji-NÍR, com força no final.', no: 'A sílaba forte é a última: en-dji-NÍR.' }
+    ] },
+  2: { title: 'Pedir comida no restaurante', short: "I'd like, can / could", img: 'media/l2_card.png',
+    steps: [
+      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula: o roteiro em 6 passos', src: 'media/l2_video.mp4', poster: 'media/l2_video.jpg' },
+      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: no restaurante', src: 'media/l2_vocab.mp4', poster: 'media/l2_vocab.jpg', deck: 'l2a' },
+      { id: 'food', type: 'vocab', icon: 'food', label: 'Pratos e sobremesas', src: 'media/l2_food.mp4', poster: 'media/l2_food.jpg', deck: 'l2b' },
+      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
+      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o garçom', game: 'l2' }
+    ],
+    ex: [
+      { t: 'order', tag: 'Roteiro do restaurante', q: 'Coloque os passos do restaurante na ordem.', w: ['Conta', 'Bebidas', 'Chegada', 'Pedido', 'Mesa e cardápio', 'Durante a refeição'], a: ['Chegada', 'Mesa e cardápio', 'Bebidas', 'Pedido', 'Durante a refeição', 'Conta'], sep: ' → ', ok: 'Todo restaurante segue essa ordem.', no: 'A ordem é: Chegada → Mesa e cardápio → Bebidas → Pedido → Durante a refeição → Conta.' },
+      { t: 'listen', tag: 'Roteiro do restaurante', q: 'Ouça o garçom. Em que passo você está?', audio: 'media/sam03.mp3', o: ['Chegada', 'Bebidas', 'Pedido', 'Conta'], a: 2, ok: '“Are you ready to order?”: ele quer saber se você já escolheu o prato.', no: 'Ele disse “Are you ready to order?”: é o passo do pedido.' },
+      { t: 'listen', tag: "I'd like", q: 'Ouça o garçom e escolha a melhor resposta.', audio: 'media/sam02.mp3', o: ['A table for two, please.', "I'd like a coffee, please.", 'Can you bring the bill, please?'], a: 1, ok: 'Ele perguntou da bebida: I’d like + bebida.', no: 'Ele disse “Anything to drink?”: responda com I’d like + bebida.' },
+      { t: 'listen', tag: 'Roteiro do restaurante', q: 'Ouça o garçom e escolha a melhor resposta.', audio: 'media/sam00.mp3', o: ['A table for two, please.', 'Two coffees, please.', 'Card, please.'], a: 0, ok: 'Na chegada, diga para quantas pessoas é a mesa.', no: 'Ele perguntou “How many?”: A table for two, please.' },
+      { t: 'choice', tag: "I'd like", q: 'Qual é o jeito educado de pedir?', o: ['I want the fish.', "I'd like the fish, please.", 'Give me the fish.'], a: 1, ok: 'I’d like é o jeito educado de pedir.', no: 'I want e Give me soam diretos demais. Use: I’d like the fish, please.' },
+      { t: 'choice', tag: 'the bill', q: 'Como pedir a conta?', o: ['Can you bring the account, please?', 'Can you bring the bill, please?', 'Can you bring the count, please?'], a: 1, ok: 'Conta de restaurante é the bill (nos Estados Unidos, também the check).', no: 'Conta de restaurante é the bill: Can you bring the bill, please?' },
+      { t: 'choice', tag: 'can / could', q: 'Qual pedido soa mais gentil?', o: ['Can you bring the bill, please?', 'Could you bring the bill, please?'], a: 1, ok: 'Os dois estão certos, mas could (poderia) soa mais gentil.', no: 'Os dois estão certos: can é “pode”, could é “poderia” e soa mais gentil.' },
+      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba forte de dessert (sobremesa)?', o: ['DES-sert', 'di-ZÂRT'], a: 1, ok: 'Força no final: di-ZÂRT.', no: 'É di-ZÂRT. DE-sert, com força no começo, é deserto.' }
+    ] }
+};
+
+// ---------------- jogos de conversa ----------------
+const nw = t => t.trim().split(/\s+/).filter(Boolean).length;
+const norm = s => ' ' + String(s || '').toLowerCase().replace(/[’`]/g, "'").replace(/i am /g, "i'm ").replace(/i would like/g, "i'd like").replace(/[^a-z' ]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+const OK = '__ok__';
+const L1_LINES = { L01: "Hi! I'm Teacher Pedro. Vamos praticar a Lição 1. Responda em inglês, com frases curtas. First question: what's your name?", L02: 'Muito bem! Só um ajuste: responda com a frase completa. Say: I’m, e o seu nome.', P1: 'Nice to meet you!', L04: 'Where do you live?', L05: 'Só um ajuste: para cidade, use in. Say: I live in, e a sua cidade.', L06: 'Muito bem! Agora diga a frase completa: I live in, e o nome da cidade.', L07: 'Só um ajuste: não use I’m com live. Say: I live in, e a sua cidade.', P2: 'Nice city!', L09: 'What do you do?', L10: 'Muito bem! Só um ajuste: use a antes da profissão. Say: I’m a, e a sua profissão.', L11: 'Só um ajuste: antes de som de vogal, use an. Like this: I’m an engineer.', P3: 'Great job!', L13: 'Where do you work?', L14: 'Só um ajuste: não use I’m com work. Say: I work at, e o lugar onde você trabalha.', L15: 'Diga a frase completa. Por exemplo: I work at a bank.', P4: 'Very good!', L18: 'And what do you love?', L19: 'Diga a frase completa: I love, e o que você ama.', P5: 'Awesome!', L21: 'Muito bem! Agora junte tudo: apresente-se em três frases. Comece com: Hi, I’m…', L22: 'Excellent! Você usou as peças da lição. You did it!', L23: 'Quase lá! Tente de novo usando: I’m, I live in, I work at e I love.', L24: 'Lição 1 concluída. See you tomorrow!', L25: 'Pode repetir, por favor? Can you say it again?', M1: 'Sem problema. Repita comigo: I’m Ana.', M2: 'Sem problema. Repita comigo: I live in São Paulo.', M3: 'Sem problema. Repita comigo: I’m a teacher.', M4: 'Sem problema. Repita comigo: I work at a school.', M5: 'Sem problema. Repita comigo: I love music.' };
+const VOWEL_JOBS = /\b(engineer|architect|accountant|actor|actress|artist|electrician|entrepreneur|editor|economist|analyst|assistant|attorney|officer|interpreter|intern|optician|operator|influencer|illustrator|investor|instructor)\b/;
+function checkJob(t) {
+  if (/ i'm (a|an) [a-z]/.test(t) || / i (work|am working) as (a|an) /.test(t) || / i'm (retired|unemployed|a student|self employed) /.test(t)) {
+    if (/ i'm a /.test(t) && VOWEL_JOBS.test(t)) return 'L11';
+    return OK;
+  }
+  if (/ i'm [a-z]/.test(t)) return 'L10';
+  return nw(t) <= 2 ? 'L10' : null;
+}
+const GAMES = {
+  l1: { lesson: 1, audio: false, title: 'Conversa com o coach', lines: L1_LINES, intro: null, end: 'L24', retry: 'L25',
+    stages: [
+      { ask: 'L01', tpl: "I'm ____.", model: 'M1', praise: 'P1', chips: n => [`I'm ${n}.`, `${n}.`, `My name ${n}.`],
+        check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'L02' : null) },
+      { ask: 'L04', tpl: 'I live in ____.', model: 'M2', praise: 'P2', chips: () => ['I live in São Paulo.', "I'm live in São Paulo.", 'São Paulo.'],
+        check: t => / i live in [a-z]/.test(t) ? OK : / i'm liv/.test(t) ? 'L07' : / live /.test(t) ? 'L05' : (nw(t) <= 3 ? 'L06' : null) },
+      { ask: 'L09', tpl: "I'm a / an ____.", model: 'M3', praise: 'P3', chips: () => ["I'm a teacher.", "I'm teacher.", "I'm a engineer."], check: checkJob },
+      { ask: 'L13', tpl: 'I work at / in ____.', model: 'M4', praise: 'P4', chips: () => ['I work at a bank.', "I'm work at a bank.", 'At a bank.'],
+        check: t => (/ i (work|study) (at|in|for|from) /.test(t) || / i don't work /.test(t)) ? OK : / i'm work/.test(t) ? 'L14' : 'L15' },
+      { ask: 'L18', tpl: 'I love / I like ____.', model: 'M5', praise: 'P5', chips: () => ['I love coffee.', 'Coffee.', 'I like music.'],
+        check: t => / i (love|like|enjoy) [a-z]/.test(t) ? OK : 'L19' },
+      { ask: 'L21', tpl: "Hi! I'm ___.\nI live in ___.\nI'm a ___.\nI work at ___.\nI love ___.", final: true,
+        chips: n => [`Hi! I'm ${n}. I live in São Paulo. I'm a designer. I work at a startup. I love coffee.`, `Hi! I'm ${n}. I'm designer.`],
+        check: t => [/ (i'm|my name is) [a-z]/, / i live in /, / i'm (a|an) /, / i (work|study) /, / i (love|like) /].filter(r => r.test(t)).length >= 3 ? OK : 'L23' }
+    ] },
+  l2: { lesson: 2, audio: true, title: 'Conversa com o garçom', intro: 'G01', end: 'F1', retry: 'R1',
+    stages: [
+      { ask: 'A1', tpl: 'A table for ___, please.', model: 'M1', praise: 'P1', chips: () => ['A table for two, please.', 'Two.', 'I want a table.'],
+        check: t => / table for (one|two|three|four|five|six|seven|eight|\w+) /.test(t) ? OK : 'C1' },
+      { ask: 'A2', tpl: 'Can I see the menu, please?', model: 'M2', praise: 'P2', chips: () => ['Can I see the menu, please?', 'Give me the menu.', 'Menu.'],
+        check: t => / menu /.test(t) && !/ give me /.test(t) ? OK : 'C2' },
+      { ask: 'A3', tpl: "I'd like a / an ___, please.", model: 'M3', praise: 'P3', chips: () => ["I'd like an orange juice, please.", 'I want a orange juice.', "I'd like a orange juice, please."],
+        check: t => / a (orange|apple|iced|espresso|americano) /.test(t) ? 'C4' : / i want /.test(t) ? 'C3' : / (i'd like|can i have|could i have|i'll have) \w/.test(t) ? OK : 'C3' },
+      { ask: 'A4', tpl: 'Can I have the ___, please?', model: 'M4', praise: 'P4', chips: () => ['Can I have the chicken, please?', 'Give me the chicken.', 'Can I have the chicken?'],
+        check: t => / give me /.test(t) ? 'C5' : / (can i have|could i have|i'd like|i'll have) /.test(t) ? (/ please /.test(t) ? OK : 'C6') : 'C5' },
+      { ask: 'A5', tpl: "It's delicious, thank you.", model: 'M5', praise: 'P5', chips: () => ["It's delicious, thank you.", 'Good.', "I'm delicious."],
+        check: t => / i'm (delicious|good|great) /.test(t) ? 'C7' : (/ (delicious|good|great|amazing|perfect|excellent|wonderful) /.test(t) && nw(t) >= 3) ? OK : 'C7' },
+      { ask: 'A6', tpl: 'No, thank you. Can you bring the bill, please?', model: 'M6', praise: 'P6', chips: () => ['No, thank you. Can you bring the bill, please?', 'The account, please.', 'Bring the bill.'],
+        check: t => / account /.test(t) ? 'C8' : / (bill|check) /.test(t) ? (/ (can|could) you /.test(t) ? OK : 'C9') : 'C8' }
+    ] }
+};
+
+// ---------------- estado e armazenamento ----------------
+const TEST = [{ key: 'ana', name: 'Ana', email: 'ana@fluent.com' }, { key: 'bruno', name: 'Bruno', email: 'bruno@fluent.com' }];
+const PASS = 'fluent123';
+let DB = null, ME = null, U = null, saveT = null, saving = false, pendingSave = false, lastAct = Date.now();
+const V = { overlay: null };
+const LS = { get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+function blankUser(acc) {
+  return { key: acc.key, name: acc.name, email: acc.email, created: Date.now(), days: {}, lessons: {}, errors: {}, answers: { right: 0, total: 0 }, convSec: 0,
+    plan: { perDay: 2, times: ['08:00', '19:30', '13:00'], types: { conversa: true, tarefa: true, revisao: false }, level: 1 }, cards: {} };
+}
+async function cloudInit() {
+  return; // versão web: o progresso fica no navegador (localStorage); banco de dados entra no lançamento
+  try {
+    if (!window.claude || !window.claude.use) return;
+    const db = await window.claude.use('db');
+    if (db) DB = db;
+  } catch (e) { DB = null; }
+}
+const cloudReady = cloudInit();
+async function loadUser(acc) {
+  await Promise.race([cloudReady, new Promise(r => setTimeout(r, 4000))]);
+  let u = null;
+  if (DB) {
+    try { const s = await Promise.race([DB.doc('alunos/' + acc.key).get(), new Promise((_, j) => setTimeout(() => j(new Error('timeout')), 8000))]); if (s.exists) u = JSON.parse(JSON.stringify(s.data())); } catch (e) {}
+  }
+  if (!u) u = LS.get('fluent_u_' + acc.key);
+  if (!u) u = blankUser(acc);
+  u.plan = Object.assign(blankUser(acc).plan, u.plan || {});
+  u.cards = u.cards || {}; u.errors = u.errors || {}; u.answers = u.answers || { right: 0, total: 0 };
+  return u;
+}
+function save(now) {
+  if (!U) return;
+  LS.set('fluent_u_' + U.key, U);
+  clearTimeout(saveT);
+  saveT = setTimeout(flush, now ? 50 : 1500);
+}
+async function flush() {
+  if (!DB || !U) return;
+  if (saving) { pendingSave = true; return; }
+  saving = true;
+  try { await DB.doc('alunos/' + U.key).set(JSON.parse(JSON.stringify(U))); } catch (e) {}
+  saving = false;
+  if (pendingSave) { pendingSave = false; flush(); }
+}
+function addMinutes(m) { if (!U) return; const k = todayKey(); U.days[k] = Math.round(((U.days[k] || 0) + m) * 100) / 100; }
+function touchDay() { if (U && !U.days[todayKey()]) U.days[todayKey()] = 0.01; }
+let lastFlush = 0;
+setInterval(() => {
+  if (U && document.visibilityState === 'visible' && Date.now() - lastAct < 90000) {
+    addMinutes(0.25); LS.set('fluent_u_' + U.key, U);
+    if (Date.now() - lastFlush > 60000) { lastFlush = Date.now(); flush(); }
+  }
+}, 15000);
+['pointerdown', 'keydown', 'touchstart'].forEach(e => document.addEventListener(e, () => { lastAct = Date.now(); }, { passive: true }));
+document.addEventListener('timeupdate', () => { lastAct = Date.now(); }, true);
+
+function lessonState(n) { return (U && U.lessons[n]) || {}; }
+function stepDone(n, id) { const s = lessonState(n)[id]; return !!(s && s.done); }
+function lessonDone(n) { const L = LESSONS[n]; return L && L.steps.every(s => stepDone(n, s.id)); }
+function lessonStarted(n) { return Object.keys(lessonState(n)).length > 0; }
+function markStep(n, id, extra) {
+  U.lessons[n] = U.lessons[n] || {};
+  const was = stepDone(n, id);
+  U.lessons[n][id] = Object.assign({}, U.lessons[n][id], extra || {}, { done: true, at: Date.now() });
+  touchDay(); save(true);
+  if (!was) toast(lessonDone(n) ? 'Lição ' + n + ' concluída!' : 'Etapa concluída');
+}
+function currentLesson() { for (const n of [1, 2]) if (!lessonDone(n)) return n; return 2; }
+function nextStep(n) { const L = LESSONS[n]; return L.steps.find(s => !stepDone(n, s.id)) || null; }
+function lessonsDoneCount() { return [1, 2].filter(lessonDone).length; }
+function streak() {
+  if (!U) return 0; let d = new Date(), c = 0;
+  const has = k => (U.days[k] || 0) > 0;
+  if (!has(todayKey(d))) d.setDate(d.getDate() - 1);
+  while (has(todayKey(d))) { c++; d.setDate(d.getDate() - 1); }
+  return c;
+}
+function logAnswer(ok, tag) {
+  U.answers.total++; if (ok) U.answers.right++;
+  if (!ok && tag) { U.errors[tag] = (U.errors[tag] || 0) + 1; }
+  if (ok && tag && U.errors[tag]) { U.errors[tag] = Math.max(0, U.errors[tag] - 0.5); if (U.errors[tag] < 0.5) delete U.errors[tag]; }
+  touchDay(); save();
+}
+
+// ---------------- áudio + nuvem de partículas ----------------
+const player = new Audio(); player.preload = 'auto';
+// Web Audio: o contexto é liberado no primeiro toque e depois toca qualquer fala sem novo gesto (iPhone e iframes).
+let AC = null, AN = null, ABUF = null, curSrc = null, curDone = null, unlocked = false;
+const bufCache = {};
+function unlockAudio() {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!AC && Ctx) { try { AC = new Ctx(); AN = AC.createAnalyser(); AN.fftSize = 512; ABUF = new Uint8Array(AN.fftSize); AN.connect(AC.destination); } catch (e) { AC = null; } }
+  if (!AC) return;
+  if (AC.state !== 'running') { try { AC.resume(); } catch (e) {} }
+  if (!unlocked) { unlocked = true; try { const s = AC.createBufferSource(); s.buffer = AC.createBuffer(1, 1, 22050); s.connect(AC.destination); s.start(0); } catch (e) {} }
+}
+const ensureAudioGraph = unlockAudio;
+function loadBuf(src) {
+  if (!AC) return Promise.reject(new Error('no ctx'));
+  if (!bufCache[src]) bufCache[src] = fetch(src).then(r => { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+    .then(ab => new Promise((res, rej) => { const p = AC.decodeAudioData(ab, res, rej); if (p && p.then) p.then(res, rej); }))
+    .catch(e => { delete bufCache[src]; throw e; });
+  return bufCache[src];
+}
+function preload(list) { list.forEach(s => loadBuf(s).catch(() => {})); }
+function stopClip() {
+  if (curSrc) { try { curSrc.onended = null; curSrc.stop(); } catch (e) {} curSrc = null; }
+  try { player.pause(); } catch (e) {}
+  if (curDone) { const d = curDone; curDone = null; d(); }
+}
+let synth = 0;
+function level() {
+  if (curSrc && AN) {
+    AN.getByteTimeDomainData(ABUF); let s = 0;
+    for (let i = 0; i < ABUF.length; i++) { const v = (ABUF[i] - 128) / 128; s += v * v; }
+    return Math.min(1, Math.sqrt(s / ABUF.length) * 4.2);
+  }
+  if (CLOUD.mode === 'coach' || CLOUD.mode === 'aluno') { synth += (Math.random() * (Math.random() < .15 ? .1 : 1) - synth) * .25; return synth; }
+  return 0.15;
+}
+function playHtml(src, done) {
+  player.onended = done; player.onerror = () => setTimeout(done, 400);
+  player.src = src; const pr = player.play(); if (pr && pr.catch) pr.catch(() => setTimeout(done, 1500));
+}
+function playClip(src) {
+  return new Promise(res => {
+    stopClip();
+    let fin = false; const done = () => { if (fin) return; fin = true; if (curDone === done) curDone = null; res(); };
+    curDone = done;
+    if (!AC) { playHtml(src, done); return; }
+    if (AC.state !== 'running') { try { AC.resume(); } catch (e) {} }
+    loadBuf(src).then(buf => {
+      if (curDone !== done) return;
+      const s = AC.createBufferSource(); s.buffer = buf; s.connect(AN);
+      s.onended = () => { if (curSrc === s) curSrc = null; done(); };
+      curSrc = s; s.start(0);
+    }).catch(() => { if (curDone === done) playHtml(src, done); });
+  });
+}
+const CLOUD = { mode: 'idle', canvases: new Set(), raf: 0, t: 0, env: 0, think: 0 };
+const NP = 1500; const PTS = [];
+for (let i = 0; i < NP; i++) {
+  const u = Math.random() * 2 - 1, a = Math.random() * 6.283, s = Math.sqrt(1 - u * u), halo = Math.random() < .14;
+  const r = halo ? 1.5 + Math.random() * 1.0 : 1.2 * Math.pow(Math.random(), .3);
+  const b = Math.random() * 6.283, rr = halo ? 1.75 + (Math.random() - .5) * .8 : 1.45 + (Math.random() - .5) * .35;
+  PTS.push({ x: s * Math.cos(a) * r, y: u * r, z: s * Math.sin(a) * r, r, rx: Math.cos(b) * rr, ry: (Math.random() - .5) * .3, rz: Math.sin(b) * rr, seed: Math.random() });
+}
+const COLS = { coach: [[45, 212, 239], [242, 251, 255]], aluno: [[255, 106, 31], [255, 225, 204]], idle: [[94, 120, 168], [45, 212, 239]], think: [[45, 212, 239], [255, 106, 31]] };
+let ca = [94, 120, 168], cb = [45, 212, 239];
+function cloudLoop() {
+  CLOUD.raf = 0;
+  const alive = [...CLOUD.canvases].filter(c => document.body.contains(c));
+  CLOUD.canvases = new Set(alive);
+  if (!alive.length) return;
+  const m = CLOUD.mode; const target = COLS[m] || COLS.idle;
+  for (let k = 0; k < 3; k++) { ca[k] += (target[0][k] - ca[k]) * .06; cb[k] += (target[1][k] - cb[k]) * .06; }
+  CLOUD.env += (level() - CLOUD.env) * .35;
+  CLOUD.think += ((m === 'think' ? 1 : 0) - CLOUD.think) * .05;
+  const sp = m === 'idle' ? .35 : m === 'aluno' ? 1.25 : 1; CLOUD.t += .016 * sp;
+  const amp = m === 'coach' ? .62 : m === 'aluno' ? .5 : m === 'think' ? .12 : .07;
+  const t = CLOUD.t, env = m === 'idle' ? .5 : CLOUD.env, voice = amp * env, th = CLOUD.think;
+  const ang = t * .3 + th * t * 1.1, cA = Math.cos(ang), sA = Math.sin(ang);
+  const tilt = .95 * th + Math.sin(t * .4) * .22 * (1 - th), cT = Math.cos(tilt), sT = Math.sin(tilt);
+  for (const cv of alive) {
+    const w = cv.clientWidth, h = cv.clientHeight; if (!w || !h) continue;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, w, h); g.globalCompositeOperation = 'lighter';
+    const scale = Math.min(w, h) * (parseFloat(cv.dataset.scale) || .2), cx = w / 2, cy = h / 2;
+    for (const p of PTS) {
+      const n1 = Math.sin(p.x * 1.9 + t * 1.6) * Math.cos(p.y * 2.2 + t * 1.2) * .55 + Math.sin(p.z * 2.8 + t * 2.1) * .3;
+      const d = 1 + (n1 * .6 + Math.sin(p.r * 7 - t * 5 + p.seed) * .1) * voice + .05 * n1;
+      let x = p.x * d * (1 - th) + p.rx * th, y = p.y * d * (1 - th) + p.ry * th, z = p.z * d * (1 - th) + p.rz * th;
+      const x2 = x * cA + z * sA, z2 = -x * sA + z * cA; const y2 = y * cT - z2 * sT, z3 = y * sT + z2 * cT;
+      const pz = 6.2 - z3, f = scale * 6.2 / pz;
+      const sx = cx + x2 * f, sy = cy - y2 * f;
+      const mm = Math.max(0, Math.min(1, .5 + n1 * .7 + voice * .25)) ** 2;
+      const al = (.35 + .65 * Math.max(0, Math.min(1, 1 - (pz - 4.6) / 3.8))) * (p.r > 1.35 ? .35 : .8) * (.72 + .28 * Math.sin(t * 3 + p.seed * 60));
+      const r = ca[0] * (1 - mm) + cb[0] * mm, gg = ca[1] * (1 - mm) + cb[1] * mm, bb = ca[2] * (1 - mm) + cb[2] * mm;
+      g.fillStyle = `rgba(${r | 0},${gg | 0},${bb | 0},${al * .55})`;
+      const sz = (.9 + p.seed * 1.4) * (1 + voice * .5);
+      g.fillRect(sx - sz / 2, sy - sz / 2, sz, sz);
+    }
+    g.globalCompositeOperation = 'source-over';
+  }
+  CLOUD.raf = requestAnimationFrame(cloudLoop);
+}
+function mountClouds() {
+  document.querySelectorAll('canvas.cloud').forEach(c => CLOUD.canvases.add(c));
+  if (!CLOUD.raf && CLOUD.canvases.size) CLOUD.raf = requestAnimationFrame(cloudLoop);
+}
+
+// ---------------- dictation ----------------
+// Reconhecimento de voz do próprio navegador (Chrome, Edge, Android, Safari no iPhone).
+function nativeDictation() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return null;
+  let rec = null, cbP = () => {}, cbF = () => {}, cbS = () => {};
+  return {
+    onPartial(f) { cbP = f; }, onFinal(f) { cbF = f; }, onState(f) { cbS = f; },
+    start() {
+      return new Promise((res, rej) => {
+        let started = false, failed = null;
+        rec = new SR(); rec.lang = 'en-US'; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
+        rec.onstart = () => { started = true; cbS({ state: 'listening' }); res(); };
+        rec.onresult = e => {
+          let interim = '';
+          for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) cbF({ text: r[0].transcript }); else interim += r[0].transcript; }
+          if (interim) cbP({ text: interim });
+        };
+        rec.onerror = e => { failed = e.error; if (!started) rej(new Error(e.error)); };
+        rec.onend = () => { rec = null; if (started) cbS({ state: 'idle', error: failed }); };
+        try { rec.start(); } catch (e) { rej(e); }
+      });
+    },
+    stop() { try { if (rec) rec.stop(); } catch (e) {} }
+  };
+}
+let DICT = nativeDictation();
+
+// ---------------- utilidades de UI ----------------
+const app = document.getElementById('app');
+let toastT = null;
+function toast(msg) {
+  let el = document.querySelector('.toast'); if (!el) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+  el.textContent = msg; el.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => { el.style.display = 'none'; }, 2200);
+}
+function greeting() { const h = new Date().getHours(); return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; }
+function nav(cur) {
+  const it = [['coach', 'Coach', null], ['trilha', 'Trilha', 'map'], ['praticar', 'Praticar', 'zap'], ['progresso', 'Progresso', 'chart'], ['plano', 'Plano', 'bell']];
+  return `<nav class="bar" aria-label="Navegação principal">${it.map(([h, l, i]) => `<a href="#${h}" class="${cur === h ? 'on' : ''}"${cur === h ? ' aria-current="page"' : ''}><span class="pill">${i ? ic(i, 26, cur === h ? '#111A2B' : '#B8C2D6', 2.3) : '<span class="nav-av"><img src="media/pedro-sorrindo.png" alt=""></span>'}</span>${l}</a>`).join('')}</nav>`;
+}
+const streakChip = () => `<span class="chip-streak" aria-label="${streak()} dias seguidos">${ic('flame', 20, '#FF6A1F', 2.4)}${streak()}</span>`;
+const avBtn = () => `<button class="avbtn" data-act="go" data-h="perfil" aria-label="Seu perfil">${esc((U && U.name || '?')[0].toUpperCase())}</button>`;
+
+// ---------------- roteador ----------------
+function route() { const h = (location.hash || '').slice(1); return h || (U ? 'coach' : 'login'); }
+function go(h) { V.overlay = null; stopMedia(); if (location.hash.slice(1) === h) render(); else location.hash = h; }
+window.addEventListener('hashchange', () => { V.overlay = null; stopMedia(); render(); });
+function stopMedia() { stopClip(); if (DICT && DICTON) { DICTON = false; try { DICT.stop(); } catch (e) {} } CLOUD.mode = 'idle'; if (QZ.timer) { clearInterval(QZ.timer); QZ.timer = null; } }
+
+function render() {
+  if (!U) { app.innerHTML = vIntro(); mountClouds(); window.scrollTo(0, 0); return; }
+  if (V.overlay) { renderOverlay(); return; }
+  const r = route();
+  let html = '';
+  if (r === 'login' || r === 'coach') html = vCoach();
+  else if (r === 'trilha') html = vTrilha();
+  else if (/^licao-\d+$/.test(r)) html = vLicao(+r.split('-')[1]);
+  else if (r === 'praticar') html = vPraticar();
+  else if (r === 'progresso') html = vProgresso();
+  else if (r === 'plano') html = vPlano();
+  else if (r === 'perfil') html = vPerfil();
+  else if (r === 'professor') html = vProfessor();
+  else html = vCoach();
+  app.innerHTML = html;
+  mountClouds();
+  window.scrollTo(0, 0);
+}
+
+// ---------------- login ----------------
+let LOGINERR = '', SIGNUP = false;
+let INTRO_NAME = false;
+function vIntro() {
+  const pil = (i, c, t, d) => `<div class="row" style="align-items:flex-start;gap:14px"><span class="iconbox" style="background:${c}">${ic(i, 28, '#111A2B', 2.3)}</span><span style="display:flex;flex-direction:column;gap:3px"><b style="font-size:16px">${t}</b><span class="muted" style="font-size:14px">${d}</span></span></div>`;
+  if (INTRO_NAME) return `<div class="page dark" style="justify-content:center;gap:22px;padding-bottom:40px">
+    <div class="center" style="display:flex;flex-direction:column;align-items:center;gap:14px"><img src="media/pedro-sorrindo.png" alt="" style="width:110px;height:110px;border-radius:55px"><h1 style="font-size:28px">Como você quer ser chamado?</h1><p class="muted">O Teacher Pedro vai usar o seu nome nas conversas.</p></div>
+    <form id="visit" class="card" style="color:var(--navy)" novalidate><label class="field">Seu nome<input name="name" autocomplete="given-name" placeholder="Ana" maxlength="30"></label><button class="btn or" type="submit">Entrar na plataforma</button></form>
+    <button class="btn gh" data-act="intro-back">Voltar</button></div>`;
+  return `<div class="page dark" style="gap:22px;padding-bottom:40px">
+  <div class="top"><span class="logo" aria-label="Fluent">F<i></i></span><span style="font-size:11px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:999px;background:var(--cyan);color:var(--navy)">DEMONSTRAÇÃO</span></div>
+  <div class="hero" style="height:250px"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/pedro-sorrindo.png" alt="Teacher Pedro"></div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-top:-10px"><h1 style="font-size:32px;line-height:1.1">Um coach de inglês que acompanha você todos os dias</h1>
+  <p class="muted" style="font-size:16px">A plataforma da Fluent, escola de inglês para adultos. Aulas curtas, prática de conversa e um coach que cuida da sua rotina.</p></div>
+  <button class="btn or" data-act="intro-start">${ic('play', 20, '#111A2B', 2, '#111A2B')}Experimentar como aluno</button>
+  <button class="btn dk" data-act="intro-video">${ic('video', 22, '#2DD4EF', 2.2)}Ver o vídeo de apresentação (3 min)</button>
+  <div class="card" style="color:var(--navy);gap:18px">
+    <p class="small">COMO FUNCIONA</p>
+    ${pil('mic', 'var(--cyan)', 'O coach no topo', 'O aluno conversa com o Teacher Pedro, que corrige com gentileza e mostra o próximo passo.')}
+    ${pil('map', 'var(--cyan-l)', 'Trilha em lições curtas', 'Videoaula, vocabulário com áudio, exercícios e uma conversa para usar o que aprendeu.')}
+    ${pil('bell', 'var(--orange-l)', 'Planejamento e rotina', 'O aluno escolhe horários e o nível de cobrança. O coach lembra, revisa e acompanha.')}
+    ${pil('flame', 'var(--orange)', 'Atitude', 'Tentar se comunicar, sem medo de errar. Os erros viram revisão no mix do dia.')}
+    ${pil('chart', '#EEF1F6', 'Professor por trás', 'O professor vê o progresso, os erros e a rotina de cada aluno e da turma.')}
+  </div>
+  <div class="card dk"><p class="small" style="color:var(--muted2)">NESTA DEMONSTRAÇÃO</p><p class="muted">As Lições 1 e 2 do ciclo Start estão completas. As outras 34 aparecem na trilha como “em produção”. O seu progresso fica salvo só neste navegador.</p></div>
+  <button class="btn or" data-act="intro-start">Começar</button>
+</div>`;
+}
+function vLogin() {
+  return `<div class="page dark" style="justify-content:center;gap:22px;padding-bottom:40px">
+  <div class="center" style="display:flex;flex-direction:column;align-items:center;gap:14px">
+    <div class="logo" style="font-size:56px">F<i style="width:14px;height:14px;border-radius:7px;margin-bottom:6px"></i></div>
+    <span style="font-size:11px;font-weight:800;letter-spacing:.14em;padding:6px 14px;border-radius:999px;background:var(--cyan);color:var(--navy)">PROGRAMA DE FLUÊNCIA</span>
+    <h1 style="font-size:30px">${SIGNUP ? 'Crie a sua conta' : 'Bem-vindo de volta'}</h1>
+    <p class="muted">O seu coach de inglês está esperando.</p>
+  </div>
+  <form id="login" class="card" style="color:var(--navy)" novalidate>
+    ${SIGNUP ? `<label class="field">Seu nome<input name="name" autocomplete="given-name" placeholder="Ana"></label>` : ''}
+    <label class="field">E-mail<input name="email" type="email" autocomplete="email" placeholder="ana@fluent.com"></label>
+    <label class="field">Senha<input name="pass" type="password" autocomplete="current-password" placeholder="fluent123"></label>
+    ${LOGINERR ? `<p class="err" role="alert">${esc(LOGINERR)}</p>` : ''}
+    <button class="btn or" type="submit">${SIGNUP ? 'Criar conta' : 'Entrar'}</button>
+    <button class="btn gh" type="button" data-act="toggle-signup">${SIGNUP ? 'Já tenho conta' : 'Criar uma conta nova'}</button>
+  </form>
+  <div class="card dk">
+    <p class="small" style="color:var(--muted2)">VERSÃO DE TESTE · CONTAS PRONTAS</p>
+    ${TEST.map(a => `<button class="btn dk" style="justify-content:flex-start;min-height:56px" data-act="quick" data-k="${a.key}"><span style="width:36px;height:36px;border-radius:18px;background:var(--cyan);color:var(--navy);display:flex;align-items:center;justify-content:center">${a.name[0]}</span><span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px"><span>Entrar como ${a.name}</span><span style="font-size:12px;font-weight:700;color:var(--muted2)">${a.email}</span></span></button>`).join('')}
+    <p class="muted" style="font-size:12px">Senha de todas as contas de teste: <b style="color:#fff">fluent123</b></p>
+  </div>
+</div>`;
+}
+function accounts() { const extra = LS.get('fluent_accounts') || []; return TEST.concat(extra); }
+async function doLogin(acc) {
+  app.innerHTML = `<div class="page dark" style="justify-content:center;align-items:center"><p class="muted">Carregando a sua trilha…</p></div>`;
+  U = await loadUser(acc); ME = acc; LS.set('fluent_last', acc.key); touchDay(); save(true);
+  LOGINERR = ''; SIGNUP = false;
+  if (location.hash.slice(1) === 'coach') render(); else location.hash = 'coach';
+}
+
+// ---------------- coach ----------------
+function coachMessage() {
+  const n = currentLesson(), L = LESSONS[n], st = nextStep(n);
+  const name = U.name;
+  if (!lessonStarted(1)) return { text: `Eu sou o Teacher Pedro, o seu coach. Vamos começar a sua primeira lição? Em poucos minutos você vai se apresentar em inglês.`, cta: 'Começar a Lição 1', act: 'open-step', n: 1, s: 'video', icon: 'play' };
+  if (lessonDone(1) && lessonDone(2)) return { text: `Você concluiu as lições disponíveis do Start. Que tal manter a rotina com o mix do dia? A Lição 3 chega em breve.`, cta: 'Fazer o mix do dia', act: 'mix', icon: 'shuffle' };
+  const msgs = { video: `Hoje é dia de assistir à videoaula da Lição ${n}: ${L.title}. São só alguns minutos.`, vocab: `Agora vamos ao vocabulário da Lição ${n}. Ouça, repita e veja como se escreve.`, food: 'Faltam os pratos e as sobremesas. Vamos?', ex: `Faltam só os exercícios da Lição ${n}. São rápidos, vamos?`, conv: n === 2 ? 'Que tal fazer o pedido comigo? Eu sou o garçom, você é o cliente.' : 'Vamos conversar? Eu pergunto, você responde em inglês.' };
+  return { text: msgs[st.id] || 'Vamos continuar?', cta: st.label, act: 'open-step', n, s: st.id, icon: st.icon };
+}
+function vCoach() {
+  const m = coachMessage();
+  const nextTime = (() => { const now = new Date(); const hm = now.getHours() * 60 + now.getMinutes(); const ts = U.plan.times.slice(0, U.plan.perDay).sort(); return ts.find(t => { const [h, mm] = t.split(':').map(Number); return h * 60 + mm > hm; }) || ts[0]; })();
+  return `<div class="page dark">
+  <div class="top"><span class="logo" aria-label="Fluent">F<i></i></span><div class="row" style="gap:10px">${streakChip()}${avBtn()}</div></div>
+  <div class="hero"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/pedro-sorrindo.png" alt="Teacher Pedro"></div>
+  <div class="center" style="margin-top:-18px"><span style="font-size:11px;font-weight:800;letter-spacing:.12em;padding:5px 12px;border-radius:999px;background:var(--cyan);color:var(--navy)">START · A1</span></div>
+  <div class="speech">
+    <span style="font-size:20px;font-weight:900">${greeting()}, ${esc(U.name)}!</span>
+    <span style="font-size:15px;font-weight:600;line-height:1.5;color:#3B4558">${esc(m.text)}</span>
+  </div>
+  <button class="btn cy" data-act="${m.act}" data-n="${m.n || ''}" data-s="${m.s || ''}">${ic(m.icon, 22, '#111A2B', 2.2, m.icon === 'play' ? '#111A2B' : 'none')}${esc(m.cta)}</button>
+  <div class="tiles">
+    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="mix">${ic('shuffle', 28, '#FF6A1F', 2.3)}Mix do dia</button>
+    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="game" data-g="${lessonStarted(2) ? 'l2' : 'l1'}">${ic('mic', 28, '#2DD4EF', 2.3)}Conversar</button>
+  </div>
+  <p class="muted center" style="font-size:13px">${ic('bell', 16, '#B8C2D6', 2.3)} Próxima mensagem do coach: <b style="color:#fff">${esc(nextTime)}</b></p>
+</div>${nav('coach')}`;
+}
+
+// ---------------- trilha ----------------
+function vTrilha() {
+  const done = lessonsDoneCount();
+  let html = `<div class="page"><div class="top"><h1>Trilha</h1>${streakChip()}</div>
+  <div class="card dk" style="gap:10px"><div class="row"><span class="logo" style="font-size:28px">Start<i></i></span><span style="font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;background:var(--cyan);color:var(--navy)">A1</span><span class="grow"></span><span class="muted" style="font-size:13px">${done} de ${TOTAL} lições</span></div>
+  <div class="prog" role="img" aria-label="${done} de ${TOTAL} lições"><i style="width:${Math.max(2, done / TOTAL * 100)}%"></i></div></div>`;
+  let n = 0;
+  TRACK.forEach((u, ui) => {
+    html += `<div class="unit-h"><b>${ui + 1}</b><h2>${esc(u.t)}</h2></div>`;
+    u.l.forEach(title => {
+      n++;
+      const L = LESSONS[n];
+      if (L) {
+        const cur = currentLesson() === n && !lessonDone(n), dn = lessonDone(n);
+        if (cur || !dn) {
+          html += `<button class="lesson-card${cur ? ' now' : ''}" data-act="go" data-h="licao-${n}"><img src="${L.img}" alt="">
+            <span style="display:flex;flex-direction:column;gap:12px;padding:12px 14px 14px"><span class="row"><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:var(--orange-t)">LIÇÃO ${n}${cur ? ' · AGORA' : ''}</span><span style="font-size:19px;font-weight:900">${esc(L.title)}</span></span>
+            <span style="width:56px;height:56px;border-radius:28px;background:var(--orange);box-shadow:inset 0 -5px 0 var(--orange-d);display:flex;align-items:center;justify-content:center">${ic('play', 24, '#111A2B', 2, '#111A2B')}</span></span>
+            <span class="steps" style="grid-template-columns:repeat(${L.steps.length},1fr)">${L.steps.map(s => stepIcon(n, s)).join('')}</span></span></button>`;
+        } else {
+          html += `<button class="lrow" data-act="go" data-h="licao-${n}"><img src="${L.img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:var(--cyan-t)">LIÇÃO ${n} · FEITA</span><span style="font-size:15px;font-weight:800">${esc(L.title)}</span></span><span style="width:40px;height:40px;border-radius:20px;background:var(--cyan);display:flex;align-items:center;justify-content:center">${ic('check', 20, '#111A2B', 3)}</span></button>`;
+        }
+      } else {
+        html += `<div class="lrow lock" role="group" aria-label="Lição ${n}, em produção"><span class="ln">${n}</span><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:800">${esc(title)}</span><span style="font-size:12px;font-weight:700">Em produção</span></span>${ic('lock', 22, '#4F5A6E', 2.3)}</div>`;
+      }
+    });
+  });
+  return html + `</div>${nav('trilha')}`;
+}
+function stepIcon(n, s) {
+  const d = stepDone(n, s.id), cur = !d && nextStep(n) && nextStep(n).id === s.id;
+  const bg = d ? 'var(--cyan-l)' : cur ? 'var(--orange)' : '#F2F4F8', c = d ? '#0D5866' : cur ? '#111A2B' : '#7A8599';
+  return `<span class="st" role="img" aria-label="${esc(s.label)}: ${d ? 'feito' : cur ? 'agora' : 'a fazer'}" style="background:${bg}">${ic(s.icon, 24, c, 2.2)}${d ? `<span class="ok">${ic('check', 11, '#111A2B', 3.5)}</span>` : ''}</span>`;
+}
+
+// ---------------- lição ----------------
+function vLicao(n) {
+  const L = LESSONS[n];
+  if (!L) return vTrilha();
+  const nx = nextStep(n);
+  return `<div class="page" style="padding-top:0">
+  <div style="position:relative;margin:0 -20px"><img src="${L.img}" alt="" style="display:block;width:100%;height:200px;object-fit:cover">
+    <button class="back" style="position:absolute;top:16px;left:16px" data-act="go" data-h="trilha" aria-label="Voltar para a trilha">${ic('back', 24)}</button></div>
+  <div style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:var(--orange-t)">START · LIÇÃO ${n}</span><h1>${esc(L.title)}</h1></div>
+  ${L.steps.map(s => {
+    const d = stepDone(n, s.id), cur = nx && nx.id === s.id; const st = lessonState(n)[s.id] || {};
+    const extra = s.type === 'ex' && st.score != null ? `${st.score} de ${st.total}` : s.type === 'conv' && st.stars != null ? `${st.stars} ★` : '';
+    return `<button class="steprow${cur ? ' cur' : ''}" data-act="open-step" data-n="${n}" data-s="${s.id}"><span class="iconbox" style="width:46px;height:46px;border-radius:14px;background:${d ? 'var(--cyan-l)' : cur ? 'var(--orange)' : '#F2F4F8'}">${ic(s.icon, 24, d ? '#0D5866' : cur ? '#111A2B' : '#7A8599')}</span><span class="grow" style="font-size:15px;font-weight:${cur ? 900 : 800}">${esc(s.label)}</span>${extra ? `<span class="muted" style="font-size:13px">${extra}</span>` : ''}${d ? `<span style="width:30px;height:30px;border-radius:15px;background:var(--cyan);display:flex;align-items:center;justify-content:center">${ic('check', 16, '#111A2B', 3.2)}</span>` : ''}</button>`;
+  }).join('')}
+  ${nx ? `<button class="btn or" data-act="open-step" data-n="${n}" data-s="${nx.id}">${ic('play', 20, '#111A2B', 2, '#111A2B')}Continuar: ${esc(nx.label.split(':')[0])}</button>`
+       : `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><p style="font-weight:800">Lição concluída! Você pode refazer qualquer etapa quando quiser.</p></div>${LESSONS[n + 1] ? `<button class="btn or" data-act="go" data-h="licao-${n + 1}">Ir para a Lição ${n + 1}</button>` : ''}`}
+</div>${nav('trilha')}`;
+}
+
+// ---------------- overlays (telas de estudo) ----------------
+function openStep(n, sid) {
+  const s = LESSONS[n].steps.find(x => x.id === sid);
+  if (s.type === 'video') V.overlay = { type: 'video', n, s };
+  else if (s.type === 'vocab') V.overlay = { type: 'vocab', n, s, i: 0, flip: false, showVideo: !stepDone(n, s.id) };
+  else if (s.type === 'ex') V.overlay = { type: 'ex', n, items: LESSONS[n].ex.slice(), title: 'Exercícios · Lição ' + n, mode: 'lesson' };
+  else if (s.type === 'conv') { startGame(s.game); return; }
+  if (V.overlay.type === 'ex') initEx();
+  render();
+}
+function renderOverlay() {
+  const o = V.overlay;
+  if (o.type === 'video') app.innerHTML = vVideo(o);
+  else if (o.type === 'vocab') app.innerHTML = vVocab(o);
+  else if (o.type === 'ex') app.innerHTML = vEx();
+  else if (o.type === 'result') app.innerHTML = vResult(o);
+  else if (o.type === 'game') { renderGame(); return; }
+  else if (o.type === 'quiz') app.innerHTML = vQuiz();
+  else if (o.type === 'games') app.innerHTML = vGames();
+  else if (o.type === 'confirm') app.innerHTML = vConfirm();
+  mountClouds();
+  window.scrollTo(0, 0);
+}
+function head(title, right = '', dark = false) {
+  return `<div class="top"><button class="back" data-act="close" aria-label="Voltar">${ic('back', 24, dark ? '#fff' : '#111A2B')}</button><h2 class="grow" style="font-size:17px">${esc(title)}</h2>${right}</div>`;
+}
+function vVideo(o) {
+  const d = stepDone(o.n, o.s.id);
+  return `<div class="page dark" style="padding-bottom:30px">${head(o.s.label, '', true)}
+  <video id="vid" src="${o.s.src}" poster="${o.s.poster}" controls playsinline preload="metadata"></video>
+  <p class="muted">Assista até o fim. Você pode pausar, voltar e rever quantas vezes quiser.</p>
+  <div class="grow"></div>
+  <button class="btn ${d || !o.n ? 'or' : 'dk'}" id="vidnext" data-act="video-done">${!o.n ? 'Experimentar como aluno' : d ? 'Próxima etapa' : 'Já assisti'}</button>
+</div>`;
+}
+document.addEventListener('timeupdate', e => {
+  if (e.target.id !== 'vid' || !V.overlay || V.overlay.type !== 'video' || !V.overlay.n) return;
+  const v = e.target; if (v.duration && v.currentTime / v.duration > .85 && !stepDone(V.overlay.n, V.overlay.s.id)) { markStep(V.overlay.n, V.overlay.s.id); const b = document.getElementById('vidnext'); if (b) { b.className = 'btn or'; b.textContent = 'Próxima etapa'; } }
+}, true);
+function nextAfter(n, sid) {
+  const L = LESSONS[n]; const i = L.steps.findIndex(s => s.id === sid); const nx = L.steps.slice(i + 1).find(s => !stepDone(n, s.id)) || L.steps[i + 1];
+  if (nx) openStep(n, nx.id); else { V.overlay = null; go('licao-' + n); }
+}
+function vVocab(o) {
+  const deck = VOC[o.s.deck] || []; const c = deck[o.i]; const k = o.s.deck + ':' + o.i;
+  if (o.showVideo) {
+    return `<div class="page dark" style="padding-bottom:30px">${head(o.s.label, '', true)}
+    <video src="${o.s.src}" poster="${o.s.poster}" controls playsinline preload="metadata"></video>
+    <p class="muted">Primeiro, assista ao vídeo e repita cada palavra em voz alta. Depois, treine com os cartões.</p><div class="grow"></div>
+    <button class="btn or" data-act="vocab-cards">${ic('book', 22)}Treinar com os cartões</button></div>`;
+  }
+  if (!c) return `<div class="page">${head(o.s.label)}<p class="muted">Carregando…</p></div>`;
+  const known = Object.keys(U.cards).filter(x => x.startsWith(o.s.deck + ':') && U.cards[x] === 'k').length;
+  return `<div class="page" style="padding-bottom:30px">${head(o.s.label, `<span class="small">${o.i + 1} / ${deck.length}</span>`)}
+  <div class="prog" role="img" aria-label="Cartão ${o.i + 1} de ${deck.length}"><i style="width:${(o.i + 1) / deck.length * 100}%"></i></div>
+  <button class="flash" data-act="flip" aria-label="Virar o cartão">
+    <span class="vocab-tag">${esc(c.cat.toUpperCase())}</span>
+    <span class="en">${esc(c.en)}</span>
+    <span class="row" style="gap:10px;justify-content:center;flex-wrap:wrap"><span class="pr">${esc(c.pr)}</span><span class="ipa">${esc(c.ipa)}</span></span>
+    ${o.flip ? `<span class="pt">${esc(c.pt)}</span>` : `<span class="muted" style="font-size:13px">Toque para ver a tradução</span>`}
+  </button>
+  <div class="row" style="justify-content:center"><button class="speak" data-act="say" data-src="${c.audio}" aria-label="Ouvir a pronúncia">${ic('speaker', 36, '#111A2B', 2.2)}</button></div>
+  <div class="tiles">
+    <button class="btn wh" data-act="card" data-v="r">${ic('redo', 22, '#C94E0E', 2.4)}Ainda não sei</button>
+    <button class="btn cy" data-act="card" data-v="k">${ic('check', 22, '#111A2B', 3)}Já sei</button>
+  </div>
+  <p class="muted center" style="font-size:12px">${known} de ${deck.length} marcadas como “já sei”</p>
+</div>`;
+}
+
+// ---------------- exercícios ----------------
+let EX = null;
+function initEx() { EX = { i: 0, sel: null, order: [], checked: false, right: 0, wrongTags: [] }; }
+function vEx() {
+  const o = V.overlay, x = o.items[EX.i];
+  const total = o.items.length;
+  let body = '';
+  if (x.t === 'listen') body += `<div class="row" style="justify-content:center;flex-direction:column;gap:6px"><button class="speak" data-act="say" data-src="${x.audio}" aria-label="Ouvir o áudio">${ic('speaker', 36, '#111A2B', 2.2)}</button><span class="muted" style="font-size:13px">Toque para ouvir</span></div>`;
+  if (x.t === 'choice' || x.t === 'listen') {
+    body += `<div style="display:flex;flex-direction:column;gap:12px">${x.o.map((op, k) => {
+      let cls = 'opt'; if (EX.checked) { if (k === x.a) cls += ' right'; else if (k === EX.sel) cls += ' wrong'; } else if (k === EX.sel) cls += ' sel';
+      return `<button class="${cls}" data-act="pick" data-k="${k}"${EX.checked ? ' disabled' : ''}><span class="k">${'ABCD'[k]}</span><span class="grow">${esc(op)}</span>${EX.checked && k === x.a ? ic('check', 22, '#0D5866', 3) : EX.checked && k === EX.sel ? ic('x', 22, '#A8430B', 3) : ''}</button>`;
+    }).join('')}</div>`;
+  } else {
+    const sep = x.sep || ' ';
+    body += `<div class="ansline" aria-label="Sua resposta">${EX.order.map((k, j) => `<button class="wchip" data-act="unorder" data-j="${j}"${EX.checked ? ' disabled' : ''}>${esc(x.w[k])}</button>`).join(sep === ' ' ? '' : `<span aria-hidden="true">→</span>`)}${!EX.order.length ? '<span class="muted" style="padding:0 8px">Toque nas palavras na ordem certa</span>' : ''}</div>
+    <div class="chips">${x.w.map((w, k) => EX.order.includes(k) ? '' : `<button class="wchip" data-act="order" data-k="${k}"${EX.checked ? ' disabled' : ''}>${esc(w)}</button>`).join('')}</div>`;
+  }
+  const right = EX.checked && isRight();
+  const fb = EX.checked ? `<div class="fb ${right ? 'ok' : 'no'}" role="status"><img src="media/pedro-${right ? 'sorrindo' : 'apontando'}.png" alt=""><div style="display:flex;flex-direction:column;gap:4px"><b style="font-size:16px;color:${right ? '#0D5866' : '#A8430B'}">${right ? 'Muito bem!' : 'Quase! Só um ajuste'}</b><span style="font-size:14px;font-weight:600;line-height:1.45">${esc(right ? x.ok : x.no)}</span></div></div>` : '';
+  const can = x.t === 'order' ? EX.order.length === x.w.length : EX.sel != null;
+  return `<div class="page" style="padding-bottom:30px">
+  <div class="top"><button class="back" data-act="close" aria-label="Sair dos exercícios">${ic('x', 24)}</button><div class="grow prog" role="img" aria-label="Questão ${EX.i + 1} de ${total}"><i style="width:${(EX.i + (EX.checked ? 1 : 0)) / total * 100}%"></i></div><span class="small">${EX.i + 1}/${total}</span></div>
+  <p class="small">${esc(o.title.toUpperCase())}</p>
+  <h2 style="font-size:22px;line-height:1.3">${esc(x.q)}</h2>
+  ${body}
+  <div class="grow"></div>
+  ${fb}
+  ${EX.checked ? `<button class="btn ${right ? 'cy' : 'or'}" data-act="ex-next">${EX.i + 1 < total ? 'Continuar' : 'Ver resultado'}</button>` : `<button class="btn or" data-act="ex-check"${can ? '' : ' disabled'}>Verificar</button>`}
+</div>`;
+}
+function isRight() { const x = V.overlay.items[EX.i]; return x.t === 'order' ? EX.order.map(k => x.w[k]).join('|') === x.a.join('|') : EX.sel === x.a; }
+function vResult(o) {
+  const pct = o.score / o.total, stars = pct >= .95 ? 3 : pct >= .7 ? 2 : 1;
+  return `<div class="page dark" style="padding-bottom:30px;align-items:stretch">
+  <div style="display:flex;justify-content:flex-end"><button class="back" data-act="close" aria-label="Fechar">${ic('x', 24, '#fff')}</button></div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
+    <div class="row" style="gap:6px">${[0, 1, 2].map(i => ic('star', i === 1 ? 46 : 38, i < stars ? '#FF6A1F' : '#3A4A6A', 2, i < stars ? '#FF6A1F' : '#3A4A6A')).join('')}</div>
+    <img src="media/pedro-apontando.png" alt="" style="width:150px;height:150px">
+    <h1 style="font-size:30px;text-align:center">${pct >= .7 ? 'Muito bem' : 'Bom trabalho'}, ${esc(U.name)}!</h1>
+    <p class="muted center">${esc(o.sub)}</p>
+  </div>
+  <div class="tiles" style="grid-template-columns:repeat(2,1fr)">
+    <div class="tile" style="background:var(--navy2);color:#fff;flex-direction:column"><span class="v">${o.score}/${o.total}</span><span class="l" style="color:var(--muted2)">acertos</span></div>
+    <div class="tile" style="background:var(--navy2);color:#fff;flex-direction:column"><span class="v">${streak()}</span><span class="l" style="color:var(--muted2)">dias seguidos</span></div>
+  </div>
+  ${o.tags.length ? `<p class="muted center" style="font-size:13px">Para revisar: ${o.tags.map(esc).join(', ')}</p>` : ''}
+  <div class="grow"></div>
+  ${o.next ? `<button class="btn or" data-act="${o.next.act}" data-n="${o.next.n || ''}" data-s="${o.next.s || ''}" data-g="${o.next.g || ''}">${ic(o.next.icon || 'arrow', 22, '#111A2B', 2.3)}${esc(o.next.label)}</button>` : ''}
+  <button class="btn dk" data-act="close">${ic('map', 22, '#fff', 2.2)}Voltar</button>
+</div>`;
+}
+
+// ---------------- mix e quiz ----------------
+function buildMix(focus) {
+  const pool = [];
+  [1, 2].forEach(n => { if (n === 1 || lessonStarted(2) || lessonDone(1)) LESSONS[n].ex.forEach(x => pool.push(x)); });
+  const errTags = Object.keys(U.errors).sort((a, b) => U.errors[b] - U.errors[a]);
+  let picks = pool.filter(x => errTags.includes(x.tag));
+  picks = shuffle(picks).slice(0, focus ? 6 : 3);
+  const rest = shuffle(pool.filter(x => !picks.includes(x)));
+  while (picks.length < 6 && rest.length) picks.push(rest.pop());
+  const deckPool = VOC.l1.concat(lessonStarted(2) || lessonDone(1) ? VOC.l2a.concat(VOC.l2b) : []);
+  shuffle(deckPool).slice(0, 2).forEach(c => {
+    const wrong = shuffle(deckPool.filter(d => d.pt !== c.pt)).slice(0, 2).map(d => d.pt);
+    const o = shuffle([c.pt, ...wrong]);
+    picks.push({ t: 'listen', tag: 'Vocabulário', q: `O que significa “${c.en}”?`, audio: c.audio, o, a: o.indexOf(c.pt), ok: `${c.en}: ${c.pt}.`, no: `${c.en} quer dizer ${c.pt}.` });
+  });
+  return shuffle(picks);
+}
+const QZ = { i: 0, items: [], score: 0, right: 0, left: 1, timer: null, ans: null };
+function startQuiz() {
+  const pool = VOC.l1.concat(lessonStarted(2) || lessonDone(1) ? VOC.l2a.concat(VOC.l2b) : []);
+  QZ.items = shuffle(pool).slice(0, 10).map(c => { const o = shuffle([c.pt, ...shuffle(pool.filter(d => d.pt !== c.pt)).slice(0, 2).map(d => d.pt)]); return { c, o, a: o.indexOf(c.pt) }; });
+  QZ.i = 0; QZ.score = 0; QZ.right = 0; QZ.ans = null; V.overlay = { type: 'quiz' }; render(); quizTick();
+}
+function quizTick() {
+  clearInterval(QZ.timer); QZ.left = 1; const t0 = Date.now();
+  QZ.timer = setInterval(() => {
+    if (!V.overlay || V.overlay.type !== 'quiz') { clearInterval(QZ.timer); return; }
+    QZ.left = Math.max(0, 1 - (Date.now() - t0) / 8000);
+    const bar = document.getElementById('qbar'); if (bar) bar.style.width = (QZ.left * 100) + '%';
+    if (QZ.left <= 0) { clearInterval(QZ.timer); quizAnswer(-1); }
+  }, 100);
+}
+function quizAnswer(k) {
+  if (QZ.ans != null) return; clearInterval(QZ.timer);
+  const it = QZ.items[QZ.i]; QZ.ans = k; const ok = k === it.a;
+  if (ok) { QZ.right++; QZ.score += Math.round(50 + 50 * QZ.left); }
+  logAnswer(ok, ok ? null : 'Vocabulário');
+  render();
+  setTimeout(() => {
+    if (!V.overlay || V.overlay.type !== 'quiz') return;
+    QZ.i++; QZ.ans = null;
+    if (QZ.i >= QZ.items.length) { V.overlay = { type: 'result', score: QZ.right, total: QZ.items.length, sub: `Quiz rápido: ${QZ.score} pontos`, tags: [], next: { act: 'quiz', label: 'Jogar de novo', icon: 'redo' } }; render(); }
+    else { render(); quizTick(); }
+  }, ok ? 700 : 1400);
+}
+function vQuiz() {
+  const it = QZ.items[QZ.i]; if (!it) return '';
+  return `<div class="page" style="padding-bottom:30px">
+  ${head('Quiz rápido', `<span class="chip-streak">${ic('star', 18, '#FF6A1F', 2, '#FF6A1F')}${QZ.score}</span>`)}
+  <div class="timer" role="img" aria-label="Tempo"><i id="qbar" style="width:${QZ.left * 100}%"></i></div>
+  <p class="small center">PERGUNTA ${QZ.i + 1} DE ${QZ.items.length}</p>
+  <div class="flash" style="min-height:220px;flex:none"><span class="en" style="font-size:40px">${esc(it.c.en)}</span><button class="speak" style="width:60px;height:60px" data-act="say" data-src="${it.c.audio}" aria-label="Ouvir">${ic('speaker', 28, '#111A2B', 2.2)}</button></div>
+  <div style="display:flex;flex-direction:column;gap:12px">${it.o.map((op, k) => { let cls = 'opt'; if (QZ.ans != null) { if (k === it.a) cls += ' right'; else if (k === QZ.ans) cls += ' wrong'; } return `<button class="${cls}" data-act="qpick" data-k="${k}"${QZ.ans != null ? ' disabled' : ''} style="justify-content:center;font-size:19px">${esc(op)}</button>`; }).join('')}</div>
+</div>`;
+}
+
+// ---------------- jogo de conversa ----------------
+let G = null;
+function gameName() { return (U && U.name) || 'Ana'; }
+function startGame(gid) {
+  stopMedia();
+  const def = GAMES[gid];
+  G = { gid, def, i: 0, tries: 0, repeat: false, log: [], status: 'idle', stars: [], typing: false, finalTries: 0, start: Date.now() };
+  V.overlay = { type: 'game' }; renderGame();
+}
+function renderGame() {
+  const def = G.def;
+  app.innerHTML = `<div class="page" style="padding-bottom:20px">
+  ${head(def.title, `<span class="small">Lição ${def.lesson}</span>`)}
+  <div class="stage"><canvas class="cloud" data-scale=".2" aria-hidden="true"></canvas>
+    <div class="who"><img src="media/pedro-sorrindo.png" alt="">Teacher Pedro${G.gid === 'l2' ? ' · garçom' : ''}</div>
+    <div class="stt" id="gstt"><i></i><span>Pronto</span></div></div>
+  <div id="gsteps" role="img"></div>
+  <div class="glog" id="glog" aria-live="polite"></div>
+  <div class="grow"></div>
+  <div id="ginput"></div>
+</div>`;
+  mountClouds(); gameUpdate(); gameInput();
+}
+function gameUpdate() {
+  const lg = document.getElementById('glog'); if (!lg) return;
+  lg.innerHTML = G.log.slice(-6).map(m => m.r === 'c' ? `<div class="b-c">${esc(m.t)}</div>` : m.r === 'u' ? `<div class="b-u">${esc(m.t)}</div>` : `<div class="b-t">${esc(m.t)}</div>`).join('');
+  const st = document.getElementById('gstt'); if (st) st.lastChild.textContent = G.status === 'speaking' ? 'Falando' : G.status === 'answer' ? (DICTON ? 'Ouvindo você' : 'Sua vez') : G.status === 'done' ? 'Concluído' : 'Pronto';
+  const n = G.def.stages.length, sp = document.getElementById('gsteps');
+  if (sp) { sp.setAttribute('aria-label', `Fase ${Math.min(G.i + 1, n)} de ${n}`); sp.style.cssText = `display:grid;grid-template-columns:repeat(${n},1fr);gap:4px`; sp.innerHTML = Array.from({ length: n }, (_, k) => `<span style="height:8px;border-radius:4px;background:${k < G.i ? 'var(--cyan)' : k === G.i && G.status !== 'idle' && G.status !== 'done' ? 'var(--orange)' : '#DDE2EC'}"></span>`).join(''); }
+  window.scrollTo(0, document.body.scrollHeight);
+}
+let DICTON = false, DICTTXT = '';
+function gameInput() {
+  const el = document.getElementById('ginput'); if (!el || !G) return;
+  if (G.status === 'idle') { el.innerHTML = `<button class="btn or" data-act="gstart">${ic('play', 20, '#111A2B', 2, '#111A2B')}Começar a conversa</button><p class="muted center" style="font-size:12px;margin-top:8px">${G.def.audio ? 'Ligue o som: o Teacher Pedro fala com você.' : 'Nesta lição, as falas do coach aparecem em texto. A voz chega em breve.'}</p>`; return; }
+  if (G.status === 'done') {
+    const stars = G.stars.filter(Boolean).length;
+    el.innerHTML = `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><div><b style="color:#0D5866">Conversa concluída!</b><p style="font-size:14px;font-weight:600">${stars} de ${G.def.stages.length} respostas certas de primeira.</p></div></div><div class="tiles" style="margin-top:10px"><button class="btn wh" data-act="game" data-g="${G.gid}">${ic('redo', 20, '#C94E0E', 2.4)}De novo</button><button class="btn cy" data-act="close">Concluir</button></div>`;
+    return;
+  }
+  if (G.status !== 'answer') { el.innerHTML = `<div class="ginput"><p class="muted center" style="color:var(--muted2)">${G.status === 'speaking' ? 'O Teacher Pedro está falando…' : '…'}</p></div>`; return; }
+  const st = G.def.stages[G.i];
+  const chips = shuffle(st.chips(gameName()));
+  el.innerHTML = `<div class="ginput">
+    ${DICTON ? `<p style="color:#fff;font-weight:700;text-align:center;min-height:22px">${esc(DICTTXT || 'Fale agora…')}</p>` : `<p class="small" style="color:var(--muted2)">ESCOLHA, FALE OU DIGITE A SUA RESPOSTA</p>${chips.map(c => `<button class="gchip" data-act="ganswer" data-t="${esc(c)}">${esc(c)}</button>`).join('')}`}
+    ${G.typing && !DICTON ? `<form class="gtype" id="gform"><input id="gtxt" aria-label="Sua resposta em inglês" placeholder="Escreva em inglês" autocomplete="off"><button type="submit" aria-label="Enviar">${ic('send', 22, '#111A2B', 2.3)}</button></form>` : ''}
+    <div class="gtools">
+      <button data-act="gtype" aria-label="Digitar a resposta">${ic('keyboard', 24, '#fff', 2.2)}</button>
+      ${DICT ? `<button class="mic${DICTON ? ' on' : ''}" data-act="gmic" aria-label="${DICTON ? 'Parar e enviar' : 'Falar a resposta'}">${ic(DICTON ? 'check' : 'mic', 32, '#111A2B', 2.6)}</button>` : ''}
+      <button data-act="ghelp" aria-label="Ver a frase modelo">${ic('quiz', 24, '#fff', 2.2)}</button>
+    </div>
+  </div>`;
+  const inp = document.getElementById('gtxt'); if (inp) inp.focus();
+}
+function gLine(id) { return G.def.audio ? (VOC.jogo[id] || '') : (G.def.lines[id] || ''); }
+async function say(id) {
+  const text = gLine(id); G.log.push({ r: 'c', t: text }); G.status = 'speaking'; CLOUD.mode = 'coach'; gameUpdate(); gameInput();
+  if (G.def.audio) { ensureAudioGraph(); await playClip('media/l2coach/' + id + '.mp3'); }
+  else await new Promise(r => setTimeout(r, Math.min(4500, Math.max(1300, text.length * 45))));
+  CLOUD.mode = 'idle';
+}
+async function ask() {
+  const st = G.def.stages[G.i];
+  await say(G.repeat ? st.model : st.ask);
+  if (!V.overlay || V.overlay.type !== 'game') return;
+  G.log.push({ r: 't', t: (G.repeat ? 'Repita: ' : '') + st.tpl }); G.status = 'answer'; gameUpdate(); gameInput();
+}
+async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(VOC.jogo || {}).map(k => 'media/l2coach/' + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
+async function evaluate(raw) {
+  const st = G.def.stages[G.i]; const t = norm(raw);
+  G.log.push({ r: 'u', t: raw || '(sem resposta)' }); G.status = 'think'; CLOUD.mode = 'think'; G.typing = false; gameUpdate(); gameInput();
+  await new Promise(r => setTimeout(r, 650));
+  if (!t.trim()) { await say(G.def.retry); G.status = 'answer'; gameUpdate(); gameInput(); return; }
+  const r = st.check(t);
+  if (st.final) {
+    if (r === OK || G.finalTries >= 1) { G.stars[G.i] = r === OK && G.finalTries === 0; logAnswer(r === OK, 'Apresentação completa'); if (r === OK) await say('L22'); return finish(); }
+    G.finalTries++; await say(r); G.status = 'answer'; gameUpdate(); gameInput(); return;
+  }
+  if (G.repeat) { logAnswer(r === OK, null); await say(st.praise); return nextStage(); }
+  if (r === OK) { G.stars[G.i] = G.tries === 0; logAnswer(true, null); await say(st.praise); return nextStage(); }
+  logAnswer(false, G.gid === 'l2' ? ['Roteiro do restaurante', 'Roteiro do restaurante', "I'd like", "I'd like", 'Roteiro do restaurante', 'the bill'][G.i] : ['I\'m', 'I live in', 'a / an', 'I work', 'I love'][G.i]);
+  if ((G.gid === 'l2' && (r === 'C9' || r === 'C6')) ) { await say(r); await say(st.praise); return nextStage(); }
+  G.tries++;
+  if (G.tries >= 2) { G.repeat = true; return ask(); }
+  await say(r || G.def.retry); G.status = 'answer'; gameUpdate(); gameInput();
+}
+function nextStage() { G.i++; G.tries = 0; G.repeat = false; if (G.i < G.def.stages.length) return ask(); return finish(); }
+async function finish() {
+  await say(G.def.end);
+  U.convSec = (U.convSec || 0) + Math.round((Date.now() - G.start) / 1000);
+  markStep(G.def.lesson, 'conv', { stars: G.stars.filter(Boolean).length });
+  G.status = 'done'; CLOUD.mode = 'idle'; gameUpdate(); gameInput();
+}
+function startDictation() {
+  if (!DICT) return;
+  DICTTXT = ''; DICTON = true; CLOUD.mode = 'aluno';
+  let p;
+  try { p = DICT.start(); } catch (e) { DICTON = false; CLOUD.mode = 'idle'; G.typing = true; gameInput(); return; }
+  gameInput(); gameUpdate();
+  if (!startDictation.wired) {
+    startDictation.wired = true;
+    DICT.onPartial(({ text }) => { if (DICTON) { const el = document.querySelector('#ginput p'); if (el) el.textContent = (DICTTXT + ' ' + text).trim(); } });
+    DICT.onFinal(({ text }) => { if (DICTON) DICTTXT = (DICTTXT + ' ' + text).trim(); });
+    DICT.onState(({ state, error }) => {
+      if (state !== 'idle' || !DICTON) return;
+      DICTON = false; CLOUD.mode = 'idle'; const txt = DICTTXT; DICTTXT = '';
+      if (!txt && error && error !== 'no-speech' && error !== 'aborted') { G.typing = true; toast(error === 'not-allowed' || error === 'service-not-allowed' ? 'Permita o uso do microfone no navegador para falar.' : 'Não consegui ouvir. Tente de novo, escolha ou digite a resposta.'); gameInput(); gameUpdate(); return; }
+      evaluate(txt);
+    });
+  }
+  if (p && p.catch) p.catch(err => { DICTON = false; CLOUD.mode = 'idle'; G.typing = true; toast(/not-allowed/.test(err && err.message) ? 'Permita o uso do microfone no navegador para falar.' : 'O microfone não está disponível. Escolha ou digite a resposta.'); gameInput(); });
+}
+
+// ---------------- praticar, progresso, plano, perfil ----------------
+function vPraticar() {
+  const errs = Object.keys(U.errors).length;
+  return `<div class="page"><div class="top"><h1>Praticar</h1>${streakChip()}</div>
+  <button class="card dk" style="border:none;text-align:left;flex-direction:row;align-items:center;gap:14px" data-act="mix">
+    <span class="iconbox" style="background:var(--orange)">${ic('shuffle', 30, '#111A2B', 2.4)}</span>
+    <span class="grow" style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:900">Mix do dia</span><span class="muted" style="font-size:13px">${errs ? 'Começa pelo que você mais errou' : 'Exercícios e palavras das suas lições'} · 5 min</span></span>
+    <span style="width:44px;height:44px;border-radius:22px;background:var(--cyan);display:flex;align-items:center;justify-content:center">${ic('play', 18, '#111A2B', 2, '#111A2B')}</span></button>
+  <div class="tiles">
+    ${[['quiz', 'Quiz rápido', 'quiz', 'ib-o', '#C94E0E'], ['game', 'Conversa', 'mic', 'ib-c', '#0D5866'], ['mix-err', 'Revisar erros', 'redo', 'ib-c', '#0D5866'], ['podcast', 'Podcast', 'podcast', 'ib-o', '#C94E0E']].map(([a, l, i, cls, c]) => `<button class="card" style="border:none;text-align:left;min-height:140px;justify-content:space-between" data-act="${a}"><span class="iconbox ${cls}" style="width:60px;height:60px">${ic(i, 32, c, 2.2)}</span><span style="font-size:16px;font-weight:900">${l}</span></button>`).join('')}
+  </div>
+  <p class="muted" style="font-size:13px">A prática livre conta para a sua sequência de dias, mas não avança a trilha.</p>
+</div>${nav('praticar')}`;
+}
+function vGames() {
+  return `<div class="page">${head('Conversa com o coach')}
+  ${[['l1', 1], ['l2', 2]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:var(--cyan-t)">LIÇÃO ${n}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
+  <p class="muted" style="font-size:13px">A conversa livre com a inteligência artificial, sem roteiro, chega no ciclo Pro.</p></div>`;
+}
+function weekDays() {
+  const out = []; const d = new Date(); d.setDate(d.getDate() - 6);
+  for (let i = 0; i < 7; i++) { const k = todayKey(d); out.push({ k, label: 'DSTQQSS'[d.getDay()], m: Math.round(U.days[k] || 0), today: i === 6 }); d.setDate(d.getDate() + 1); }
+  return out;
+}
+function vProgresso() {
+  const acc = U.answers.total ? Math.round(U.answers.right / U.answers.total * 100) + '%' : '—';
+  const wk = weekDays(); const mx = Math.max(10, ...wk.map(w => w.m)); const wkTot = wk.reduce((a, w) => a + w.m, 0);
+  const errs = Object.entries(U.errors).sort((a, b) => b[1] - a[1]).slice(0, 6);
+  const tile = (i, v, l, cls, c) => `<div class="tile"><span class="iconbox ${cls}" style="width:52px;height:52px">${ic(i, 28, c, 2.3)}</span><span style="display:flex;flex-direction:column"><span class="v">${v}</span><span class="l">${l}</span></span></div>`;
+  return `<div class="page"><div class="top"><h1>Progresso</h1>${streakChip()}</div>
+  <div class="tiles">${tile('flame', streak(), 'dias seguidos', 'ib-o', '#C94E0E')}${tile('checkc', lessonsDoneCount() + '/' + TOTAL, 'lições', 'ib-c', '#0D5866')}${tile('target', acc, 'acertos', 'ib-c', '#0D5866')}${tile('mic', U.convSec ? Math.max(1, Math.round(U.convSec / 60)) : 0, 'min de conversa', 'ib-o', '#C94E0E')}</div>
+  <div class="card"><div class="row" style="gap:8px">${ic('clock', 22, '#111A2B', 2.4)}<h2 style="font-size:15px" class="grow">Minutos nesta semana</h2><span class="muted" style="font-size:13px">${wkTot} min</span></div>
+  <div class="chart" role="img" aria-label="Minutos de estudo nos últimos 7 dias: ${wk.map(w => w.m).join(', ')}">${wk.map(w => `<div><span>${w.m || ''}</span><i style="height:${w.m ? Math.max(6, w.m / mx * 92) : 4}px;background:${w.today ? 'var(--orange)' : w.m ? 'var(--cyan)' : '#E1E6EE'}"></i><b style="${w.today ? 'color:var(--navy)' : ''}">${w.today ? 'HOJE' : w.label}</b></div>`).join('')}</div></div>
+  <div class="card"><div class="row" style="gap:8px">${ic('map', 22, '#111A2B', 2.4)}<h2 style="font-size:15px">Lições</h2></div>
+  ${[1, 2].map(n => `<div class="row"><span class="grow" style="font-size:14px;font-weight:800">${n}. ${esc(LESSONS[n].title)}</span><span class="row" style="gap:4px">${LESSONS[n].steps.map(s => `<span title="${esc(s.label)}" style="width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:${stepDone(n, s.id) ? 'var(--cyan-l)' : '#F2F4F8'}">${ic(s.icon, 15, stepDone(n, s.id) ? '#0D5866' : '#7A8599', 2.2)}</span>`).join('')}</span></div>`).join('')}</div>
+  <div style="display:flex;flex-direction:column;gap:10px"><div class="row" style="gap:8px">${ic('redo', 24, '#111A2B', 2.4)}<h2 style="font-size:16px">Para revisar</h2></div>
+  ${errs.length ? `<div class="chips">${errs.map(([t, n]) => `<span class="row" style="gap:8px;padding:8px 8px 8px 14px;border-radius:14px;background:#fff;font-size:15px;font-weight:800">${esc(t)}<span style="min-width:28px;height:28px;border-radius:9px;background:var(--orange-l);color:var(--orange-t);font-size:13px;display:flex;align-items:center;justify-content:center">${Math.ceil(n)}</span></span>`).join('')}</div>
+  <button class="btn cy" data-act="mix-err">${ic('shuffle', 22, '#111A2B', 2.4)}Revisar com o mix</button>` : `<p class="muted">Nada para revisar por enquanto. Os pontos em que você errar aparecem aqui.</p>`}</div>
+</div>${nav('progresso')}`;
+}
+function vPlano() {
+  const p = U.plan;
+  const sec = (i, t, inner) => `<div class="card"><div class="row" style="gap:8px">${ic(i, 24, '#111A2B', 2.4)}<h2 style="font-size:15px">${t}</h2></div>${inner}</div>`;
+  const bells = `<div class="seg" style="grid-template-columns:repeat(3,1fr)" role="radiogroup" aria-label="Mensagens por dia">${[1, 2, 3].map(n => `<button class="segb${p.perDay === n ? ' on' : ''}" role="radio" aria-checked="${p.perDay === n}" aria-label="${n} por dia" data-act="plan-per" data-v="${n}" style="flex-direction:row;gap:1px">${Array.from({ length: n }, () => ic('bell', 22, p.perDay === n ? '#2DD4EF' : '#7A8599', 2.3)).join('')}</button>`).join('')}</div>
+  <div class="row" style="gap:8px">${p.times.slice(0, p.perDay).map((t, i) => `<input class="timein" type="time" value="${t}" data-act="plan-time" data-i="${i}" aria-label="Horário ${i + 1}">`).join('')}</div>`;
+  const types = `<div class="seg" style="grid-template-columns:repeat(3,1fr)">${[['conversa', 'Conversa', 'chat'], ['tarefa', 'Tarefa', 'task'], ['revisao', 'Revisão', 'redo']].map(([k, l, i]) => `<button class="segb${p.types[k] ? ' onc' : ''}" aria-pressed="${!!p.types[k]}" data-act="plan-type" data-v="${k}" style="min-height:88px">${ic(i, 30, p.types[k] ? '#111A2B' : '#7A8599', 2.1)}${l}</button>`).join('')}</div>`;
+  const lv = `<div class="seg" style="grid-template-columns:repeat(3,1fr)" role="radiogroup" aria-label="Nível de cobrança">${['Leve', 'Equilibrado', 'Intenso'].map((l, i) => `<button class="segb${p.level === i ? ' ono' : ''}" role="radio" aria-checked="${p.level === i}" data-act="plan-level" data-v="${i}" style="min-height:80px">${ic('l' + (i + 1), 30, p.level === i ? '#C94E0E' : '#7A8599', 3.2)}${l}</button>`).join('')}</div>
+  <p class="muted" style="font-size:13px">${['Um lembrete gentil por dia, no horário escolhido.', 'Lembrete diário, revisão quando passar do tempo ideal e um resumo por semana.', 'Acompanhamento de perto: metas semanais e cobrança quando a rotina falha.'][p.level]}</p>`;
+  const st = nextStep(currentLesson()); const last = p.times.slice(0, p.perDay).sort().slice(-1)[0];
+  const ex = p.types.tarefa && st ? `${U.name}, faltam ${st.id === 'ex' ? 'só os exercícios' : 'poucos minutos'} da Lição ${currentLesson()}. Vamos?` : p.types.conversa ? `${U.name}, que tal 3 minutos de conversa comigo agora?` : `${U.name}, vamos revisar o que você errou ontem?`;
+  return `<div class="page"><div class="top"><h1>Plano</h1>${streakChip()}</div>
+  ${sec('bell', 'Mensagens por dia', bells)}${sec('chat', 'O coach pode enviar', types)}${sec('target', 'Cobrança', lv)}
+  <div class="row" style="align-items:flex-end;gap:10px"><img src="media/pedro-sorrindo.png" alt="" style="width:40px;height:40px;border-radius:20px"><span style="background:var(--navy);color:#fff;border-radius:18px 18px 18px 4px;padding:10px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;font-weight:800;color:var(--cyan)">EXEMPLO · ${esc(last)}</span><span style="font-size:14px;font-weight:700;line-height:1.35">${esc(ex)}</span></span></div>
+  <p class="muted" style="font-size:12px">Nesta versão de teste, o plano fica salvo, mas as notificações ainda não chegam ao celular. A mensagem do coach aparece quando você abre o app.</p>
+</div>${nav('plano')}`;
+}
+function vProfessor() {
+  const me = { n: U.name + ' (você)', l: lessonsDoneCount(), s: streak(), a: U.answers.total ? Math.round(U.answers.right / U.answers.total * 100) : null, e: Object.keys(U.errors)[0] || '—', st: 'agora' };
+  const rows = [me, { n: 'Mariana', l: 2, s: 9, a: 86, e: 'the bill', st: 'hoje' }, { n: 'Carlos', l: 1, s: 0, a: 64, e: 'a / an', st: 'há 5 dias', alert: 1 }, { n: 'Juliana', l: 2, s: 4, a: 78, e: "I'd like", st: 'ontem' }, { n: 'Rafael', l: 1, s: 2, a: 71, e: 'I work', st: 'hoje' }];
+  return `<div class="page"><div class="top"><button class="back" data-act="go" data-h="perfil" aria-label="Voltar">${ic('back', 24)}</button><h1 class="grow" style="font-size:24px">Painel do professor</h1></div>
+  <div class="card dk"><p class="small" style="color:var(--muted2)">PRÉVIA · TURMA START A1</p><p class="muted">O professor acompanha cada aluno: lições feitas, sequência de dias, acertos e o ponto que mais trava. Os outros alunos são exemplos.</p></div>
+  <div class="tiles"><div class="tile"><span class="iconbox ib-c">${ic('user', 26, '#0D5866', 2.3)}</span><span style="display:flex;flex-direction:column"><span class="v">5</span><span class="l">alunos</span></span></div><div class="tile"><span class="iconbox ib-o">${ic('bell', 26, '#C94E0E', 2.3)}</span><span style="display:flex;flex-direction:column"><span class="v">1</span><span class="l">precisa de atenção</span></span></div></div>
+  ${rows.map(r => `<div class="card" style="gap:8px;${r.alert ? 'box-shadow:0 0 0 3px var(--orange)' : ''}"><div class="row"><span class="avbtn" style="width:40px;height:40px;font-size:15px">${esc(r.n[0])}</span><span class="grow" style="font-size:16px;font-weight:900">${esc(r.n)}</span><span class="muted" style="font-size:12px">ativo ${r.st}</span></div>
+   <div class="row" style="gap:6px;flex-wrap:wrap;font-size:13px;font-weight:800"><span style="padding:5px 10px;border-radius:10px;background:var(--cyan-l)">${r.l}/36 lições</span><span style="padding:5px 10px;border-radius:10px;background:var(--orange-l)">${r.s} dias seguidos</span><span style="padding:5px 10px;border-radius:10px;background:#EEF1F6">${r.a == null ? '—' : r.a + '%'} acertos</span><span style="padding:5px 10px;border-radius:10px;background:#EEF1F6">revisar: ${esc(r.e)}</span></div>
+   ${r.alert ? `<p style="font-size:13px;font-weight:700;color:var(--orange-t)">Parou há 5 dias. O coach já mandou um lembrete; vale uma mensagem do professor.</p>` : ''}</div>`).join('')}
+</div>${nav('')}`;
+}
+function vPerfil() {
+  return `<div class="page">${'<div class="top"><button class="back" data-act="go" data-h="coach" aria-label="Voltar">' + ic('back', 24) + '</button><h1 class="grow">Perfil</h1></div>'}
+  <div class="card" style="align-items:center;text-align:center"><span class="avbtn" style="width:80px;height:80px;border-radius:40px;font-size:34px">${esc(U.name[0].toUpperCase())}</span><h2>${esc(U.name)}</h2><span style="font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 10px;border-radius:999px;background:var(--cyan)">START · A1</span></div>
+  <button class="btn dk" data-act="go" data-h="professor">${ic('chart', 22, '#2DD4EF', 2.3)}Ver o painel do professor</button>
+  <div class="card"><p class="muted" style="font-size:13px">O seu progresso fica salvo neste navegador.</p>
+  <button class="btn wh" data-act="logout">Voltar à apresentação</button>
+  <button class="btn gh" data-act="reset" style="color:#B3261E">Apagar o meu progresso</button></div>
+</div>${nav('')}`;
+}
+function vConfirm() {
+  return `<div class="overlay" role="dialog" aria-modal="true" aria-labelledby="cft"><div class="dialog"><h2 id="cft">Apagar o seu progresso?</h2><p class="muted">Lições, exercícios, sequência de dias e plano voltam ao início. Isso não pode ser desfeito.</p><div class="tiles"><button class="btn wh" data-act="close">Cancelar</button><button class="btn or" data-act="reset-ok">Apagar</button></div></div></div>`;
+}
+
+// ---------------- eventos ----------------
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const a = b.dataset.act; lastAct = Date.now();
+  if (a !== 'gmic') unlockAudio();
+  if (a === 'gmic') {
+    if (DICTON) { try { DICT.stop(); } catch (err) {} return; }
+    stopClip();
+    startDictation(); return;
+  }
+  if (a === 'say') { ensureAudioGraph(); playClip(b.dataset.src); return; }
+  if (a === 'go') { go(b.dataset.h); return; }
+  if (a === 'intro-start') { INTRO_NAME = true; render(); return; }
+  if (a === 'intro-back') { INTRO_NAME = false; render(); return; }
+  if (a === 'intro-video') { V.overlay = { type: 'video', n: 0, s: { id: 'demo', label: 'Vídeo de apresentação', src: 'media/demo_app.mp4', poster: 'media/demo_app.jpg' } }; app.innerHTML = vVideo(V.overlay); return; }
+  if (a === 'quick') { const acc = TEST.find(x => x.key === b.dataset.k); doLogin(acc); return; }
+  if (a === 'toggle-signup') { SIGNUP = !SIGNUP; LOGINERR = ''; render(); return; }
+  if (a === 'open-step') { stopMedia(); openStep(+b.dataset.n, b.dataset.s); return; }
+  if (a === 'close' && !U) { V.overlay = null; stopMedia(); render(); return; }
+  if (a === 'close') {
+    stopMedia(); const o = V.overlay; V.overlay = null;
+    if (o && o.type === 'game' && G) { go(location.hash.slice(1) || 'coach'); return; }
+    render(); return;
+  }
+  if (a === 'video-done' && V.overlay && V.overlay.n === 0) { stopMedia(); V.overlay = null; INTRO_NAME = !U; render(); return; }
+  if (a === 'video-done') { const o = V.overlay; if (!stepDone(o.n, o.s.id)) markStep(o.n, o.s.id); nextAfter(o.n, o.s.id); return; }
+  if (a === 'vocab-cards') { V.overlay.showVideo = false; render(); return; }
+  if (a === 'flip') { V.overlay.flip = !V.overlay.flip; render(); return; }
+  if (a === 'card') {
+    const o = V.overlay, deck = VOC[o.s.deck]; U.cards[o.s.deck + ':' + o.i] = b.dataset.v; touchDay(); save();
+    if (o.i + 1 < deck.length) { o.i++; o.flip = false; render(); }
+    else { if (!stepDone(o.n, o.s.id)) markStep(o.n, o.s.id); const known = Object.keys(U.cards).filter(x => x.startsWith(o.s.deck + ':') && U.cards[x] === 'k').length; V.overlay = { type: 'result', score: known, total: deck.length, sub: 'Palavras que você já sabe', tags: [], next: nextStepAction(o.n, o.s.id) }; render(); }
+    return;
+  }
+  if (a === 'pick') { EX.sel = +b.dataset.k; render(); return; }
+  if (a === 'order') { EX.order.push(+b.dataset.k); render(); return; }
+  if (a === 'unorder') { EX.order.splice(+b.dataset.j, 1); render(); return; }
+  if (a === 'ex-check') {
+    const x = V.overlay.items[EX.i]; EX.checked = true; const ok = isRight(); if (ok) EX.right++; else EX.wrongTags.push(x.tag);
+    logAnswer(ok, x.tag); render(); return;
+  }
+  if (a === 'ex-next') {
+    const o = V.overlay;
+    if (EX.i + 1 < o.items.length) { EX.i++; EX.sel = null; EX.order = []; EX.checked = false; render(); return; }
+    const tags = [...new Set(EX.wrongTags)];
+    if (o.mode === 'lesson') { markStep(o.n, 'ex', { score: EX.right, total: o.items.length }); V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Exercícios da Lição ' + o.n + ' concluídos', tags, next: nextStepAction(o.n, 'ex') }; }
+    else V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Mix do dia concluído', tags, next: { act: 'game', g: lessonStarted(2) ? 'l2' : 'l1', label: 'Treinar conversa', icon: 'mic' } };
+    render(); return;
+  }
+  if (a === 'mix' || a === 'mix-err') {
+    if (!VOC.l1.length) { toast('Carregando o conteúdo…'); return; }
+    V.overlay = { type: 'ex', items: buildMix(a === 'mix-err'), title: a === 'mix' ? 'Mix do dia' : 'Revisão dos erros', mode: 'mix' }; initEx(); render(); return;
+  }
+  if (a === 'quiz') { if (!VOC.l1.length) { toast('Carregando o conteúdo…'); return; } startQuiz(); return; }
+  if (a === 'qpick') { quizAnswer(+b.dataset.k); return; }
+  if (a === 'podcast') { toast('Os podcasts de 2 minutos chegam em breve.'); return; }
+  if (a === 'game') { if (b.dataset.g) startGame(b.dataset.g); else { V.overlay = { type: 'games' }; render(); } return; }
+  if (a === 'gstart') { gameStart(); return; }
+  if (a === 'ganswer') { evaluate(b.dataset.t); return; }
+  if (a === 'gtype') { G.typing = !G.typing; gameInput(); return; }
+  if (a === 'ghelp') { const st = G.def.stages[G.i]; G.log.push({ r: 't', t: 'Modelo: ' + st.tpl }); gameUpdate(); return; }
+  if (a === 'plan-per') { U.plan.perDay = +b.dataset.v; save(); render(); toast('Plano salvo'); return; }
+  if (a === 'plan-type') { const k = b.dataset.v; U.plan.types[k] = !U.plan.types[k]; save(); render(); toast('Plano salvo'); return; }
+  if (a === 'plan-level') { U.plan.level = +b.dataset.v; save(); render(); toast('Plano salvo'); return; }
+  if (a === 'logout') { U = null; ME = null; LS.set('fluent_visit', null); location.hash = 'login'; render(); return; }
+  if (a === 'reset') { V.overlay = { type: 'confirm' }; render(); return; }
+  if (a === 'reset-ok') { const acc = { key: U.key, name: U.name, email: U.email }; U = blankUser(acc); save(true); V.overlay = null; go('coach'); toast('Progresso apagado'); return; }
+});
+function nextStepAction(n, sid) {
+  const L = LESSONS[n]; const i = L.steps.findIndex(s => s.id === sid); const nx = L.steps.slice(i + 1).find(s => !stepDone(n, s.id));
+  return nx ? { act: 'open-step', n, s: nx.id, label: 'Próximo: ' + nx.label.split(':')[0], icon: nx.icon } : null;
+}
+document.addEventListener('change', e => {
+  const t = e.target; if (t.dataset.act === 'plan-time') { U.plan.times[+t.dataset.i] = t.value || U.plan.times[+t.dataset.i]; save(); toast('Plano salvo'); }
+});
+document.addEventListener('submit', e => {
+  e.preventDefault();
+  if (e.target.id === 'gform') { const v = document.getElementById('gtxt').value.trim(); if (!v) { toast('Escreva a sua resposta em inglês.'); return; } evaluate(v); return; }
+  if (e.target.id === 'visit') {
+    const name = (String(new FormData(e.target).get('name') || '').trim().split(/\s+/)[0] || 'Visitante').slice(0, 20);
+    const acc = { key: 'v' + Date.now().toString(36), name: name[0].toUpperCase() + name.slice(1), email: '' };
+    LS.set('fluent_visit', acc); INTRO_NAME = false; doLogin(acc); return;
+  }
+  if (e.target.id === 'login') {
+    const f = new FormData(e.target); const email = String(f.get('email') || '').trim().toLowerCase(), pass = String(f.get('pass') || ''), name = String(f.get('name') || '').trim();
+    if (SIGNUP) {
+      if (!name || !/^\S+@\S+\.\S+$/.test(email)) { LOGINERR = 'Preencha o seu nome e um e-mail válido.'; render(); return; }
+      if (pass.length < 6) { LOGINERR = 'A senha precisa de pelo menos 6 caracteres.'; render(); return; }
+      if (accounts().some(a => a.email === email)) { LOGINERR = 'Este e-mail já tem conta. Entre com ele.'; render(); return; }
+      const acc = { key: 'u' + Date.now().toString(36), name, email };
+      const extra = LS.get('fluent_accounts') || []; extra.push(acc); LS.set('fluent_accounts', extra); doLogin(acc); return;
+    }
+    const acc = accounts().find(a => a.email === email);
+    if (!acc) { LOGINERR = 'Não encontramos esse e-mail. Use uma conta de teste ou crie uma conta.'; render(); return; }
+    if (TEST.includes(acc) && pass !== PASS) { LOGINERR = 'Senha incorreta. A senha das contas de teste é fluent123.'; render(); return; }
+    doLogin(acc);
+  }
+});
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+
+// ---------------- início ----------------
+fetch('vocab.json').then(r => r.json()).then(d => { VOC = d; if (V.overlay) renderOverlay(); }).catch(() => {});
+(async () => {
+  const acc = LS.get('fluent_visit');
+  if (acc) { await doLogin(acc); } else render();
+})();
+</script>
+</body>
+</html>
