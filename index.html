@@ -590,7 +590,7 @@ function vIntro() {
     ${pil('flame', 'var(--orange)', 'Atitude', 'Tentar se comunicar, sem medo de errar. Os erros viram revisão no mix do dia.')}
     ${pil('chart', '#EEF1F6', 'Professor por trás', 'O professor vê o progresso, os erros e a rotina de cada aluno e da turma.')}
   </div>
-  <div class="card dk"><p class="small" style="color:var(--muted2)">NESTA DEMONSTRAÇÃO</p><p class="muted">As Lições 1 e 2 do ciclo Start estão completas. As outras 34 aparecem na trilha como “em produção”. O seu progresso fica salvo só neste navegador.</p></div>
+  <div class="card dk"><p class="small" style="color:var(--muted2)">NESTA DEMONSTRAÇÃO</p><p class="muted">Você entra como um aluno que já concluiu a Lição 1 e começa na Lição 2: pedir comida no restaurante, com conversa por voz com o coach. As outras lições aparecem na trilha como “em produção”. O seu progresso fica salvo só neste navegador.</p></div>
   <button class="btn or" data-act="intro-start">Começar</button>
 </div>`;
 }
@@ -618,9 +618,20 @@ function vLogin() {
 </div>`;
 }
 function accounts() { const extra = LS.get('fluent_accounts') || []; return TEST.concat(extra); }
+// Demonstração: a Lição 1 já vem concluída e o visitante começa na Lição 2 (a conversa que tem a voz do coach).
+function seedLesson1(u) {
+  if (u.lessons && u.lessons[1]) return;
+  const t = Date.now() - 86400000;
+  u.lessons = u.lessons || {};
+  u.lessons[1] = { video: { done: true, at: t }, vocab: { done: true, at: t }, ex: { done: true, at: t, score: 6, total: 7 }, conv: { done: true, at: t, stars: 5 } };
+  u.answers = { right: (u.answers ? u.answers.right : 0) + 6, total: (u.answers ? u.answers.total : 0) + 7 };
+  u.errors = u.errors || {}; u.errors['Pronúncia'] = u.errors['Pronúncia'] || 1;
+  const y = todayKey(new Date(t)); u.days = u.days || {}; if (!u.days[y]) u.days[y] = 12;
+  u.convSec = (u.convSec || 0) + 150;
+}
 async function doLogin(acc) {
   app.innerHTML = `<div class="page dark" style="justify-content:center;align-items:center"><p class="muted">Carregando a sua trilha…</p></div>`;
-  U = await loadUser(acc); ME = acc; LS.set('fluent_last', acc.key); touchDay(); save(true);
+  U = await loadUser(acc); seedLesson1(U); ME = acc; LS.set('fluent_last', acc.key); touchDay(); save(true);
   LOGINERR = ''; SIGNUP = false;
   if (location.hash.slice(1) === 'coach') render(); else location.hash = 'coach';
 }
@@ -1153,7 +1164,7 @@ document.addEventListener('click', e => {
   if (a === 'plan-level') { U.plan.level = +b.dataset.v; save(); render(); toast('Plano salvo'); return; }
   if (a === 'logout') { U = null; ME = null; LS.set('fluent_visit', null); location.hash = 'login'; render(); return; }
   if (a === 'reset') { V.overlay = { type: 'confirm' }; render(); return; }
-  if (a === 'reset-ok') { const acc = { key: U.key, name: U.name, email: U.email }; U = blankUser(acc); save(true); V.overlay = null; go('coach'); toast('Progresso apagado'); return; }
+  if (a === 'reset-ok') { const acc = { key: U.key, name: U.name, email: U.email }; U = blankUser(acc); seedLesson1(U); save(true); V.overlay = null; go('coach'); toast('Progresso apagado'); return; }
 });
 function nextStepAction(n, sid) {
   const L = LESSONS[n]; const i = L.steps.findIndex(s => s.id === sid); const nx = L.steps.slice(i + 1).find(s => !stepDone(n, s.id));
