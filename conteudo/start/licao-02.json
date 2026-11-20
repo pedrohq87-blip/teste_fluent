@@ -1,0 +1,673 @@
+{
+ "ciclo": "start",
+ "numero": 2,
+ "title": "Pedir comida no restaurante",
+ "short": "I'd like, can / could",
+ "img": "media/start/licao-02/card.png",
+ "pdf": null,
+ "steps": [
+  {
+   "id": "video",
+   "type": "video",
+   "icon": "video",
+   "label": "Videoaula: o roteiro em 6 passos",
+   "src": "media/start/licao-02/video.mp4",
+   "poster": "media/start/licao-02/video.jpg"
+  },
+  {
+   "id": "vocab",
+   "type": "vocab",
+   "icon": "book",
+   "label": "Vocabulário: no restaurante",
+   "src": "media/start/licao-02/vocabulario.mp4",
+   "poster": "media/start/licao-02/vocabulario.jpg",
+   "deck": "l2a"
+  },
+  {
+   "id": "food",
+   "type": "vocab",
+   "icon": "food",
+   "label": "Pratos e sobremesas",
+   "src": "media/start/licao-02/pratos.mp4",
+   "poster": "media/start/licao-02/pratos.jpg",
+   "deck": "l2b"
+  },
+  {
+   "id": "ex",
+   "type": "ex",
+   "icon": "pencil",
+   "label": "Exercícios"
+  },
+  {
+   "id": "conv",
+   "type": "conv",
+   "icon": "mic",
+   "label": "Conversa com o garçom",
+   "game": "l2"
+  }
+ ],
+ "ex": [
+  {
+   "t": "order",
+   "tag": "Roteiro do restaurante",
+   "q": "Coloque os passos do restaurante na ordem.",
+   "w": [
+    "Conta",
+    "Bebidas",
+    "Chegada",
+    "Pedido",
+    "Mesa e cardápio",
+    "Durante a refeição"
+   ],
+   "a": [
+    "Chegada",
+    "Mesa e cardápio",
+    "Bebidas",
+    "Pedido",
+    "Durante a refeição",
+    "Conta"
+   ],
+   "sep": " → ",
+   "ok": "Todo restaurante segue essa ordem.",
+   "no": "A ordem é: Chegada → Mesa e cardápio → Bebidas → Pedido → Durante a refeição → Conta."
+  },
+  {
+   "t": "listen",
+   "tag": "Roteiro do restaurante",
+   "q": "Ouça o garçom. Em que passo você está?",
+   "audio": "media/start/licao-02/exercicios/sam03.mp3",
+   "o": [
+    "Chegada",
+    "Bebidas",
+    "Pedido",
+    "Conta"
+   ],
+   "a": 2,
+   "ok": "“Are you ready to order?”: ele quer saber se você já escolheu o prato.",
+   "no": "Ele disse “Are you ready to order?”: é o passo do pedido."
+  },
+  {
+   "t": "listen",
+   "tag": "I'd like",
+   "q": "Ouça o garçom e escolha a melhor resposta.",
+   "audio": "media/start/licao-02/exercicios/sam02.mp3",
+   "o": [
+    "A table for two, please.",
+    "I'd like a coffee, please.",
+    "Can you bring the bill, please?"
+   ],
+   "a": 1,
+   "ok": "Ele perguntou da bebida: I’d like + bebida.",
+   "no": "Ele disse “Anything to drink?”: responda com I’d like + bebida."
+  },
+  {
+   "t": "listen",
+   "tag": "Roteiro do restaurante",
+   "q": "Ouça o garçom e escolha a melhor resposta.",
+   "audio": "media/start/licao-02/exercicios/sam00.mp3",
+   "o": [
+    "A table for two, please.",
+    "Two coffees, please.",
+    "Card, please."
+   ],
+   "a": 0,
+   "ok": "Na chegada, diga para quantas pessoas é a mesa.",
+   "no": "Ele perguntou “How many?”: A table for two, please."
+  },
+  {
+   "t": "choice",
+   "tag": "I'd like",
+   "q": "Qual é o jeito educado de pedir?",
+   "o": [
+    "I want the fish.",
+    "I'd like the fish, please.",
+    "Give me the fish."
+   ],
+   "a": 1,
+   "ok": "I’d like é o jeito educado de pedir.",
+   "no": "I want e Give me soam diretos demais. Use: I’d like the fish, please."
+  },
+  {
+   "t": "choice",
+   "tag": "the bill",
+   "q": "Como pedir a conta?",
+   "o": [
+    "Can you bring the account, please?",
+    "Can you bring the bill, please?",
+    "Can you bring the count, please?"
+   ],
+   "a": 1,
+   "ok": "Conta de restaurante é the bill (nos Estados Unidos, também the check).",
+   "no": "Conta de restaurante é the bill: Can you bring the bill, please?"
+  },
+  {
+   "t": "choice",
+   "tag": "can / could",
+   "q": "Qual pedido soa mais gentil?",
+   "o": [
+    "Can you bring the bill, please?",
+    "Could you bring the bill, please?"
+   ],
+   "a": 1,
+   "ok": "Os dois estão certos, mas could (poderia) soa mais gentil.",
+   "no": "Os dois estão certos: can é “pode”, could é “poderia” e soa mais gentil."
+  },
+  {
+   "t": "choice",
+   "tag": "Pronúncia",
+   "q": "Qual é a sílaba forte de dessert (sobremesa)?",
+   "o": [
+    "DES-sert",
+    "di-ZÂRT"
+   ],
+   "a": 1,
+   "ok": "Força no final: di-ZÂRT.",
+   "no": "É di-ZÂRT. DE-sert, com força no começo, é deserto."
+  }
+ ],
+ "decks": {
+  "l2a": [
+   {
+    "en": "a table",
+    "pr": "TÊI-bol",
+    "ipa": "/ˈteɪbəl/",
+    "pt": "mesa",
+    "audio": "media/start/licao-02/palavras/r01.mp3",
+    "cat": "Chegada"
+   },
+   {
+    "en": "a reservation",
+    "pr": "re-zer-VÊI-chan",
+    "ipa": "/ˌrezərˈveɪʃən/",
+    "pt": "reserva",
+    "audio": "media/start/licao-02/palavras/r02.mp3",
+    "cat": "Chegada"
+   },
+   {
+    "en": "a waiter",
+    "pr": "UÊI-ter",
+    "ipa": "/ˈweɪtər/",
+    "pt": "garçom",
+    "audio": "media/start/licao-02/palavras/r03.mp3",
+    "cat": "Chegada"
+   },
+   {
+    "en": "a waitress",
+    "pr": "UÊI-tres",
+    "ipa": "/ˈweɪtrəs/",
+    "pt": "garçonete",
+    "audio": "media/start/licao-02/palavras/r04.mp3",
+    "cat": "Chegada"
+   },
+   {
+    "en": "the menu",
+    "pr": "MÉ-niu",
+    "ipa": "/ˈmenjuː/",
+    "pt": "cardápio",
+    "audio": "media/start/licao-02/palavras/r05.mp3",
+    "cat": "Na mesa"
+   },
+   {
+    "en": "a fork",
+    "pr": "FÓRK",
+    "ipa": "/fɔːrk/",
+    "pt": "garfo",
+    "audio": "media/start/licao-02/palavras/r06.mp3",
+    "cat": "Na mesa"
+   },
+   {
+    "en": "a knife",
+    "pr": "NÁIF",
+    "ipa": "/naɪf/",
+    "pt": "faca",
+    "audio": "media/start/licao-02/palavras/r07.mp3",
+    "cat": "Na mesa"
+   },
+   {
+    "en": "a napkin",
+    "pr": "NÉP-kin",
+    "ipa": "/ˈnæpkɪn/",
+    "pt": "guardanapo",
+    "audio": "media/start/licao-02/palavras/r08.mp3",
+    "cat": "Na mesa"
+   },
+   {
+    "en": "water",
+    "pr": "UÓ-ter",
+    "ipa": "/ˈwɑːtər/",
+    "pt": "água",
+    "audio": "media/start/licao-02/palavras/r09.mp3",
+    "cat": "Bebidas"
+   },
+   {
+    "en": "juice",
+    "pr": "DJÚS",
+    "ipa": "/dʒuːs/",
+    "pt": "suco",
+    "audio": "media/start/licao-02/palavras/r10.mp3",
+    "cat": "Bebidas"
+   },
+   {
+    "en": "coffee",
+    "pr": "KÓ-fi",
+    "ipa": "/ˈkɑːfi/",
+    "pt": "café",
+    "audio": "media/start/licao-02/palavras/r11.mp3",
+    "cat": "Bebidas"
+   },
+   {
+    "en": "ice",
+    "pr": "ÁIS",
+    "ipa": "/aɪs/",
+    "pt": "gelo",
+    "audio": "media/start/licao-02/palavras/r12.mp3",
+    "cat": "Bebidas"
+   },
+   {
+    "en": "a starter",
+    "pr": "STÁR-ter",
+    "ipa": "/ˈstɑːrtər/",
+    "pt": "entrada",
+    "audio": "media/start/licao-02/palavras/r13.mp3",
+    "cat": "Pedido"
+   },
+   {
+    "en": "a main course",
+    "pr": "MÊIN kórs",
+    "ipa": "/ˈmeɪn kɔːrs/",
+    "pt": "prato principal",
+    "audio": "media/start/licao-02/palavras/r14.mp3",
+    "cat": "Pedido"
+   },
+   {
+    "en": "a dish",
+    "pr": "DÍCH",
+    "ipa": "/dɪʃ/",
+    "pt": "prato (a comida)",
+    "audio": "media/start/licao-02/palavras/r15.mp3",
+    "cat": "Pedido"
+   },
+   {
+    "en": "dessert",
+    "pr": "di-ZÂRT",
+    "ipa": "/dɪˈzɜːrt/",
+    "pt": "sobremesa",
+    "audio": "media/start/licao-02/palavras/r16.mp3",
+    "cat": "Pedido"
+   },
+   {
+    "en": "delicious",
+    "pr": "di-LÍ-chas",
+    "ipa": "/dɪˈlɪʃəs/",
+    "pt": "delicioso",
+    "audio": "media/start/licao-02/palavras/r17.mp3",
+    "cat": "Durante e conta"
+   },
+   {
+    "en": "the bill",
+    "pr": "BÍL",
+    "ipa": "/bɪl/",
+    "pt": "a conta",
+    "audio": "media/start/licao-02/palavras/r18.mp3",
+    "cat": "Durante e conta"
+   },
+   {
+    "en": "a tip",
+    "pr": "TÍP",
+    "ipa": "/tɪp/",
+    "pt": "gorjeta",
+    "audio": "media/start/licao-02/palavras/r19.mp3",
+    "cat": "Durante e conta"
+   },
+   {
+    "en": "cash",
+    "pr": "KÉCH",
+    "ipa": "/kæʃ/",
+    "pt": "dinheiro (em espécie)",
+    "audio": "media/start/licao-02/palavras/r20.mp3",
+    "cat": "Durante e conta"
+   }
+  ],
+  "l2b": [
+   {
+    "en": "chicken",
+    "pr": "TCHÍ-kin",
+    "ipa": "/ˈtʃɪkɪn/",
+    "pt": "frango",
+    "audio": "media/start/licao-02/palavras/f01.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "fish",
+    "pr": "FÍCH",
+    "ipa": "/fɪʃ/",
+    "pt": "peixe",
+    "audio": "media/start/licao-02/palavras/f02.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "a steak",
+    "pr": "STÊIK",
+    "ipa": "/steɪk/",
+    "pt": "bife",
+    "audio": "media/start/licao-02/palavras/f03.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "rice and beans",
+    "pr": "RÁIS en BÍNZ",
+    "ipa": "/ˈraɪs ən ˈbiːnz/",
+    "pt": "arroz e feijão",
+    "audio": "media/start/licao-02/palavras/f04.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "a salad",
+    "pr": "SÉ-lad",
+    "ipa": "/ˈsæləd/",
+    "pt": "salada",
+    "audio": "media/start/licao-02/palavras/f05.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "pasta",
+    "pr": "PÁS-ta",
+    "ipa": "/ˈpɑːstə/",
+    "pt": "macarrão, massa",
+    "audio": "media/start/licao-02/palavras/f06.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "french fries",
+    "pr": "fréntch FRÁIZ",
+    "ipa": "/ˌfrentʃ ˈfraɪz/",
+    "pt": "batata frita",
+    "audio": "media/start/licao-02/palavras/f07.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "a burger",
+    "pr": "BÂR-guer",
+    "ipa": "/ˈbɜːrɡər/",
+    "pt": "hambúrguer",
+    "audio": "media/start/licao-02/palavras/f08.mp3",
+    "cat": "Pratos"
+   },
+   {
+    "en": "cake",
+    "pr": "KÊIK",
+    "ipa": "/keɪk/",
+    "pt": "bolo",
+    "audio": "media/start/licao-02/palavras/f09.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "ice cream",
+    "pr": "ÁIS krim",
+    "ipa": "/ˈaɪs kriːm/",
+    "pt": "sorvete",
+    "audio": "media/start/licao-02/palavras/f10.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "pie",
+    "pr": "PÁI",
+    "ipa": "/paɪ/",
+    "pt": "torta (doce)",
+    "audio": "media/start/licao-02/palavras/f11.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "flan",
+    "pr": "FLÉN",
+    "ipa": "/flæn/",
+    "pt": "pudim",
+    "audio": "media/start/licao-02/palavras/f12.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "a brownie",
+    "pr": "BRÁU-ni",
+    "ipa": "/ˈbraʊni/",
+    "pt": "brownie",
+    "audio": "media/start/licao-02/palavras/f13.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "cheesecake",
+    "pr": "TCHÍZ-keik",
+    "ipa": "/ˈtʃiːzkeɪk/",
+    "pt": "cheesecake",
+    "audio": "media/start/licao-02/palavras/f14.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "fruit salad",
+    "pr": "FRÚT sé-lad",
+    "ipa": "/ˈfruːt ˌsæləd/",
+    "pt": "salada de frutas",
+    "audio": "media/start/licao-02/palavras/f15.mp3",
+    "cat": "Sobremesas"
+   },
+   {
+    "en": "chocolate mousse",
+    "pr": "TCHÓ-klat MÚS",
+    "ipa": "/ˈtʃɑːklət ˈmuːs/",
+    "pt": "mousse de chocolate",
+    "audio": "media/start/licao-02/palavras/f16.mp3",
+    "cat": "Sobremesas"
+   }
+  ]
+ },
+ "coach": {
+  "title": "Conversa com o garçom",
+  "who": " · garçom",
+  "audio": true,
+  "dir": "media/start/licao-02/coach/",
+  "intro": "G01",
+  "end": "F1",
+  "retry": "R1",
+  "pass": [
+   "C9",
+   "C6"
+  ],
+  "tags": [
+   "Roteiro do restaurante",
+   "Roteiro do restaurante",
+   "I'd like",
+   "I'd like",
+   "Roteiro do restaurante",
+   "the bill"
+  ],
+  "stages": [
+   {
+    "ask": "A1",
+    "tpl": "A table for ___, please.",
+    "model": "M1",
+    "praise": "P1",
+    "chips": [
+     "A table for two, please.",
+     "Two.",
+     "I want a table."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " table for (one|two|three|four|five|six|seven|eight|\\w+) "
+      }
+     ],
+     "fallback": "C1"
+    }
+   },
+   {
+    "ask": "A2",
+    "tpl": "Can I see the menu, please?",
+    "model": "M2",
+    "praise": "P2",
+    "chips": [
+     "Can I see the menu, please?",
+     "Give me the menu.",
+     "Menu."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " menu ",
+       "unless": " give me "
+      }
+     ],
+     "fallback": "C2"
+    }
+   },
+   {
+    "ask": "A3",
+    "tpl": "I'd like a / an ___, please.",
+    "model": "M3",
+    "praise": "P3",
+    "chips": [
+     "I'd like an orange juice, please.",
+     "I want a orange juice.",
+     "I'd like a orange juice, please."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C4",
+       "if": " a (orange|apple|iced|espresso|americano) "
+      },
+      {
+       "go": "C3",
+       "if": " i want "
+      },
+      {
+       "go": "ok",
+       "if": " (i'd like|can i have|could i have|i'll have) \\w"
+      }
+     ],
+     "fallback": "C3"
+    }
+   },
+   {
+    "ask": "A4",
+    "tpl": "Can I have the ___, please?",
+    "model": "M4",
+    "praise": "P4",
+    "chips": [
+     "Can I have the chicken, please?",
+     "Give me the chicken.",
+     "Can I have the chicken?"
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C5",
+       "if": " give me "
+      },
+      {
+       "go": "ok",
+       "if": [
+        " (can i have|could i have|i'd like|i'll have) ",
+        " please "
+       ]
+      },
+      {
+       "go": "C6",
+       "if": " (can i have|could i have|i'd like|i'll have) "
+      }
+     ],
+     "fallback": "C5"
+    }
+   },
+   {
+    "ask": "A5",
+    "tpl": "It's delicious, thank you.",
+    "model": "M5",
+    "praise": "P5",
+    "chips": [
+     "It's delicious, thank you.",
+     "Good.",
+     "I'm delicious."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C7",
+       "if": " i'm (delicious|good|great) "
+      },
+      {
+       "go": "ok",
+       "if": " (delicious|good|great|amazing|perfect|excellent|wonderful) ",
+       "minWords": 3
+      }
+     ],
+     "fallback": "C7"
+    }
+   },
+   {
+    "ask": "A6",
+    "tpl": "No, thank you. Can you bring the bill, please?",
+    "model": "M6",
+    "praise": "P6",
+    "chips": [
+     "No, thank you. Can you bring the bill, please?",
+     "The account, please.",
+     "Bring the bill."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C8",
+       "if": " account "
+      },
+      {
+       "go": "ok",
+       "if": [
+        " (bill|check) ",
+        " (can|could) you "
+       ]
+      },
+      {
+       "go": "C9",
+       "if": " (bill|check) "
+      }
+     ],
+     "fallback": "C8"
+    }
+   }
+  ],
+  "lines": {
+   "G01": "Bem-vindo ao restaurante! Eu sou o garçom e você é o cliente. Responda em inglês, usando a frase da tela. Let's start!",
+   "A1": "Good evening! How many people?",
+   "A2": "Please, have a seat.",
+   "A3": "Anything to drink?",
+   "A4": "Are you ready to order?",
+   "A5": "How is everything?",
+   "A6": "Anything else?",
+   "P1": "Perfect! Follow me, please.",
+   "P2": "Here's the menu.",
+   "P3": "Great choice!",
+   "P4": "Excellent! Coming right up.",
+   "P5": "I'm glad you like it!",
+   "P6": "Sure! Here's your bill.",
+   "C1": "Muito bem! Só um ajuste: diga a frase completa. Say: A table for two, please.",
+   "C2": "Só um ajuste: para pedir o cardápio, diga: Can I see the menu, please?",
+   "C3": "Só um ajuste: I want soa direto demais. Diga: I'd like, e a bebida.",
+   "C4": "Só um ajuste: antes de som de vogal, use an. Like this: an orange juice.",
+   "C5": "Só um ajuste: Give me soa grosseiro. Diga: Can I have, e o prato.",
+   "C6": "Quase! Lembre do please no final. É ele que deixa o pedido educado.",
+   "C7": "Só um ajuste: responda com a frase completa. Say: It's delicious, thank you.",
+   "C8": "Só um ajuste: conta não é account. Diga: Can you bring the bill, please?",
+   "C9": "Muito bem! Para soar ainda mais gentil, use could: Could you bring the bill, please?",
+   "R1": "Pode repetir, por favor? Can you say it again?",
+   "M1": "Sem problema. Repita comigo: A table for two, please.",
+   "M2": "Sem problema. Repita comigo: Can I see the menu, please?",
+   "M3": "Sem problema. Repita comigo: I'd like a coffee, please.",
+   "M4": "Sem problema. Repita comigo: Can I have the chicken, please?",
+   "M5": "Sem problema. Repita comigo: It's delicious, thank you.",
+   "M6": "Sem problema. Repita comigo: No, thank you. Can you bring the bill, please?",
+   "F1": "Muito bem! Você passou pelos seis passos do restaurante. Lição dois concluída. See you tomorrow!"
+  }
+ }
+}

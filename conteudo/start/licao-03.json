@@ -1,0 +1,472 @@
+{
+ "ciclo": "start",
+ "numero": 3,
+ "title": "Cumprimentar e se despedir",
+ "short": "Hello, how are you?, see you",
+ "img": "media/start/licao-03/card.png",
+ "pdf": "media/start/licao-03/material.pdf",
+ "steps": [
+  {
+   "id": "video",
+   "type": "video",
+   "icon": "video",
+   "label": "Videoaula",
+   "src": "media/start/licao-03/video.mp4",
+   "poster": "media/start/licao-03/video.jpg"
+  },
+  {
+   "id": "vocab",
+   "type": "vocab",
+   "icon": "book",
+   "label": "Vocabulário: 16 expressões",
+   "src": "media/start/licao-03/vocabulario.mp4",
+   "poster": "media/start/licao-03/vocabulario.jpg",
+   "deck": "l3"
+  },
+  {
+   "id": "ex",
+   "type": "ex",
+   "icon": "pencil",
+   "label": "Exercícios"
+  },
+  {
+   "id": "conv",
+   "type": "conv",
+   "icon": "mic",
+   "label": "Conversa com o coach",
+   "game": "l3"
+  }
+ ],
+ "ex": [
+  {
+   "t": "choice",
+   "tag": "Cumprimentar",
+   "q": "São 9 da manhã. Como cumprimentar?",
+   "o": [
+    "Good morning!",
+    "Good afternoon!",
+    "Good night!"
+   ],
+   "a": 0,
+   "ok": "Até o meio-dia, use good morning.",
+   "no": "De manhã, diga Good morning!"
+  },
+  {
+   "t": "choice",
+   "tag": "Good evening",
+   "q": "Você chega a um jantar às 20h. O que dizer?",
+   "o": [
+    "Good night!",
+    "Good evening!",
+    "Good morning!"
+   ],
+   "a": 1,
+   "ok": "Good evening é para chegar à noite.",
+   "no": "Ao chegar à noite, diga Good evening. Good night é só para ir embora."
+  },
+  {
+   "t": "listen",
+   "tag": "How about you?",
+   "q": "Ouça o Marcus e escolha a melhor resposta.",
+   "audio": "media/start/licao-03/exercicios/marcus_howareyou.mp3",
+   "o": [
+    "I'm good. How about you?",
+    "I'm Julia.",
+    "Nice to meet you."
+   ],
+   "a": 0,
+   "ok": "Ele perguntou como você está: responda e devolva a pergunta.",
+   "no": "Ele disse “How are you?”. Responda: I’m good. How about you?"
+  },
+  {
+   "t": "order",
+   "tag": "How about you?",
+   "q": "Monte a frase: “Estou bem. E você?”",
+   "w": [
+    "about",
+    "I'm",
+    "How",
+    "good.",
+    "you?"
+   ],
+   "a": [
+    "I'm",
+    "good.",
+    "How",
+    "about",
+    "you?"
+   ],
+   "ok": "Responda e devolva a pergunta: é educado.",
+   "no": "A ordem certa é: I’m good. How about you?"
+  },
+  {
+   "t": "choice",
+   "tag": "Despedir-se",
+   "q": "Qual frase é de despedida?",
+   "o": [
+    "See you tomorrow!",
+    "How's it going?",
+    "Good evening!"
+   ],
+   "a": 0,
+   "ok": "See you tomorrow quer dizer “até amanhã”.",
+   "no": "Para se despedir: See you tomorrow! Bye! Have a good day!"
+  },
+  {
+   "t": "listen",
+   "tag": "Se apresentar",
+   "q": "Ouça a Julia. Qual é a melhor resposta?",
+   "audio": "media/start/licao-03/exercicios/julia_nice.mp3",
+   "o": [
+    "Nice to meet you too!",
+    "I'm fine.",
+    "Good night!"
+   ],
+   "a": 0,
+   "ok": "Ela disse “Nice to meet you!”: responda com too no final.",
+   "no": "Ela disse “Nice to meet you!”. Responda: Nice to meet you too!"
+  },
+  {
+   "t": "choice",
+   "tag": "Pronúncia",
+   "q": "Qual é a sílaba mais forte de afternoon?",
+   "o": [
+    "AF-ter-noon",
+    "af-TER-noon",
+    "af-ter-NOON"
+   ],
+   "a": 2,
+   "ok": "Isso: af-ter-NUUN, com força no final.",
+   "no": "A sílaba forte é a última: af-ter-NUUN."
+  }
+ ],
+ "decks": {
+  "l3": [
+   {
+    "en": "hello",
+    "pr": "ré-LOU",
+    "ipa": "/həˈloʊ/",
+    "pt": "olá",
+    "audio": "media/start/licao-03/palavras/w01.mp3",
+    "cat": "Cumprimentar"
+   },
+   {
+    "en": "hi",
+    "pr": "RÁI",
+    "ipa": "/haɪ/",
+    "pt": "oi",
+    "audio": "media/start/licao-03/palavras/w02.mp3",
+    "cat": "Cumprimentar"
+   },
+   {
+    "en": "good morning",
+    "pr": "gud MÓR-nin",
+    "ipa": "/ɡʊd ˈmɔːrnɪŋ/",
+    "pt": "bom dia",
+    "audio": "media/start/licao-03/palavras/w03.mp3",
+    "cat": "Cumprimentar"
+   },
+   {
+    "en": "good afternoon",
+    "pr": "gud éf-ter-NUUN",
+    "ipa": "/ɡʊd ˌæftərˈnuːn/",
+    "pt": "boa tarde",
+    "audio": "media/start/licao-03/palavras/w04.mp3",
+    "cat": "Cumprimentar"
+   },
+   {
+    "en": "good evening",
+    "pr": "gud ÍV-nin",
+    "ipa": "/ɡʊd ˈiːvnɪŋ/",
+    "pt": "boa noite (ao chegar)",
+    "audio": "media/start/licao-03/palavras/w05.mp3",
+    "cat": "Noite e perguntas"
+   },
+   {
+    "en": "good night",
+    "pr": "gud NÁIT",
+    "ipa": "/ɡʊd ˈnaɪt/",
+    "pt": "boa noite (ao sair)",
+    "audio": "media/start/licao-03/palavras/w06.mp3",
+    "cat": "Noite e perguntas"
+   },
+   {
+    "en": "how are you?",
+    "pr": "ráu ar IÚ",
+    "ipa": "/haʊ ɑːr juː/",
+    "pt": "como vai?",
+    "audio": "media/start/licao-03/palavras/w07.mp3",
+    "cat": "Noite e perguntas"
+   },
+   {
+    "en": "how's it going?",
+    "pr": "ráuz it GÔU-in",
+    "ipa": "/haʊz ɪt ˈɡoʊɪŋ/",
+    "pt": "como estão as coisas?",
+    "audio": "media/start/licao-03/palavras/w08.mp3",
+    "cat": "Noite e perguntas"
+   },
+   {
+    "en": "I'm fine",
+    "pr": "áim FÁIN",
+    "ipa": "/aɪm faɪn/",
+    "pt": "estou bem",
+    "audio": "media/start/licao-03/palavras/w09.mp3",
+    "cat": "Respostas"
+   },
+   {
+    "en": "I'm great",
+    "pr": "áim GRÊIT",
+    "ipa": "/aɪm ɡreɪt/",
+    "pt": "estou ótimo(a)",
+    "audio": "media/start/licao-03/palavras/w10.mp3",
+    "cat": "Respostas"
+   },
+   {
+    "en": "not bad",
+    "pr": "nót BÉD",
+    "ipa": "/nɑːt bæd/",
+    "pt": "nada mal",
+    "audio": "media/start/licao-03/palavras/w11.mp3",
+    "cat": "Respostas"
+   },
+   {
+    "en": "how about you?",
+    "pr": "ráu a-BÁUT iu",
+    "ipa": "/haʊ əˈbaʊt juː/",
+    "pt": "e você?",
+    "audio": "media/start/licao-03/palavras/w12.mp3",
+    "cat": "Respostas"
+   },
+   {
+    "en": "nice to meet you",
+    "pr": "náis tu MÍT iu",
+    "ipa": "/naɪs tə ˈmiːt juː/",
+    "pt": "prazer em conhecer",
+    "audio": "media/start/licao-03/palavras/w13.mp3",
+    "cat": "Conhecer e se despedir"
+   },
+   {
+    "en": "bye",
+    "pr": "BÁI",
+    "ipa": "/baɪ/",
+    "pt": "tchau",
+    "audio": "media/start/licao-03/palavras/w14.mp3",
+    "cat": "Conhecer e se despedir"
+   },
+   {
+    "en": "see you tomorrow",
+    "pr": "sí iu tu-MÓ-rou",
+    "ipa": "/siː juː təˈmɑːroʊ/",
+    "pt": "até amanhã",
+    "audio": "media/start/licao-03/palavras/w15.mp3",
+    "cat": "Conhecer e se despedir"
+   },
+   {
+    "en": "have a good day",
+    "pr": "rév a gud DÊI",
+    "ipa": "/hæv ə ɡʊd deɪ/",
+    "pt": "tenha um bom dia",
+    "audio": "media/start/licao-03/palavras/w16.mp3",
+    "cat": "Conhecer e se despedir"
+   }
+  ]
+ },
+ "coach": {
+  "title": "Conversa com o coach",
+  "who": " · colega",
+  "audio": true,
+  "dir": "media/start/licao-03/coach/",
+  "intro": "G01",
+  "end": "F1",
+  "retry": "R1",
+  "pass": [
+   "C3"
+  ],
+  "tags": [
+   "Cumprimentar",
+   "Se apresentar",
+   "How about you?",
+   "How's it going?",
+   "Despedir-se",
+   "Despedir-se"
+  ],
+  "stages": [
+   {
+    "ask": "A1",
+    "tpl": "Good morning!",
+    "model": "M1",
+    "praise": null,
+    "chips": [
+     "Good morning!",
+     "Good night!",
+     "Good evening!"
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C1",
+       "if": " good night "
+      },
+      {
+       "go": "C1",
+       "if": " good (afternoon|evening) "
+      },
+      {
+       "go": "ok",
+       "if": " (good morning|hello|hi|good afternoon|good evening) "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A2",
+    "tpl": "I'm ____. Nice to meet you.",
+    "model": "M2",
+    "praise": "P2",
+    "chips": [
+     "I'm {nome}. Nice to meet you.",
+     "{nome}.",
+     "My name {nome}."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " (i'm|my name is|my name's|name is) [a-z]"
+      },
+      {
+       "go": "C2",
+       "maxWords": 2
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A3",
+    "tpl": "I'm good. How about you?",
+    "model": "M3",
+    "praise": "P3",
+    "chips": [
+     "I'm good. How about you?",
+     "I'm good.",
+     "I'm fine, thanks. And you?"
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": [
+        " (good|great|fine|ok|okay|well|not bad) ",
+        " (how about you|and you|what about you) "
+       ]
+      },
+      {
+       "go": "C3",
+       "if": " (good|great|fine|ok|okay|well|not bad) "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A4",
+    "tpl": "It's going well.  /  Not bad.",
+    "model": "M4",
+    "praise": "P4",
+    "chips": [
+     "It's going well.",
+     "I'm going well.",
+     "Not bad, thanks."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C4",
+       "if": " i'm going "
+      },
+      {
+       "go": "ok",
+       "if": " (going well|not bad|good|great|well|fine) "
+      }
+     ],
+     "fallback": "C4"
+    }
+   },
+   {
+    "ask": "A5",
+    "tpl": "OK! Have a good day!",
+    "model": "M5",
+    "praise": "P5",
+    "chips": [
+     "OK! Have a good day!",
+     "Good night!",
+     "See you!"
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C5",
+       "if": " good night "
+      },
+      {
+       "go": "ok",
+       "if": " (have a good day|have a nice day|have a great day|see you|bye|goodbye) "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A6",
+    "tpl": "See you tomorrow! Bye!",
+    "model": "M6",
+    "praise": "P6",
+    "chips": [
+     "See you tomorrow! Bye!",
+     "Bye!",
+     "Good morning!"
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " (see you|bye|goodbye|have a good) "
+      }
+     ],
+     "fallback": null
+    }
+   }
+  ],
+  "lines": {
+   "G01": "Vamos praticar a Lição 3. Imagine que eu sou um colega novo no escritório. É de manhã. Responda em inglês.",
+   "A1": "Good morning!",
+   "A2": "I'm Pedro. And you?",
+   "A3": "Nice to meet you too! How are you?",
+   "A4": "I'm great, thank you! How's it going today?",
+   "A5": "Well, I have a meeting now.",
+   "A6": "See you tomorrow!",
+   "P1": "Good morning to you too!",
+   "P2": "Great!",
+   "P3": "Good to hear!",
+   "P4": "Awesome!",
+   "P5": "Thanks! You too!",
+   "P6": "Bye!",
+   "C1": "Quase! De manhã, use good morning. Good night é só para ir embora.",
+   "C2": "Muito bem! Só um ajuste: diga a frase inteira. I'm... e o seu nome.",
+   "C3": "Muito bem! Só um ajuste: devolva a pergunta. Diga How about you?",
+   "C4": "Só um ajuste: diga It's going well, ou Not bad.",
+   "C5": "Só um ajuste: durante o dia, diga Have a good day!",
+   "M1": "Sem problema. Repita comigo: Good morning!",
+   "M2": "Sem problema. Repita comigo: I'm Julia. Nice to meet you.",
+   "M3": "Sem problema. Repita comigo: I'm good. How about you?",
+   "M4": "Sem problema. Repita comigo: It's going well.",
+   "M5": "Sem problema. Repita comigo: OK! Have a good day!",
+   "M6": "Sem problema. Repita comigo: See you tomorrow! Bye!",
+   "R1": "Pode repetir, por favor? Can you say it again?",
+   "F1": "Excellent! Você cumprimentou, se apresentou e se despediu. See you in the next lesson!"
+  }
+ }
+}

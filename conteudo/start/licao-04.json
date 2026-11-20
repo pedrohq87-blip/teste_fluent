@@ -1,0 +1,470 @@
+{
+ "ciclo": "start",
+ "numero": 4,
+ "title": "Falar de outras pessoas",
+ "short": "He's, she's, they're",
+ "img": "media/start/licao-04/card.png",
+ "pdf": "media/start/licao-04/material.pdf",
+ "steps": [
+  {
+   "id": "video",
+   "type": "video",
+   "icon": "video",
+   "label": "Videoaula",
+   "src": "media/start/licao-04/video.mp4",
+   "poster": "media/start/licao-04/video.jpg"
+  },
+  {
+   "id": "vocab",
+   "type": "vocab",
+   "icon": "book",
+   "label": "Vocabulário: 16 países",
+   "src": "media/start/licao-04/vocabulario.mp4",
+   "poster": "media/start/licao-04/vocabulario.jpg",
+   "deck": "l4"
+  },
+  {
+   "id": "ex",
+   "type": "ex",
+   "icon": "pencil",
+   "label": "Exercícios"
+  },
+  {
+   "id": "conv",
+   "type": "conv",
+   "icon": "mic",
+   "label": "Conversa com o coach",
+   "game": "l4"
+  }
+ ],
+ "ex": [
+  {
+   "t": "choice",
+   "tag": "he's / she's",
+   "q": "A Emma é médica. Como dizer isso em inglês?",
+   "o": [
+    "She's a doctor.",
+    "He's a doctor.",
+    "She doctor."
+   ],
+   "a": 0,
+   "ok": "Para falar de uma mulher, use she’s.",
+   "no": "A Emma é ela: She’s a doctor."
+  },
+  {
+   "t": "choice",
+   "tag": "he's / she's",
+   "q": "Complete: Diego ___ from Argentina.",
+   "o": [
+    "is",
+    "are",
+    "am"
+   ],
+   "a": 0,
+   "ok": "Com uma pessoa (he ou she), o verbo é is.",
+   "no": "Para uma pessoa, use is: Diego is from Argentina."
+  },
+  {
+   "t": "choice",
+   "tag": "Países",
+   "q": "Qual frase está correta?",
+   "o": [
+    "He's from Brazil.",
+    "He's from the Brazil.",
+    "He from Brazil."
+   ],
+   "a": 0,
+   "ok": "Nome de país não leva the.",
+   "no": "O certo é He’s from Brazil, sem the e com o verbo."
+  },
+  {
+   "t": "order",
+   "tag": "lives / works",
+   "q": "Monte a frase: “Ela mora no Rio.”",
+   "w": [
+    "in",
+    "She",
+    "Rio.",
+    "lives"
+   ],
+   "a": [
+    "She",
+    "lives",
+    "in",
+    "Rio."
+   ],
+   "ok": "Com she, o verbo ganha s: she lives.",
+   "no": "A ordem certa é: She lives in Rio."
+  },
+  {
+   "t": "listen",
+   "tag": "they're",
+   "q": "Ouça a Priya. O que ela disse?",
+   "audio": "media/start/licao-04/exercicios/priya_japan.mp3",
+   "o": [
+    "Eles são do Japão.",
+    "Ela é do Japão.",
+    "Eles moram na China."
+   ],
+   "a": 0,
+   "ok": "They’re from Japan: eles são do Japão.",
+   "no": "Ela disse They’re from Japan: eles são do Japão."
+  },
+  {
+   "t": "choice",
+   "tag": "Nacionalidades",
+   "q": "Alguém da França é…",
+   "o": [
+    "French",
+    "Francian",
+    "France"
+   ],
+   "a": 0,
+   "ok": "France é o país; French é a nacionalidade.",
+   "no": "O país é France; a nacionalidade é French."
+  },
+  {
+   "t": "choice",
+   "tag": "Pronúncia",
+   "q": "Qual é a sílaba mais forte de Japanese?",
+   "o": [
+    "JA-pa-nese",
+    "ja-PA-nese",
+    "ja-pa-NESE"
+   ],
+   "a": 2,
+   "ok": "Isso aí: dja-pa-NÍZ, com força no final.",
+   "no": "A sílaba forte é a última: dja-pa-NÍZ."
+  }
+ ],
+ "decks": {
+  "l4": [
+   {
+    "en": "Brazil · Brazilian",
+    "pr": "bra-ZÍL · bra-ZÍ-lian",
+    "ipa": "/brəˈzɪl, brəˈzɪliən/",
+    "pt": "Brasil · brasileiro(a)",
+    "audio": "media/start/licao-04/palavras/w01.mp3",
+    "cat": "Américas"
+   },
+   {
+    "en": "the United States · American",
+    "pr": "iu-NÁI-tid STÊITS · a-MÉ-ri-can",
+    "ipa": "/juˈnaɪtɪd steɪts, əˈmerɪkən/",
+    "pt": "Estados Unidos · americano(a)",
+    "audio": "media/start/licao-04/palavras/w02.mp3",
+    "cat": "Américas"
+   },
+   {
+    "en": "Canada · Canadian",
+    "pr": "KÉ-na-da · ca-NÊI-dian",
+    "ipa": "/ˈkænədə, kəˈneɪdiən/",
+    "pt": "Canadá · canadense",
+    "audio": "media/start/licao-04/palavras/w03.mp3",
+    "cat": "Américas"
+   },
+   {
+    "en": "Mexico · Mexican",
+    "pr": "MÉK-si-cou · MÉK-si-can",
+    "ipa": "/ˈmeksɪkoʊ, ˈmeksɪkən/",
+    "pt": "México · mexicano(a)",
+    "audio": "media/start/licao-04/palavras/w04.mp3",
+    "cat": "Américas"
+   },
+   {
+    "en": "Argentina · Argentinian",
+    "pr": "ar-djen-TÍ-na · ar-djen-TÍ-nian",
+    "ipa": "/ˌɑːrdʒənˈtiːnə, ˌɑːrdʒənˈtɪniən/",
+    "pt": "Argentina · argentino(a)",
+    "audio": "media/start/licao-04/palavras/w05.mp3",
+    "cat": "América do Sul e Europa"
+   },
+   {
+    "en": "Chile · Chilean",
+    "pr": "TCHÍ-li · TCHÍ-lian",
+    "ipa": "/ˈtʃɪli, ˈtʃɪliən/",
+    "pt": "Chile · chileno(a)",
+    "audio": "media/start/licao-04/palavras/w06.mp3",
+    "cat": "América do Sul e Europa"
+   },
+   {
+    "en": "Portugal · Portuguese",
+    "pr": "PÓR-tchu-gal · por-tchu-GÍZ",
+    "ipa": "/ˈpɔːrtʃʊɡəl, ˌpɔːrtʃʊˈɡiːz/",
+    "pt": "Portugal · português(a)",
+    "audio": "media/start/licao-04/palavras/w07.mp3",
+    "cat": "América do Sul e Europa"
+   },
+   {
+    "en": "Spain · Spanish",
+    "pr": "SPÊIN · SPÉ-nish",
+    "ipa": "/speɪn, ˈspænɪʃ/",
+    "pt": "Espanha · espanhol(a)",
+    "audio": "media/start/licao-04/palavras/w08.mp3",
+    "cat": "América do Sul e Europa"
+   },
+   {
+    "en": "France · French",
+    "pr": "FRÉNS · FRÉNTCH",
+    "ipa": "/fræns, frentʃ/",
+    "pt": "França · francês(a)",
+    "audio": "media/start/licao-04/palavras/w09.mp3",
+    "cat": "Europa"
+   },
+   {
+    "en": "Italy · Italian",
+    "pr": "Í-ta-li · i-TÉ-lian",
+    "ipa": "/ˈɪtəli, ɪˈtæliən/",
+    "pt": "Itália · italiano(a)",
+    "audio": "media/start/licao-04/palavras/w10.mp3",
+    "cat": "Europa"
+   },
+   {
+    "en": "Germany · German",
+    "pr": "DJÂR-ma-ni · DJÂR-man",
+    "ipa": "/ˈdʒɜːrməni, ˈdʒɜːrmən/",
+    "pt": "Alemanha · alemão(ã)",
+    "audio": "media/start/licao-04/palavras/w11.mp3",
+    "cat": "Europa"
+   },
+   {
+    "en": "the UK · British",
+    "pr": "da iu-KÊI · BRÍ-tish",
+    "ipa": "/ðə ˌjuːˈkeɪ, ˈbrɪtɪʃ/",
+    "pt": "Reino Unido · britânico(a)",
+    "audio": "media/start/licao-04/palavras/w12.mp3",
+    "cat": "Europa"
+   },
+   {
+    "en": "Japan · Japanese",
+    "pr": "dja-PÉN · dja-pa-NÍZ",
+    "ipa": "/dʒəˈpæn, ˌdʒæpəˈniːz/",
+    "pt": "Japão · japonês(a)",
+    "audio": "media/start/licao-04/palavras/w13.mp3",
+    "cat": "Ásia e Oceania"
+   },
+   {
+    "en": "China · Chinese",
+    "pr": "TCHÁI-na · tchai-NÍZ",
+    "ipa": "/ˈtʃaɪnə, ˌtʃaɪˈniːz/",
+    "pt": "China · chinês(a)",
+    "audio": "media/start/licao-04/palavras/w14.mp3",
+    "cat": "Ásia e Oceania"
+   },
+   {
+    "en": "India · Indian",
+    "pr": "ÍN-dia · ÍN-dian",
+    "ipa": "/ˈɪndiə, ˈɪndiən/",
+    "pt": "Índia · indiano(a)",
+    "audio": "media/start/licao-04/palavras/w15.mp3",
+    "cat": "Ásia e Oceania"
+   },
+   {
+    "en": "Australia · Australian",
+    "pr": "os-TRÊI-lia · os-TRÊI-lian",
+    "ipa": "/ɔːˈstreɪliə, ɔːˈstreɪliən/",
+    "pt": "Austrália · australiano(a)",
+    "audio": "media/start/licao-04/palavras/w16.mp3",
+    "cat": "Ásia e Oceania"
+   }
+  ]
+ },
+ "coach": {
+  "title": "Conversa com o coach",
+  "who": "",
+  "audio": true,
+  "dir": "media/start/licao-04/coach/",
+  "intro": "G01",
+  "end": "F1",
+  "retry": "R1",
+  "pass": [
+   "C1",
+   "C6"
+  ],
+  "tags": [
+   "This is",
+   "Países",
+   "he's / she's",
+   "lives / works",
+   "they're",
+   "Falar de alguém"
+  ],
+  "stages": [
+   {
+    "ask": "A1",
+    "card": "Diego · Argentina · designer · mora em São Paulo",
+    "tpl": "This is Diego.",
+    "model": "M1",
+    "praise": "P1",
+    "chips": [
+     "This is Diego.",
+     "He is Diego.",
+     "Diego."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " this is diego "
+      },
+      {
+       "go": "C1",
+       "if": " diego "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A2",
+    "tpl": "He's from Argentina.",
+    "model": "M2",
+    "praise": "P2",
+    "chips": [
+     "He's from Argentina.",
+     "He's from the Argentina.",
+     "He from Argentina."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C2",
+       "if": " from the argentin"
+      },
+      {
+       "go": "ok",
+       "if": " (he's|he is) from argentina "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A3",
+    "tpl": "He's a designer.",
+    "model": "M3",
+    "praise": "P3",
+    "chips": [
+     "He's a designer.",
+     "She's a designer.",
+     "He's designer."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C3",
+       "if": " (she's|she is) "
+      },
+      {
+       "go": "ok",
+       "if": " (he's|he is) a designer "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A4",
+    "card": "Ines · Portugal · mora em Lisboa",
+    "tpl": "She lives in Lisbon.",
+    "model": "M4",
+    "praise": "P4",
+    "chips": [
+     "She lives in Lisbon.",
+     "She live in Lisbon.",
+     "She is Lisbon."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "C4",
+       "if": " she live in "
+      },
+      {
+       "go": "ok",
+       "if": " (she lives in|she's in|she is in) "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A5",
+    "card": "Ken e Yumi · Japão · moram em Tóquio",
+    "tpl": "No, they're from Japan.",
+    "model": "M5",
+    "praise": "P5",
+    "chips": [
+     "No, they're from Japan.",
+     "No, they is from Japan.",
+     "No, she's from Japan."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " (they're|they are) from japan "
+      },
+      {
+       "go": "C5",
+       "if": " japan "
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "A6",
+    "tpl": "This is ___. He's / She's ___.",
+    "model": "M6",
+    "praise": "P6",
+    "chips": [
+     "This is Ana. She's my sister. She lives in Rio.",
+     "This is Ana.",
+     "Ana is sister."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "count": {
+        "re": " (this is|he's|she's|he is|she is|he lives|she lives|he works|she works|they're|they are) ",
+        "min": 2
+       }
+      }
+     ],
+     "fallback": "C6"
+    }
+   }
+  ],
+  "lines": {
+   "G01": "Vamos praticar a Lição 4. Vou mostrar algumas pessoas, e você me conta quem são. Responda em inglês.",
+   "A1": "Who is this?",
+   "A2": "Where is he from?",
+   "A3": "What does he do?",
+   "A4": "And this is Ines. Where does she live?",
+   "A5": "Are they from Brazil?",
+   "A6": "Now tell me about a friend or a family member.",
+   "P1": "Nice!",
+   "P2": "That's right!",
+   "P3": "Great!",
+   "P4": "Exactly!",
+   "P5": "Very good!",
+   "P6": "Wow, nice to know!",
+   "C1": "Muito bem! Só um ajuste: para apresentar, diga This is Diego.",
+   "C2": "Só um ajuste: nome de país não leva the. Diga He's from Argentina.",
+   "C3": "Quase! O Diego é ele. Use he's. He's a designer.",
+   "C4": "Só um ajuste: com she, o verbo leva esse. She lives in Lisbon.",
+   "C5": "Só um ajuste: com they, use they're. They're from Japan.",
+   "C6": "Muito bem! Agora diga mais uma frase sobre essa pessoa.",
+   "M1": "Sem problema. Repita comigo: This is Diego.",
+   "M2": "Sem problema. Repita comigo: He's from Argentina.",
+   "M3": "Sem problema. Repita comigo: He's a designer.",
+   "M4": "Sem problema. Repita comigo: She lives in Lisbon.",
+   "M5": "Sem problema. Repita comigo: No, they're from Japan.",
+   "M6": "Sem problema. Repita comigo: This is Ana. She's my sister. She lives in Rio.",
+   "R1": "Pode repetir, por favor? Can you say it again?",
+   "F1": "Great job! Agora você fala de você e de outras pessoas. See you in the next lesson!"
+  }
+ }
+}

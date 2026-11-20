@@ -1,0 +1,517 @@
+{
+ "ciclo": "start",
+ "numero": 1,
+ "title": "Falar de você e do que você faz",
+ "short": "I'm…, profissões",
+ "img": "media/start/licao-01/card.png",
+ "pdf": "media/start/licao-01/material.pdf",
+ "steps": [
+  {
+   "id": "video",
+   "type": "video",
+   "icon": "video",
+   "label": "Videoaula",
+   "src": "media/start/licao-01/video.mp4",
+   "poster": "media/start/licao-01/video.jpg"
+  },
+  {
+   "id": "vocab",
+   "type": "vocab",
+   "icon": "book",
+   "label": "Vocabulário: 20 profissões",
+   "src": "media/start/licao-01/vocabulario.mp4",
+   "poster": "media/start/licao-01/vocabulario.jpg",
+   "deck": "l1"
+  },
+  {
+   "id": "ex",
+   "type": "ex",
+   "icon": "pencil",
+   "label": "Exercícios"
+  },
+  {
+   "id": "conv",
+   "type": "conv",
+   "icon": "mic",
+   "label": "Conversa com o coach",
+   "game": "l1"
+  }
+ ],
+ "ex": [
+  {
+   "t": "choice",
+   "tag": "a / an",
+   "q": "Como dizer “Eu sou professor”?",
+   "o": [
+    "I'm teacher.",
+    "I'm a teacher.",
+    "I a teacher."
+   ],
+   "a": 1,
+   "ok": "Em inglês, a profissão vem sempre com a ou an.",
+   "no": "Faltou o artigo. O certo é: I'm a teacher."
+  },
+  {
+   "t": "choice",
+   "tag": "a / an",
+   "q": "Complete: I'm ___ engineer.",
+   "o": [
+    "a",
+    "an"
+   ],
+   "a": 1,
+   "ok": "Engineer começa com som de vogal, então usamos an.",
+   "no": "Antes de som de vogal, use an: an engineer."
+  },
+  {
+   "t": "choice",
+   "tag": "I live in",
+   "q": "Complete: I ___ in Curitiba.",
+   "o": [
+    "live",
+    "work",
+    "love"
+   ],
+   "a": 0,
+   "ok": "I live in + cidade: é onde você mora.",
+   "no": "Para dizer onde mora, use I live in: I live in Curitiba."
+  },
+  {
+   "t": "order",
+   "tag": "I work at",
+   "q": "Monte a frase: “Eu trabalho num banco.”",
+   "w": [
+    "at",
+    "I",
+    "a",
+    "bank.",
+    "work"
+   ],
+   "a": [
+    "I",
+    "work",
+    "at",
+    "a",
+    "bank."
+   ],
+   "ok": "I work at + o lugar onde você trabalha.",
+   "no": "A ordem certa é: I work at a bank."
+  },
+  {
+   "t": "choice",
+   "tag": "I work",
+   "q": "Qual frase está correta?",
+   "o": [
+    "I'm work at a startup.",
+    "I work at a startup.",
+    "I working at a startup."
+   ],
+   "a": 1,
+   "ok": "Para falar do trabalho, use só o verbo: I work.",
+   "no": "Não use I'm com work. O certo é: I work at a startup."
+  },
+  {
+   "t": "listen",
+   "tag": "Profissões",
+   "q": "Ouça e escolha a profissão.",
+   "audio": "media/start/licao-01/exercicios/accountant.mp3",
+   "o": [
+    "contador(a)",
+    "arquiteto(a)",
+    "advogado(a)"
+   ],
+   "a": 0,
+   "ok": "Accountant é contador ou contadora: a-KÁUN-tant.",
+   "no": "Você ouviu accountant: contador ou contadora."
+  },
+  {
+   "t": "choice",
+   "tag": "Pronúncia",
+   "q": "Qual é a sílaba mais forte de engineer?",
+   "o": [
+    "EN-dji-nir",
+    "en-DJI-nir",
+    "en-dji-NÍR"
+   ],
+   "a": 2,
+   "ok": "Isso: en-dji-NÍR, com força no final.",
+   "no": "A sílaba forte é a última: en-dji-NÍR."
+  }
+ ],
+ "decks": {
+  "l1": [
+   {
+    "en": "a teacher",
+    "pr": "TÍ-tcher",
+    "ipa": "/ˈtiːtʃər/",
+    "pt": "professor(a)",
+    "audio": "media/start/licao-01/palavras/teacher.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a doctor",
+    "pr": "DÓK-ter",
+    "ipa": "/ˈdɑːktər/",
+    "pt": "médico(a)",
+    "audio": "media/start/licao-01/palavras/doctor.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a nurse",
+    "pr": "NÂRS",
+    "ipa": "/nɜːrs/",
+    "pt": "enfermeiro(a)",
+    "audio": "media/start/licao-01/palavras/nurse.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "an engineer",
+    "pr": "en-dji-NÍR",
+    "ipa": "/ˌendʒɪˈnɪr/",
+    "pt": "engenheiro(a)",
+    "audio": "media/start/licao-01/palavras/engineer.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a lawyer",
+    "pr": "LÓI-er",
+    "ipa": "/ˈlɔɪər/",
+    "pt": "advogado(a)",
+    "audio": "media/start/licao-01/palavras/lawyer.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a designer",
+    "pr": "di-ZÁI-ner",
+    "ipa": "/dɪˈzaɪnər/",
+    "pt": "designer",
+    "audio": "media/start/licao-01/palavras/designer.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a developer",
+    "pr": "di-VÉ-lo-per",
+    "ipa": "/dɪˈveləpər/",
+    "pt": "desenvolvedor(a)",
+    "audio": "media/start/licao-01/palavras/developer.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "an accountant",
+    "pr": "a-KÁUN-tant",
+    "ipa": "/əˈkaʊntənt/",
+    "pt": "contador(a)",
+    "audio": "media/start/licao-01/palavras/accountant.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a salesperson",
+    "pr": "SÊILZ-pâr-son",
+    "ipa": "/ˈseɪlzpɜːrsən/",
+    "pt": "vendedor(a)",
+    "audio": "media/start/licao-01/palavras/salesperson.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a manager",
+    "pr": "MÉ-ni-djer",
+    "ipa": "/ˈmænɪdʒər/",
+    "pt": "gerente",
+    "audio": "media/start/licao-01/palavras/manager.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a chef",
+    "pr": "CHÉF",
+    "ipa": "/ʃef/",
+    "pt": "chef de cozinha",
+    "audio": "media/start/licao-01/palavras/chef.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a waiter",
+    "pr": "UÊI-ter",
+    "ipa": "/ˈweɪtər/",
+    "pt": "garçom",
+    "audio": "media/start/licao-01/palavras/waiter.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a driver",
+    "pr": "DRÁI-ver",
+    "ipa": "/ˈdraɪvər/",
+    "pt": "motorista",
+    "audio": "media/start/licao-01/palavras/driver.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a dentist",
+    "pr": "DÊN-tist",
+    "ipa": "/ˈdentɪst/",
+    "pt": "dentista",
+    "audio": "media/start/licao-01/palavras/dentist.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "an architect",
+    "pr": "ÁR-ki-tekt",
+    "ipa": "/ˈɑːrkɪtekt/",
+    "pt": "arquiteto(a)",
+    "audio": "media/start/licao-01/palavras/architect.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a journalist",
+    "pr": "DJÂR-na-list",
+    "ipa": "/ˈdʒɜːrnəlɪst/",
+    "pt": "jornalista",
+    "audio": "media/start/licao-01/palavras/journalist.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a student",
+    "pr": "STÚ-dent",
+    "ipa": "/ˈstuːdənt/",
+    "pt": "estudante",
+    "audio": "media/start/licao-01/palavras/student.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a police officer",
+    "pr": "po-LÍS Ó-fi-ser",
+    "ipa": "/pəˈliːs ˈɑːfɪsər/",
+    "pt": "policial",
+    "audio": "media/start/licao-01/palavras/police_officer.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "a receptionist",
+    "pr": "ri-SÉP-cho-nist",
+    "ipa": "/rɪˈsepʃənɪst/",
+    "pt": "recepcionista",
+    "audio": "media/start/licao-01/palavras/receptionist.mp3",
+    "cat": "Profissões"
+   },
+   {
+    "en": "an entrepreneur",
+    "pr": "an-tre-pre-NÂR",
+    "ipa": "/ˌɑːntrəprəˈnɜːr/",
+    "pt": "empreendedor(a)",
+    "audio": "media/start/licao-01/palavras/entrepreneur.mp3",
+    "cat": "Profissões"
+   }
+  ]
+ },
+ "coach": {
+  "title": "Conversa com o coach",
+  "who": "",
+  "audio": false,
+  "dir": null,
+  "intro": null,
+  "end": "L24",
+  "retry": "L25",
+  "pass": [],
+  "tags": [
+   "I'm",
+   "I live in",
+   "a / an",
+   "I work",
+   "I love"
+  ],
+  "stages": [
+   {
+    "ask": "L01",
+    "tpl": "I'm ____.",
+    "model": "M1",
+    "praise": "P1",
+    "chips": [
+     "I'm {nome}.",
+     "{nome}.",
+     "My name {nome}."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " (i'm|my name is|my name's|name is) [a-z]"
+      },
+      {
+       "go": "L02",
+       "maxWords": 2
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "L04",
+    "tpl": "I live in ____.",
+    "model": "M2",
+    "praise": "P2",
+    "chips": [
+     "I live in São Paulo.",
+     "I'm live in São Paulo.",
+     "São Paulo."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " i live in [a-z]"
+      },
+      {
+       "go": "L07",
+       "if": " i'm liv"
+      },
+      {
+       "go": "L05",
+       "if": " live "
+      },
+      {
+       "go": "L06",
+       "maxWords": 3
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "L09",
+    "tpl": "I'm a / an ____.",
+    "model": "M3",
+    "praise": "P3",
+    "chips": [
+     "I'm a teacher.",
+     "I'm teacher.",
+     "I'm a engineer."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "L11",
+       "if": [
+        " i'm a ",
+        "\\b(engineer|architect|accountant|actor|actress|artist|electrician|entrepreneur|editor|economist|analyst|assistant|attorney|officer|interpreter|intern|optician|operator|influencer|illustrator|investor|instructor)\\b"
+       ]
+      },
+      {
+       "go": "ok",
+       "if": " i'm (a|an) [a-z]| i (work|am working) as (a|an) | i'm (retired|unemployed|a student|self employed) "
+      },
+      {
+       "go": "L10",
+       "if": " i'm [a-z]"
+      },
+      {
+       "go": "L10",
+       "maxWords": 2
+      }
+     ],
+     "fallback": null
+    }
+   },
+   {
+    "ask": "L13",
+    "tpl": "I work at / in ____.",
+    "model": "M4",
+    "praise": "P4",
+    "chips": [
+     "I work at a bank.",
+     "I'm work at a bank.",
+     "At a bank."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " i (work|study) (at|in|for|from) | i don't work "
+      },
+      {
+       "go": "L14",
+       "if": " i'm work"
+      }
+     ],
+     "fallback": "L15"
+    }
+   },
+   {
+    "ask": "L18",
+    "tpl": "I love / I like ____.",
+    "model": "M5",
+    "praise": "P5",
+    "chips": [
+     "I love coffee.",
+     "Coffee.",
+     "I like music."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "if": " i (love|like|enjoy) [a-z]"
+      }
+     ],
+     "fallback": "L19"
+    }
+   },
+   {
+    "ask": "L21",
+    "tpl": "Hi! I'm ___.\nI live in ___.\nI'm a ___.\nI work at ___.\nI love ___.",
+    "final": true,
+    "chips": [
+     "Hi! I'm {nome}. I live in São Paulo. I'm a designer. I work at a startup. I love coffee.",
+     "Hi! I'm {nome}. I'm designer."
+    ],
+    "check": {
+     "rules": [
+      {
+       "go": "ok",
+       "anyOf": {
+        "list": [
+         " (i'm|my name is) [a-z]",
+         " i live in ",
+         " i'm (a|an) ",
+         " i (work|study) ",
+         " i (love|like) "
+        ],
+        "min": 3
+       }
+      }
+     ],
+     "fallback": "L23"
+    }
+   }
+  ],
+  "lines": {
+   "L01": "Hi! I'm Teacher Pedro. Vamos praticar a Lição 1? Responda em inglês, com frases curtas. Primeira pergunta: what's your name?",
+   "L02": "Muito bem! Só um ajuste: responda com a frase completa. Diga I’m e o seu nome.",
+   "P1": "Nice to meet you!",
+   "L04": "Where do you live?",
+   "L05": "Só um ajuste: antes da cidade, use in. Diga I live in e o nome da cidade.",
+   "L06": "Muito bem! Agora diga a frase completa: I live in e o nome da cidade.",
+   "L07": "Só um ajuste: não use I’m com live. Diga I live in e o nome da cidade.",
+   "P2": "Nice city!",
+   "L09": "What do you do?",
+   "L10": "Muito bem! Só um ajuste: use a antes da profissão. Diga I’m a e a sua profissão.",
+   "L11": "Só um ajuste: antes de som de vogal, use an. Assim: I’m an engineer.",
+   "P3": "Great job!",
+   "L13": "Where do you work?",
+   "L14": "Só um ajuste: não use I’m com work. Diga I work at e o lugar onde você trabalha.",
+   "L15": "Diga a frase completa. Por exemplo: I work at a bank.",
+   "P4": "Very good!",
+   "L18": "And what do you love?",
+   "L19": "Diga a frase completa: I love e o que você ama.",
+   "P5": "Awesome!",
+   "L21": "Muito bem! Agora junte tudo: apresente-se em três frases. Comece com: Hi, I’m…",
+   "L22": "Excellent! Você juntou todas as peças da lição. You did it!",
+   "L23": "Quase lá! Tente de novo usando: I’m, I live in, I work at e I love.",
+   "L24": "Lição 1 concluída. See you tomorrow!",
+   "L25": "Pode repetir, por favor? Can you say it again?",
+   "M1": "Sem problema. Repita comigo: I’m Ana.",
+   "M2": "Sem problema. Repita comigo: I live in São Paulo.",
+   "M3": "Sem problema. Repita comigo: I’m a teacher.",
+   "M4": "Sem problema. Repita comigo: I work at a school.",
+   "M5": "Sem problema. Repita comigo: I love music."
+  }
+ }
+}

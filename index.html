@@ -7,9 +7,9 @@
 <meta name="description" content="Fluent: um coach de inglês que acompanha você todos os dias.">
 <meta property="og:title" content="Fluent · Conheça a plataforma">
 <meta property="og:description" content="Aulas curtas, prática de conversa e um coach que cuida da sua rotina.">
-<meta property="og:image" content="media/l1_card.png">
+<meta property="og:image" content="media/start/licao-01/card.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="media/pedro-sorrindo.png">
+<link rel="apple-touch-icon" href="media/comum/pedro-sorrindo.png">
 <title>Fluent · Conheça a plataforma</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap">
@@ -197,164 +197,47 @@ const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { c
 const todayKey = (d = new Date()) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 
 // ---------------- conteúdo ----------------
-const TRACK = [
-  { t: 'Primeiros contatos', l: ['Falar de você e do que você faz', 'Pedir comida no restaurante', 'Cumprimentar e se despedir', 'Falar de outras pessoas', 'Trocar contatos', 'Revisão + desafio: apresente-se para um colega novo'] },
-  { t: 'Pessoas e lugares', l: ['Apresentar a sua família', 'Descrever pessoas', 'Falar da sua casa', 'Perguntar e explicar o caminho', 'Falar da sua cidade', 'Revisão + desafio: mostre a sua casa e o seu bairro'] },
-  { t: 'Meu dia', l: ['Dizer as horas e os dias da semana', 'Contar a sua rotina', 'Falar da rotina de outra pessoa', 'Perguntar sobre hábitos', 'Falar dos seus hobbies e do fim de semana', 'Revisão + desafio: descreva um dia típico'] },
-  { t: 'Comer e comprar', l: ['Dizer do que gosta e do que não gosta', 'Fazer a lista do mercado', 'Perguntar preços', 'Comprar roupas', 'Pedir na cafeteria', 'Revisão + desafio: faça as compras para um jantar'] },
-  { t: 'Sair e viajar', l: ['Usar o transporte', 'Pedir ajuda na farmácia', 'Fazer check-in no hotel', 'Passar pela imigração no aeroporto', 'Falar do tempo e das estações', 'Revisão + desafio: chegue a uma cidade nova'] },
-  { t: 'Indo além', l: ['Dizer o que você sabe fazer', 'Pedir ajuda quando não entende', 'Falar de datas e aniversários', 'Dizer onde você estava', 'Contar como foi', 'Desafio final: apresente-se em 1 minuto'] }
-];
-const TOTAL = 36;
-let VOC = { l1: [], l2a: [], l2b: [], l3: [], l4: [] };
-
-const LESSONS = {
-  1: { title: 'Falar de você e do que você faz', short: "I'm…, profissões", img: 'media/l1_card.png', decks: ['l1'], pdf: 'media/l1_material.pdf',
-    steps: [
-      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l1_video.mp4', poster: 'media/l1_video.jpg' },
-      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 20 profissões', src: 'media/l1_vocab.mp4', poster: 'media/l1_vocab.jpg', deck: 'l1' },
-      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
-      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l1' }
-    ],
-    ex: [
-      { t: 'choice', tag: 'a / an', q: 'Como dizer “Eu sou professor”?', o: ["I'm teacher.", "I'm a teacher.", 'I a teacher.'], a: 1, ok: 'Em inglês, a profissão vem sempre com a ou an.', no: "Faltou o artigo. O certo é: I'm a teacher." },
-      { t: 'choice', tag: 'a / an', q: "Complete: I'm ___ engineer.", o: ['a', 'an'], a: 1, ok: 'Engineer começa com som de vogal, então usamos an.', no: 'Antes de som de vogal, use an: an engineer.' },
-      { t: 'choice', tag: 'I live in', q: 'Complete: I ___ in Curitiba.', o: ['live', 'work', 'love'], a: 0, ok: 'I live in + cidade: é onde você mora.', no: 'Para dizer onde mora, use I live in: I live in Curitiba.' },
-      { t: 'order', tag: 'I work at', q: 'Monte a frase: “Eu trabalho num banco.”', w: ['at', 'I', 'a', 'bank.', 'work'], a: ['I', 'work', 'at', 'a', 'bank.'], ok: 'I work at + o lugar onde você trabalha.', no: 'A ordem certa é: I work at a bank.' },
-      { t: 'choice', tag: 'I work', q: 'Qual frase está correta?', o: ["I'm work at a startup.", 'I work at a startup.', 'I working at a startup.'], a: 1, ok: 'Para falar do trabalho, use só o verbo: I work.', no: "Não use I'm com work. O certo é: I work at a startup." },
-      { t: 'listen', tag: 'Profissões', q: 'Ouça e escolha a profissão.', audio: 'media/accountant_en.mp3', o: ['contador(a)', 'arquiteto(a)', 'advogado(a)'], a: 0, ok: 'Accountant é contador ou contadora: a-KÁUN-tant.', no: 'Você ouviu accountant: contador ou contadora.' },
-      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de engineer?', o: ['EN-dji-nir', 'en-DJI-nir', 'en-dji-NÍR'], a: 2, ok: 'Isso: en-dji-NÍR, com força no final.', no: 'A sílaba forte é a última: en-dji-NÍR.' }
-    ] },
-  2: { title: 'Pedir comida no restaurante', short: "I'd like, can / could", img: 'media/l2_card.png', decks: ['l2a', 'l2b'],
-    steps: [
-      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula: o roteiro em 6 passos', src: 'media/l2_video.mp4', poster: 'media/l2_video.jpg' },
-      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: no restaurante', src: 'media/l2_vocab.mp4', poster: 'media/l2_vocab.jpg', deck: 'l2a' },
-      { id: 'food', type: 'vocab', icon: 'food', label: 'Pratos e sobremesas', src: 'media/l2_food.mp4', poster: 'media/l2_food.jpg', deck: 'l2b' },
-      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
-      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o garçom', game: 'l2' }
-    ],
-    ex: [
-      { t: 'order', tag: 'Roteiro do restaurante', q: 'Coloque os passos do restaurante na ordem.', w: ['Conta', 'Bebidas', 'Chegada', 'Pedido', 'Mesa e cardápio', 'Durante a refeição'], a: ['Chegada', 'Mesa e cardápio', 'Bebidas', 'Pedido', 'Durante a refeição', 'Conta'], sep: ' → ', ok: 'Todo restaurante segue essa ordem.', no: 'A ordem é: Chegada → Mesa e cardápio → Bebidas → Pedido → Durante a refeição → Conta.' },
-      { t: 'listen', tag: 'Roteiro do restaurante', q: 'Ouça o garçom. Em que passo você está?', audio: 'media/sam03.mp3', o: ['Chegada', 'Bebidas', 'Pedido', 'Conta'], a: 2, ok: '“Are you ready to order?”: ele quer saber se você já escolheu o prato.', no: 'Ele disse “Are you ready to order?”: é o passo do pedido.' },
-      { t: 'listen', tag: "I'd like", q: 'Ouça o garçom e escolha a melhor resposta.', audio: 'media/sam02.mp3', o: ['A table for two, please.', "I'd like a coffee, please.", 'Can you bring the bill, please?'], a: 1, ok: 'Ele perguntou da bebida: I’d like + bebida.', no: 'Ele disse “Anything to drink?”: responda com I’d like + bebida.' },
-      { t: 'listen', tag: 'Roteiro do restaurante', q: 'Ouça o garçom e escolha a melhor resposta.', audio: 'media/sam00.mp3', o: ['A table for two, please.', 'Two coffees, please.', 'Card, please.'], a: 0, ok: 'Na chegada, diga para quantas pessoas é a mesa.', no: 'Ele perguntou “How many?”: A table for two, please.' },
-      { t: 'choice', tag: "I'd like", q: 'Qual é o jeito educado de pedir?', o: ['I want the fish.', "I'd like the fish, please.", 'Give me the fish.'], a: 1, ok: 'I’d like é o jeito educado de pedir.', no: 'I want e Give me soam diretos demais. Use: I’d like the fish, please.' },
-      { t: 'choice', tag: 'the bill', q: 'Como pedir a conta?', o: ['Can you bring the account, please?', 'Can you bring the bill, please?', 'Can you bring the count, please?'], a: 1, ok: 'Conta de restaurante é the bill (nos Estados Unidos, também the check).', no: 'Conta de restaurante é the bill: Can you bring the bill, please?' },
-      { t: 'choice', tag: 'can / could', q: 'Qual pedido soa mais gentil?', o: ['Can you bring the bill, please?', 'Could you bring the bill, please?'], a: 1, ok: 'Os dois estão certos, mas could (poderia) soa mais gentil.', no: 'Os dois estão certos: can é “pode”, could é “poderia” e soa mais gentil.' },
-      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba forte de dessert (sobremesa)?', o: ['DES-sert', 'di-ZÂRT'], a: 1, ok: 'Força no final: di-ZÂRT.', no: 'É di-ZÂRT. DE-sert, com força no começo, é deserto.' }
-    ] },
-  3: { title: 'Cumprimentar e se despedir', short: 'Hello, how are you?, see you', img: 'media/l3_card.png', decks: ['l3'], pdf: 'media/l3_material.pdf',
-    steps: [
-      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l3_video.mp4', poster: 'media/l3_video.jpg' },
-      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 16 expressões', src: 'media/l3_vocab.mp4', poster: 'media/l3_vocab.jpg', deck: 'l3' },
-      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
-      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l3' }
-    ],
-    ex: [
-      { t: 'choice', tag: 'Cumprimentar', q: 'São 9 da manhã. Como cumprimentar?', o: ['Good morning!', 'Good afternoon!', 'Good night!'], a: 0, ok: 'Até o meio-dia, use good morning.', no: 'De manhã, diga Good morning!' },
-      { t: 'choice', tag: 'Good evening', q: 'Você chega a um jantar às 20h. O que dizer?', o: ['Good night!', 'Good evening!', 'Good morning!'], a: 1, ok: 'Good evening é para chegar à noite.', no: 'Ao chegar à noite, diga Good evening. Good night é só para ir embora.' },
-      { t: 'listen', tag: 'How about you?', q: 'Ouça o Marcus e escolha a melhor resposta.', audio: 'media/l3_marcus_howareyou.mp3', o: ["I'm good. How about you?", "I'm Julia.", 'Nice to meet you.'], a: 0, ok: 'Ele perguntou como você está: responda e devolva a pergunta.', no: 'Ele disse “How are you?”. Responda: I’m good. How about you?' },
-      { t: 'order', tag: 'How about you?', q: 'Monte a frase: “Estou bem. E você?”', w: ['about', "I'm", 'How', 'good.', 'you?'], a: ["I'm", 'good.', 'How', 'about', 'you?'], ok: 'Responda e devolva a pergunta: é educado.', no: 'A ordem certa é: I’m good. How about you?' },
-      { t: 'choice', tag: 'Despedir-se', q: 'Qual frase é de despedida?', o: ['See you tomorrow!', "How's it going?", 'Good evening!'], a: 0, ok: 'See you tomorrow quer dizer “até amanhã”.', no: 'Para se despedir: See you tomorrow! Bye! Have a good day!' },
-      { t: 'listen', tag: 'Se apresentar', q: 'Ouça a Julia. Qual é a melhor resposta?', audio: 'media/l3_julia_nice.mp3', o: ['Nice to meet you too!', "I'm fine.", 'Good night!'], a: 0, ok: 'Ela disse “Nice to meet you!”: responda com too no final.', no: 'Ela disse “Nice to meet you!”. Responda: Nice to meet you too!' },
-      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de afternoon?', o: ['AF-ter-noon', 'af-TER-noon', 'af-ter-NOON'], a: 2, ok: 'Isso: af-ter-NUUN, com força no final.', no: 'A sílaba forte é a última: af-ter-NUUN.' }
-    ] },
-  4: { title: 'Falar de outras pessoas', short: "He's, she's, they're", img: 'media/l4_card.png', decks: ['l4'], pdf: 'media/l4_material.pdf',
-    steps: [
-      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l4_video.mp4', poster: 'media/l4_video.jpg' },
-      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 16 países', src: 'media/l4_vocab.mp4', poster: 'media/l4_vocab.jpg', deck: 'l4' },
-      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
-      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l4' }
-    ],
-    ex: [
-      { t: 'choice', tag: "he's / she's", q: 'A Emma é médica. Como dizer isso em inglês?', o: ["She's a doctor.", "He's a doctor.", 'She doctor.'], a: 0, ok: 'Para falar de uma mulher, use she’s.', no: 'A Emma é ela: She’s a doctor.' },
-      { t: 'choice', tag: "he's / she's", q: 'Complete: Diego ___ from Argentina.', o: ['is', 'are', 'am'], a: 0, ok: 'Com uma pessoa (he ou she), o verbo é is.', no: 'Para uma pessoa, use is: Diego is from Argentina.' },
-      { t: 'choice', tag: 'Países', q: 'Qual frase está correta?', o: ["He's from Brazil.", "He's from the Brazil.", 'He from Brazil.'], a: 0, ok: 'Nome de país não leva the.', no: 'O certo é He’s from Brazil, sem the e com o verbo.' },
-      { t: 'order', tag: 'lives / works', q: 'Monte a frase: “Ela mora no Rio.”', w: ['in', 'She', 'Rio.', 'lives'], a: ['She', 'lives', 'in', 'Rio.'], ok: 'Com she, o verbo ganha s: she lives.', no: 'A ordem certa é: She lives in Rio.' },
-      { t: 'listen', tag: "they're", q: 'Ouça a Priya. O que ela disse?', audio: 'media/l4_priya_japan.mp3', o: ['Eles são do Japão.', 'Ela é do Japão.', 'Eles moram na China.'], a: 0, ok: 'They’re from Japan: eles são do Japão.', no: 'Ela disse They’re from Japan: eles são do Japão.' },
-      { t: 'choice', tag: 'Nacionalidades', q: 'Alguém da França é…', o: ['French', 'Francian', 'France'], a: 0, ok: 'France é o país; French é a nacionalidade.', no: 'O país é France; a nacionalidade é French.' },
-      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de Japanese?', o: ['JA-pa-nese', 'ja-PA-nese', 'ja-pa-NESE'], a: 2, ok: 'Isso aí: dja-pa-NÍZ, com força no final.', no: 'A sílaba forte é a última: dja-pa-NÍZ.' }
-    ] }
-};
+let TRACK = [], TOTAL = 36, VOC = {}, LESSONS = {}, GAMES = {}, AVAIL = [];
 
 // ---------------- jogos de conversa ----------------
+// ---------------- conteúdo (fichas em conteudo/start/) ----------------
+function compileCheck(c) {
+  const rx = x => new RegExp(x);
+  const rules = c.rules.map(r => ({ go: r.go === 'ok' ? OK : r.go, all: r.if == null ? [] : [].concat(r.if).map(rx), not: r.unless ? rx(r.unless) : null,
+    min: r.minWords, max: r.maxWords, any: r.anyOf ? { list: r.anyOf.list.map(rx), min: r.anyOf.min } : null, cnt: r.count ? { re: new RegExp(r.count.re, 'g'), min: r.count.min } : null }));
+  const fb = c.fallback === 'ok' ? OK : (c.fallback ?? null);
+  return t => {
+    for (const r of rules) {
+      if (!r.all.every(x => x.test(t))) continue;
+      if (r.not && r.not.test(t)) continue;
+      if (r.min != null && nw(t) < r.min) continue;
+      if (r.max != null && nw(t) > r.max) continue;
+      if (r.any && r.any.list.filter(x => x.test(t)).length < r.any.min) continue;
+      if (r.cnt && (t.match(r.cnt.re) || []).length < r.cnt.min) continue;
+      return r.go;
+    }
+    return fb;
+  };
+}
+async function loadContent() {
+  const get = u => fetch(u).then(r => { if (!r.ok) throw new Error(u); return r.json(); });
+  const tr = await get('conteudo/start/trilha.json');
+  TRACK = tr.unidades.map(u => ({ t: u.titulo, l: u.licoes })); TOTAL = tr.total;
+  const fichas = await Promise.all(tr.publicadas.map(n => get(`conteudo/start/licao-${String(n).padStart(2, '0')}.json`)));
+  for (const f of fichas) {
+    Object.assign(VOC, f.decks);
+    LESSONS[f.numero] = { title: f.title, short: f.short, img: f.img, pdf: f.pdf || undefined, steps: f.steps, ex: f.ex, decks: Object.keys(f.decks) };
+    const c = f.coach;
+    GAMES['l' + f.numero] = { lesson: f.numero, audio: c.audio, title: c.title, who: c.who, dir: c.dir, intro: c.intro, end: c.end, retry: c.retry, pass: c.pass, tags: c.tags, lines: c.lines,
+      stages: c.stages.map(st => Object.assign({}, st, { chips: n => st.chips.map(x => x.replace(/\{nome\}/g, n)), check: compileCheck(st.check) })) };
+  }
+  AVAIL = Object.keys(LESSONS).map(Number).sort((a, b) => a - b);
+}
+const contentReady = loadContent();
+
 const nw = t => t.trim().split(/\s+/).filter(Boolean).length;
 const norm = s => ' ' + String(s || '').toLowerCase().replace(/[’`]/g, "'").replace(/i am /g, "i'm ").replace(/i would like/g, "i'd like").replace(/[^a-z' ]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
 const OK = '__ok__';
-const L1_LINES = { L01: "Hi! I'm Teacher Pedro. Vamos praticar a Lição 1? Responda em inglês, com frases curtas. Primeira pergunta: what's your name?", L02: 'Muito bem! Só um ajuste: responda com a frase completa. Diga I’m e o seu nome.', P1: 'Nice to meet you!', L04: 'Where do you live?', L05: 'Só um ajuste: antes da cidade, use in. Diga I live in e o nome da cidade.', L06: 'Muito bem! Agora diga a frase completa: I live in e o nome da cidade.', L07: 'Só um ajuste: não use I’m com live. Diga I live in e o nome da cidade.', P2: 'Nice city!', L09: 'What do you do?', L10: 'Muito bem! Só um ajuste: use a antes da profissão. Diga I’m a e a sua profissão.', L11: 'Só um ajuste: antes de som de vogal, use an. Assim: I’m an engineer.', P3: 'Great job!', L13: 'Where do you work?', L14: 'Só um ajuste: não use I’m com work. Diga I work at e o lugar onde você trabalha.', L15: 'Diga a frase completa. Por exemplo: I work at a bank.', P4: 'Very good!', L18: 'And what do you love?', L19: 'Diga a frase completa: I love e o que você ama.', P5: 'Awesome!', L21: 'Muito bem! Agora junte tudo: apresente-se em três frases. Comece com: Hi, I’m…', L22: 'Excellent! Você juntou todas as peças da lição. You did it!', L23: 'Quase lá! Tente de novo usando: I’m, I live in, I work at e I love.', L24: 'Lição 1 concluída. See you tomorrow!', L25: 'Pode repetir, por favor? Can you say it again?', M1: 'Sem problema. Repita comigo: I’m Ana.', M2: 'Sem problema. Repita comigo: I live in São Paulo.', M3: 'Sem problema. Repita comigo: I’m a teacher.', M4: 'Sem problema. Repita comigo: I work at a school.', M5: 'Sem problema. Repita comigo: I love music.' };
-const VOWEL_JOBS = /\b(engineer|architect|accountant|actor|actress|artist|electrician|entrepreneur|editor|economist|analyst|assistant|attorney|officer|interpreter|intern|optician|operator|influencer|illustrator|investor|instructor)\b/;
-function checkJob(t) {
-  if (/ i'm (a|an) [a-z]/.test(t) || / i (work|am working) as (a|an) /.test(t) || / i'm (retired|unemployed|a student|self employed) /.test(t)) {
-    if (/ i'm a /.test(t) && VOWEL_JOBS.test(t)) return 'L11';
-    return OK;
-  }
-  if (/ i'm [a-z]/.test(t)) return 'L10';
-  return nw(t) <= 2 ? 'L10' : null;
-}
-const GAMES = {
-  l1: { lesson: 1, audio: false, title: 'Conversa com o coach', lines: L1_LINES, intro: null, end: 'L24', retry: 'L25', pass: [], tags: ["I'm", 'I live in', 'a / an', 'I work', 'I love'],
-    stages: [
-      { ask: 'L01', tpl: "I'm ____.", model: 'M1', praise: 'P1', chips: n => [`I'm ${n}.`, `${n}.`, `My name ${n}.`],
-        check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'L02' : null) },
-      { ask: 'L04', tpl: 'I live in ____.', model: 'M2', praise: 'P2', chips: () => ['I live in São Paulo.', "I'm live in São Paulo.", 'São Paulo.'],
-        check: t => / i live in [a-z]/.test(t) ? OK : / i'm liv/.test(t) ? 'L07' : / live /.test(t) ? 'L05' : (nw(t) <= 3 ? 'L06' : null) },
-      { ask: 'L09', tpl: "I'm a / an ____.", model: 'M3', praise: 'P3', chips: () => ["I'm a teacher.", "I'm teacher.", "I'm a engineer."], check: checkJob },
-      { ask: 'L13', tpl: 'I work at / in ____.', model: 'M4', praise: 'P4', chips: () => ['I work at a bank.', "I'm work at a bank.", 'At a bank.'],
-        check: t => (/ i (work|study) (at|in|for|from) /.test(t) || / i don't work /.test(t)) ? OK : / i'm work/.test(t) ? 'L14' : 'L15' },
-      { ask: 'L18', tpl: 'I love / I like ____.', model: 'M5', praise: 'P5', chips: () => ['I love coffee.', 'Coffee.', 'I like music.'],
-        check: t => / i (love|like|enjoy) [a-z]/.test(t) ? OK : 'L19' },
-      { ask: 'L21', tpl: "Hi! I'm ___.\nI live in ___.\nI'm a ___.\nI work at ___.\nI love ___.", final: true,
-        chips: n => [`Hi! I'm ${n}. I live in São Paulo. I'm a designer. I work at a startup. I love coffee.`, `Hi! I'm ${n}. I'm designer.`],
-        check: t => [/ (i'm|my name is) [a-z]/, / i live in /, / i'm (a|an) /, / i (work|study) /, / i (love|like) /].filter(r => r.test(t)).length >= 3 ? OK : 'L23' }
-    ] },
-  l4: { lesson: 4, audio: true, title: 'Conversa com o coach', who: '', lines3: 'jogo4', dir: 'media/l4coach/', intro: 'G01', end: 'F1', retry: 'R1',
-    pass: ['C1', 'C6'], tags: ['This is', 'Países', "he's / she's", 'lives / works', "they're", 'Falar de alguém'],
-    stages: [
-      { ask: 'A1', card: 'Diego · Argentina · designer · mora em São Paulo', tpl: 'This is Diego.', model: 'M1', praise: 'P1', chips: () => ['This is Diego.', 'He is Diego.', 'Diego.'],
-        check: t => / this is diego /.test(t) ? OK : / diego /.test(t) ? 'C1' : null },
-      { ask: 'A2', tpl: "He's from Argentina.", model: 'M2', praise: 'P2', chips: () => ["He's from Argentina.", "He's from the Argentina.", 'He from Argentina.'],
-        check: t => / from the argentin/.test(t) ? 'C2' : / (he's|he is) from argentina /.test(t) ? OK : null },
-      { ask: 'A3', tpl: "He's a designer.", model: 'M3', praise: 'P3', chips: () => ["He's a designer.", "She's a designer.", "He's designer."],
-        check: t => / (she's|she is) /.test(t) ? 'C3' : / (he's|he is) a designer /.test(t) ? OK : null },
-      { ask: 'A4', card: 'Ines · Portugal · mora em Lisboa', tpl: 'She lives in Lisbon.', model: 'M4', praise: 'P4', chips: () => ['She lives in Lisbon.', 'She live in Lisbon.', 'She is Lisbon.'],
-        check: t => / she live in /.test(t) ? 'C4' : / (she lives in|she's in|she is in) /.test(t) ? OK : null },
-      { ask: 'A5', card: 'Ken e Yumi · Japão · moram em Tóquio', tpl: "No, they're from Japan.", model: 'M5', praise: 'P5', chips: () => ["No, they're from Japan.", 'No, they is from Japan.', "No, she's from Japan."],
-        check: t => / (they're|they are) from japan /.test(t) ? OK : / japan /.test(t) ? 'C5' : null },
-      { ask: 'A6', tpl: "This is ___. He's / She's ___.", model: 'M6', praise: 'P6', chips: () => ["This is Ana. She's my sister. She lives in Rio.", 'This is Ana.', 'Ana is sister.'],
-        check: t => (t.match(/ (this is|he's|she's|he is|she is|he lives|she lives|he works|she works|they're|they are) /g) || []).length >= 2 ? OK : 'C6' }
-    ] },
-  l3: { lesson: 3, audio: true, title: 'Conversa com o coach', who: ' · colega', lines3: 'jogo3', dir: 'media/l3coach/', intro: 'G01', end: 'F1', retry: 'R1',
-    pass: ['C3'], tags: ['Cumprimentar', 'Se apresentar', 'How about you?', "How's it going?", 'Despedir-se', 'Despedir-se'],
-    stages: [
-      { ask: 'A1', tpl: 'Good morning!', model: 'M1', praise: null, chips: () => ['Good morning!', 'Good night!', 'Good evening!'],
-        check: t => / good night /.test(t) ? 'C1' : / (good morning|hello|hi|good afternoon|good evening) /.test(t) ? (/ good (afternoon|evening) /.test(t) ? 'C1' : OK) : null },
-      { ask: 'A2', tpl: "I'm ____. Nice to meet you.", model: 'M2', praise: 'P2', chips: n => [`I'm ${n}. Nice to meet you.`, `${n}.`, `My name ${n}.`],
-        check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'C2' : null) },
-      { ask: 'A3', tpl: "I'm good. How about you?", model: 'M3', praise: 'P3', chips: () => ["I'm good. How about you?", "I'm good.", "I'm fine, thanks. And you?"],
-        check: t => / (good|great|fine|ok|okay|well|not bad) /.test(t) ? (/ (how about you|and you|what about you) /.test(t) ? OK : 'C3') : null },
-      { ask: 'A4', tpl: "It's going well.  /  Not bad.", model: 'M4', praise: 'P4', chips: () => ["It's going well.", "I'm going well.", 'Not bad, thanks.'],
-        check: t => / i'm going /.test(t) ? 'C4' : / (going well|not bad|good|great|well|fine) /.test(t) ? OK : 'C4' },
-      { ask: 'A5', tpl: 'OK! Have a good day!', model: 'M5', praise: 'P5', chips: () => ['OK! Have a good day!', 'Good night!', 'See you!'],
-        check: t => / good night /.test(t) ? 'C5' : / (have a good day|have a nice day|have a great day|see you|bye|goodbye) /.test(t) ? OK : null },
-      { ask: 'A6', tpl: 'See you tomorrow! Bye!', model: 'M6', praise: 'P6', chips: () => ['See you tomorrow! Bye!', 'Bye!', 'Good morning!'],
-        check: t => / (see you|bye|goodbye|have a good) /.test(t) ? OK : null }
-    ] },
-  l2: { lesson: 2, audio: true, title: 'Conversa com o garçom', who: ' · garçom', lines3: 'jogo', dir: 'media/l2coach/', pass: ['C9', 'C6'], tags: ['Roteiro do restaurante', 'Roteiro do restaurante', "I'd like", "I'd like", 'Roteiro do restaurante', 'the bill'], intro: 'G01', end: 'F1', retry: 'R1',
-    stages: [
-      { ask: 'A1', tpl: 'A table for ___, please.', model: 'M1', praise: 'P1', chips: () => ['A table for two, please.', 'Two.', 'I want a table.'],
-        check: t => / table for (one|two|three|four|five|six|seven|eight|\w+) /.test(t) ? OK : 'C1' },
-      { ask: 'A2', tpl: 'Can I see the menu, please?', model: 'M2', praise: 'P2', chips: () => ['Can I see the menu, please?', 'Give me the menu.', 'Menu.'],
-        check: t => / menu /.test(t) && !/ give me /.test(t) ? OK : 'C2' },
-      { ask: 'A3', tpl: "I'd like a / an ___, please.", model: 'M3', praise: 'P3', chips: () => ["I'd like an orange juice, please.", 'I want a orange juice.', "I'd like a orange juice, please."],
-        check: t => / a (orange|apple|iced|espresso|americano) /.test(t) ? 'C4' : / i want /.test(t) ? 'C3' : / (i'd like|can i have|could i have|i'll have) \w/.test(t) ? OK : 'C3' },
-      { ask: 'A4', tpl: 'Can I have the ___, please?', model: 'M4', praise: 'P4', chips: () => ['Can I have the chicken, please?', 'Give me the chicken.', 'Can I have the chicken?'],
-        check: t => / give me /.test(t) ? 'C5' : / (can i have|could i have|i'd like|i'll have) /.test(t) ? (/ please /.test(t) ? OK : 'C6') : 'C5' },
-      { ask: 'A5', tpl: "It's delicious, thank you.", model: 'M5', praise: 'P5', chips: () => ["It's delicious, thank you.", 'Good.', "I'm delicious."],
-        check: t => / i'm (delicious|good|great) /.test(t) ? 'C7' : (/ (delicious|good|great|amazing|perfect|excellent|wonderful) /.test(t) && nw(t) >= 3) ? OK : 'C7' },
-      { ask: 'A6', tpl: 'No, thank you. Can you bring the bill, please?', model: 'M6', praise: 'P6', chips: () => ['No, thank you. Can you bring the bill, please?', 'The account, please.', 'Bring the bill.'],
-        check: t => / account /.test(t) ? 'C8' : / (bill|check) /.test(t) ? (/ (can|could) you /.test(t) ? OK : 'C9') : 'C8' }
-    ] }
-};
 
 // ---------------- estado e armazenamento ----------------
 const TEST = [{ key: 'ana', name: 'Ana', email: 'ana@fluent.com' }, { key: 'bruno', name: 'Bruno', email: 'bruno@fluent.com' }];
@@ -424,7 +307,6 @@ function markStep(n, id, extra) {
   touchDay(); save(true);
   if (!was) toast(lessonDone(n) ? 'Lição ' + n + ' concluída!' : 'Etapa concluída');
 }
-const AVAIL = Object.keys(LESSONS).map(Number).sort((a, b) => a - b);
 function currentLesson() { for (const n of AVAIL) if (!lessonDone(n)) return n; return AVAIL[AVAIL.length - 1]; }
 function openLessons() { return AVAIL.filter(n => n === 1 || lessonStarted(n) || lessonDone(n - 1)); }
 function bestGame() { const n = currentLesson(); const g = LESSONS[n].steps.find(s => s.type === 'conv'); return g && GAMES[g.game].audio ? g.game : 'l2'; }
@@ -454,7 +336,7 @@ function unlockAudio() {
   if (!AC && Ctx) { try { AC = new Ctx(); AN = AC.createAnalyser(); AN.fftSize = 512; ABUF = new Uint8Array(AN.fftSize); AN.connect(AC.destination); } catch (e) { AC = null; } }
   if (!AC) return;
   if (AC.state !== 'running') { try { AC.resume(); } catch (e) {} }
-  if (!unlocked) { unlocked = true; try { player.muted = true; player.src = 'media/sam00.mp3'; const pp = player.play(); if (pp && pp.then) pp.then(() => { player.pause(); player.muted = false; }, () => { player.muted = false; }); } catch (e) {} try { const s = AC.createBufferSource(); s.buffer = AC.createBuffer(1, 1, 22050); s.connect(AC.destination); s.start(0); } catch (e) {} }
+  if (!unlocked) { unlocked = true; try { player.muted = true; player.src = 'media/start/licao-02/exercicios/sam00.mp3'; const pp = player.play(); if (pp && pp.then) pp.then(() => { player.pause(); player.muted = false; }, () => { player.muted = false; }); } catch (e) {} try { const s = AC.createBufferSource(); s.buffer = AC.createBuffer(1, 1, 22050); s.connect(AC.destination); s.start(0); } catch (e) {} }
 }
 const ensureAudioGraph = unlockAudio;
 function loadBuf(src) {
@@ -605,7 +487,7 @@ function toast(msg) {
 function greeting() { const h = new Date().getHours(); return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; }
 function nav(cur) {
   const it = [['coach', 'Coach', null], ['trilha', 'Trilha', 'map'], ['praticar', 'Praticar', 'zap'], ['progresso', 'Progresso', 'chart'], ['plano', 'Plano', 'bell']];
-  return `<nav class="bar" aria-label="Navegação principal">${it.map(([h, l, i]) => `<a href="#${h}" class="${cur === h ? 'on' : ''}"${cur === h ? ' aria-current="page"' : ''}><span class="pill">${i ? ic(i, 26, cur === h ? '#111A2B' : '#B8C2D6', 2.3) : '<span class="nav-av"><img src="media/pedro-sorrindo.png" alt=""></span>'}</span>${l}</a>`).join('')}</nav>`;
+  return `<nav class="bar" aria-label="Navegação principal">${it.map(([h, l, i]) => `<a href="#${h}" class="${cur === h ? 'on' : ''}"${cur === h ? ' aria-current="page"' : ''}><span class="pill">${i ? ic(i, 26, cur === h ? '#111A2B' : '#B8C2D6', 2.3) : '<span class="nav-av"><img src="media/comum/pedro-sorrindo.png" alt=""></span>'}</span>${l}</a>`).join('')}</nav>`;
 }
 const streakChip = () => `<span class="chip-streak" aria-label="${streak()} dias seguidos">${ic('flame', 20, '#FF6A1F', 2.4)}${streak()}</span>`;
 const avBtn = () => `<button class="avbtn" data-act="go" data-h="perfil" aria-label="Seu perfil">${esc((U && U.name || '?')[0].toUpperCase())}</button>`;
@@ -641,12 +523,12 @@ let INTRO_NAME = false;
 function vIntro() {
   const pil = (i, c, t, d) => `<div class="row" style="align-items:flex-start;gap:14px"><span class="iconbox" style="background:${c}">${ic(i, 28, '#111A2B', 2.3)}</span><span style="display:flex;flex-direction:column;gap:3px"><b style="font-size:16px">${t}</b><span class="muted" style="font-size:14px">${d}</span></span></div>`;
   if (INTRO_NAME) return `<div class="page dark" style="justify-content:center;gap:22px;padding-bottom:40px">
-    <div class="center" style="display:flex;flex-direction:column;align-items:center;gap:14px"><img src="media/pedro-sorrindo.png" alt="" style="width:110px;height:110px;border-radius:55px"><h1 style="font-size:28px">Como você quer ser chamado?</h1><p class="muted">O Teacher Pedro vai usar o seu nome nas conversas.</p></div>
+    <div class="center" style="display:flex;flex-direction:column;align-items:center;gap:14px"><img src="media/comum/pedro-sorrindo.png" alt="" style="width:110px;height:110px;border-radius:55px"><h1 style="font-size:28px">Como você quer ser chamado?</h1><p class="muted">O Teacher Pedro vai usar o seu nome nas conversas.</p></div>
     <form id="visit" class="card" style="color:var(--navy)" novalidate><label class="field">Seu nome<input name="name" autocomplete="given-name" placeholder="Ana" maxlength="30"></label><button class="btn or" type="submit">Entrar na plataforma</button></form>
     <button class="btn gh" data-act="intro-back">Voltar</button></div>`;
   return `<div class="page dark" style="gap:22px;padding-bottom:40px">
   <div class="top"><span class="logo" aria-label="Fluent">F<i></i></span><span style="font-size:11px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:999px;background:var(--cyan);color:var(--navy)">DEMONSTRAÇÃO</span></div>
-  <div class="hero" style="height:250px"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/pedro-sorrindo.png" alt="Teacher Pedro"></div>
+  <div class="hero" style="height:250px"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/comum/pedro-sorrindo.png" alt="Teacher Pedro"></div>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:-10px"><h1 style="font-size:32px;line-height:1.1">Um coach de inglês que acompanha você todos os dias</h1>
   <p class="muted" style="font-size:16px">A plataforma da Fluent, escola de inglês para adultos. Aulas curtas, prática de conversa e um coach que cuida da sua rotina.</p></div>
   <button class="btn or" data-act="intro-start">${ic('play', 20, '#111A2B', 2, '#111A2B')}Experimentar como aluno</button>
@@ -719,7 +601,7 @@ function vCoach() {
   const nextTime = (() => { const now = new Date(); const hm = now.getHours() * 60 + now.getMinutes(); const ts = U.plan.times.slice(0, U.plan.perDay).sort(); return ts.find(t => { const [h, mm] = t.split(':').map(Number); return h * 60 + mm > hm; }) || ts[0]; })();
   return `<div class="page dark">
   <div class="top"><span class="logo" aria-label="Fluent">F<i></i></span><div class="row" style="gap:10px">${streakChip()}${avBtn()}</div></div>
-  <div class="hero"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/pedro-sorrindo.png" alt="Teacher Pedro"></div>
+  <div class="hero"><canvas class="cloud" data-scale=".24" aria-hidden="true"></canvas><img src="media/comum/pedro-sorrindo.png" alt="Teacher Pedro"></div>
   <div class="center" style="margin-top:-18px"><span style="font-size:11px;font-weight:800;letter-spacing:.12em;padding:5px 12px;border-radius:999px;background:var(--cyan);color:var(--navy)">START · A1</span></div>
   <div class="speech">
     <span style="font-size:20px;font-weight:900">${greeting()}, ${esc(U.name)}!</span>
@@ -785,7 +667,7 @@ function vLicao(n) {
   }).join('')}
   ${L.pdf ? `<a class="steprow" href="${L.pdf}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span class="iconbox" style="width:46px;height:46px;border-radius:14px;background:#F2F4F8">${ic('file', 24, '#7A8599')}</span><span class="grow" style="font-size:15px;font-weight:800">Material de apoio (PDF)</span>${ic('arrow', 20, '#7A8599')}</a>` : ''}
   ${nx ? `<button class="btn or" data-act="open-step" data-n="${n}" data-s="${nx.id}">${ic('play', 20, '#111A2B', 2, '#111A2B')}Continuar: ${esc(nx.label.split(':')[0])}</button>`
-       : `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><p style="font-weight:800">Lição concluída! Quer treinar mais? Refaça qualquer etapa quando quiser.</p></div>${LESSONS[n + 1] ? `<button class="btn or" data-act="go" data-h="licao-${n + 1}">Ir para a Lição ${n + 1}</button>` : ''}`}
+       : `<div class="fb ok"><img src="media/comum/pedro-apontando.png" alt=""><p style="font-weight:800">Lição concluída! Quer treinar mais? Refaça qualquer etapa quando quiser.</p></div>${LESSONS[n + 1] ? `<button class="btn or" data-act="go" data-h="licao-${n + 1}">Ir para a Lição ${n + 1}</button>` : ''}`}
 </div>${nav('trilha')}`;
 }
 
@@ -878,7 +760,7 @@ function vEx() {
     <div class="chips">${x.w.map((w, k) => EX.order.includes(k) ? '' : `<button class="wchip" data-act="order" data-k="${k}"${EX.checked ? ' disabled' : ''}>${esc(w)}</button>`).join('')}</div>`;
   }
   const right = EX.checked && isRight();
-  const fb = EX.checked ? `<div class="fb ${right ? 'ok' : 'no'}" role="status"><img src="media/pedro-${right ? 'sorrindo' : 'apontando'}.png" alt=""><div style="display:flex;flex-direction:column;gap:4px"><b style="font-size:16px;color:${right ? '#0D5866' : '#A8430B'}">${right ? ['Muito bem!', 'Isso aí!', 'Perfeito!', 'Acertou em cheio!'][EX.i % 4] : 'Quase! Só um ajuste'}</b><span style="font-size:14px;font-weight:600;line-height:1.45">${esc(right ? x.ok : x.no)}</span></div></div>` : '';
+  const fb = EX.checked ? `<div class="fb ${right ? 'ok' : 'no'}" role="status"><img src="media/comum/pedro-${right ? 'sorrindo' : 'apontando'}.png" alt=""><div style="display:flex;flex-direction:column;gap:4px"><b style="font-size:16px;color:${right ? '#0D5866' : '#A8430B'}">${right ? ['Muito bem!', 'Isso aí!', 'Perfeito!', 'Acertou em cheio!'][EX.i % 4] : 'Quase! Só um ajuste'}</b><span style="font-size:14px;font-weight:600;line-height:1.45">${esc(right ? x.ok : x.no)}</span></div></div>` : '';
   const can = x.t === 'order' ? EX.order.length === x.w.length : EX.sel != null;
   return `<div class="page" style="padding-bottom:30px">
   <div class="top"><button class="back" data-act="close" aria-label="Sair dos exercícios">${ic('x', 24)}</button><div class="grow prog" role="img" aria-label="Questão ${EX.i + 1} de ${total}"><i style="width:${(EX.i + (EX.checked ? 1 : 0)) / total * 100}%"></i></div><span class="small">${EX.i + 1}/${total}</span></div>
@@ -897,7 +779,7 @@ function vResult(o) {
   <div style="display:flex;justify-content:flex-end"><button class="back" data-act="close" aria-label="Fechar">${ic('x', 24, '#fff')}</button></div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:12px">
     <div class="row" style="gap:6px">${[0, 1, 2].map(i => ic('star', i === 1 ? 46 : 38, i < stars ? '#FF6A1F' : '#3A4A6A', 2, i < stars ? '#FF6A1F' : '#3A4A6A')).join('')}</div>
-    <img src="media/pedro-apontando.png" alt="" style="width:150px;height:150px">
+    <img src="media/comum/pedro-apontando.png" alt="" style="width:150px;height:150px">
     <h1 style="font-size:30px;text-align:center">${pct >= .7 ? 'Muito bem' : 'Bom trabalho'}, ${esc(U.name)}!</h1>
     <p class="muted center">${esc(o.sub)}</p>
   </div>
@@ -982,7 +864,7 @@ function renderGame() {
   app.innerHTML = `<div class="page" style="padding-bottom:20px">
   ${head(def.title, `<span class="small">Lição ${def.lesson}</span>`)}
   <div class="stage"><canvas class="cloud" data-scale=".2" aria-hidden="true"></canvas>
-    <div class="who"><img src="media/pedro-sorrindo.png" alt="">Teacher Pedro${G.def.who || ''}</div>
+    <div class="who"><img src="media/comum/pedro-sorrindo.png" alt="">Teacher Pedro${G.def.who || ''}</div>
     <div class="stt" id="gstt"><i></i><span>Pronto</span></div></div>
   <div id="gsteps" role="img"></div>
   <div class="glog" id="glog" aria-live="polite"></div>
@@ -1005,7 +887,7 @@ function gameInput() {
   if (G.status === 'idle') { el.innerHTML = `<button class="btn or" data-act="gstart">${ic('play', 20, '#111A2B', 2, '#111A2B')}Começar a conversa</button><p class="muted center" style="font-size:12px;margin-top:8px">${G.def.audio ? 'Ligue o som: o Teacher Pedro fala com você.' : 'Atenção: nesta lição, o coach ainda não tem voz e as falas aparecem só em texto. Para ouvir o coach, faça a conversa da Lição 2 ou da Lição 3.'}</p>`; return; }
   if (G.status === 'done') {
     const stars = G.stars.filter(Boolean).length;
-    el.innerHTML = `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><div><b style="color:#0D5866">Conversa concluída!</b><p style="font-size:14px;font-weight:600">${stars} de ${G.def.stages.length} respostas certas de primeira.</p></div></div><div class="tiles" style="margin-top:10px"><button class="btn wh" data-act="game" data-g="${G.gid}">${ic('redo', 20, '#C94E0E', 2.4)}De novo</button><button class="btn cy" data-act="close">Concluir</button></div>`;
+    el.innerHTML = `<div class="fb ok"><img src="media/comum/pedro-apontando.png" alt=""><div><b style="color:#0D5866">Conversa concluída!</b><p style="font-size:14px;font-weight:600">${stars} de ${G.def.stages.length} respostas certas de primeira.</p></div></div><div class="tiles" style="margin-top:10px"><button class="btn wh" data-act="game" data-g="${G.gid}">${ic('redo', 20, '#C94E0E', 2.4)}De novo</button><button class="btn cy" data-act="close">Concluir</button></div>`;
     return;
   }
   if (G.status !== 'answer') { el.innerHTML = `<div class="ginput"><p class="muted center" style="color:var(--muted2)">${G.status === 'speaking' ? 'O Teacher Pedro está falando…' : '…'}</p></div>`; return; }
@@ -1022,7 +904,7 @@ function gameInput() {
   </div>`;
   const inp = document.getElementById('gtxt'); if (inp) inp.focus();
 }
-function gLine(id) { return G.def.audio ? ((VOC[G.def.lines3] || {})[id] || '') : (G.def.lines[id] || ''); }
+function gLine(id) { return G.def.lines[id] || ''; }
 async function say(id) {
   const text = gLine(id); G.log.push({ r: 'c', t: text }); G.status = 'speaking'; CLOUD.mode = 'coach'; gameUpdate(); gameInput();
   if (G.def.audio) { ensureAudioGraph(); await playClip(G.def.dir + id + '.mp3'); }
@@ -1038,7 +920,7 @@ async function ask() {
   if (G.repeat) G.log.push({ r: 't', t: 'Repita: ' + st.tpl });
   G.status = 'answer'; gameUpdate(); gameInput();
 }
-async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(VOC[G.def.lines3] || {}).map(k => G.def.dir + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
+async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(G.def.lines).map(k => G.def.dir + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
 async function evaluate(raw) {
   const st = G.def.stages[G.i]; const t = norm(raw);
   G.log.push({ r: 'u', t: raw || '(sem resposta)' }); G.status = 'think'; CLOUD.mode = 'think'; G.typing = false; gameUpdate(); gameInput();
@@ -1143,7 +1025,7 @@ function vPlano() {
   const ex = p.types.tarefa && st ? `${U.name}, faltam ${st.id === 'ex' ? 'só os exercícios' : 'poucos minutos'} da Lição ${currentLesson()}. Vamos?` : p.types.conversa ? `${U.name}, que tal 3 minutos de conversa comigo agora?` : `${U.name}, vamos revisar o que você errou ontem?`;
   return `<div class="page"><div class="top"><h1>Plano</h1>${streakChip()}</div>
   ${sec('bell', 'Mensagens por dia', bells)}${sec('chat', 'O coach pode enviar', types)}${sec('target', 'Cobrança', lv)}
-  <div class="row" style="align-items:flex-end;gap:10px"><img src="media/pedro-sorrindo.png" alt="" style="width:40px;height:40px;border-radius:20px"><span style="background:var(--navy);color:#fff;border-radius:18px 18px 18px 4px;padding:10px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;font-weight:800;color:var(--cyan)">EXEMPLO · ${esc(last)}</span><span style="font-size:14px;font-weight:700;line-height:1.35">${esc(ex)}</span></span></div>
+  <div class="row" style="align-items:flex-end;gap:10px"><img src="media/comum/pedro-sorrindo.png" alt="" style="width:40px;height:40px;border-radius:20px"><span style="background:var(--navy);color:#fff;border-radius:18px 18px 18px 4px;padding:10px 14px;display:flex;flex-direction:column;gap:2px"><span style="font-size:11px;font-weight:800;color:var(--cyan)">EXEMPLO · ${esc(last)}</span><span style="font-size:14px;font-weight:700;line-height:1.35">${esc(ex)}</span></span></div>
   <p class="muted" style="font-size:12px">Nesta versão de teste, o plano fica salvo, mas as notificações ainda não chegam ao celular. A mensagem do coach aparece quando você abre o app.</p>
 </div>${nav('plano')}`;
 }
@@ -1185,7 +1067,7 @@ document.addEventListener('click', e => {
   if (a === 'go') { go(b.dataset.h); return; }
   if (a === 'intro-start') { INTRO_NAME = true; render(); return; }
   if (a === 'intro-back') { INTRO_NAME = false; render(); return; }
-  if (a === 'intro-video') { V.overlay = { type: 'video', n: 0, s: { id: 'demo', label: 'Vídeo de apresentação', src: 'media/demo_app.mp4', poster: 'media/demo_app.jpg' } }; app.innerHTML = vVideo(V.overlay); return; }
+  if (a === 'intro-video') { V.overlay = { type: 'video', n: 0, s: { id: 'demo', label: 'Vídeo de apresentação', src: 'media/comum/demo_app.mp4', poster: 'media/comum/demo_app.jpg' } }; app.innerHTML = vVideo(V.overlay); return; }
   if (a === 'quick') { const acc = TEST.find(x => x.key === b.dataset.k); doLogin(acc); return; }
   if (a === 'toggle-signup') { SIGNUP = !SIGNUP; LOGINERR = ''; render(); return; }
   if (a === 'open-step') { stopMedia(); openStep(+b.dataset.n, b.dataset.s); return; }
@@ -1221,10 +1103,10 @@ document.addEventListener('click', e => {
     render(); return;
   }
   if (a === 'mix' || a === 'mix-err') {
-    if (!VOC.l1.length) { toast('Carregando o conteúdo…'); return; }
+    if (!(VOC.l1 || []).length) { toast('Carregando o conteúdo…'); return; }
     V.overlay = { type: 'ex', items: buildMix(a === 'mix-err'), title: a === 'mix' ? 'Mix do dia' : 'Revisão dos erros', mode: 'mix' }; initEx(); render(); return;
   }
-  if (a === 'quiz') { if (!VOC.l1.length) { toast('Carregando o conteúdo…'); return; } startQuiz(); return; }
+  if (a === 'quiz') { if (!(VOC.l1 || []).length) { toast('Carregando o conteúdo…'); return; } startQuiz(); return; }
   if (a === 'qpick') { quizAnswer(+b.dataset.k); return; }
   if (a === 'podcast') { toast('Os podcasts de 2 minutos chegam em breve.'); return; }
   if (a === 'game') { if (b.dataset.g) startGame(b.dataset.g); else { V.overlay = { type: 'games' }; render(); } return; }
@@ -1272,8 +1154,8 @@ document.addEventListener('submit', e => {
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
 
 // ---------------- início ----------------
-fetch('vocab.json').then(r => r.json()).then(d => { VOC = d; if (V.overlay) renderOverlay(); }).catch(() => {});
 (async () => {
+  try { await contentReady; } catch (e) { app.innerHTML = '<p style="padding:40px;text-align:center;font-weight:700">Não foi possível carregar as lições. Verifique a internet e recarregue a página.</p>'; return; }
   const acc = LS.get('fluent_visit');
   if (acc) { await doLogin(acc); } else render();
 })();
