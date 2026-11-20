@@ -109,6 +109,8 @@ video{width:100%;border-radius:22px;background:#000;display:block;max-height:62v
 .glog{display:flex;flex-direction:column;gap:10px}
 .b-c{align-self:flex-start;background:#fff;border-radius:22px 22px 22px 6px;padding:12px 16px;max-width:88%;font-size:16px;font-weight:700;line-height:1.4}
 .b-u{align-self:flex-end;background:var(--navy);color:#fff;border-radius:22px 22px 6px 22px;padding:12px 16px;max-width:88%;font-size:16px;font-weight:700;line-height:1.4}
+
+.b-k{align-self:flex-start;background:var(--orange-l);border:2px solid var(--orange);border-radius:18px;padding:10px 14px;font-size:15px;font-weight:800;display:flex;flex-direction:column;gap:2px}.b-k span{font-size:10px;letter-spacing:.12em;color:var(--orange-t)}
 .b-t{align-self:stretch;background:var(--cyan-l);border:2px solid var(--cyan);border-radius:18px;padding:12px 14px;font-size:15px;font-weight:800;white-space:pre-line}
 .ginput{background:var(--navy);border-radius:26px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .gchip{min-height:52px;border-radius:16px;border:2px solid var(--navy3);background:var(--navy2);color:#fff;font-size:15px;font-weight:800;text-align:left;padding:8px 14px;width:100%}
@@ -204,7 +206,7 @@ const TRACK = [
   { t: 'Indo além', l: ['Dizer o que você sabe fazer', 'Pedir ajuda quando não entende', 'Falar de datas e aniversários', 'Dizer onde você estava', 'Contar como foi', 'Desafio final: apresente-se em 1 minuto'] }
 ];
 const TOTAL = 36;
-let VOC = { l1: [], l2a: [], l2b: [], l3: [] };
+let VOC = { l1: [], l2a: [], l2b: [], l3: [], l4: [] };
 
 const LESSONS = {
   1: { title: 'Falar de você e do que você faz', short: "I'm…, profissões", img: 'media/l1_card.png', decks: ['l1'], pdf: 'media/l1_material.pdf',
@@ -256,6 +258,22 @@ const LESSONS = {
       { t: 'choice', tag: 'Despedir-se', q: 'Qual frase é de despedida?', o: ['See you tomorrow!', "How's it going?", 'Good evening!'], a: 0, ok: 'See you tomorrow quer dizer “até amanhã”.', no: 'Para se despedir: See you tomorrow! Bye! Have a good day!' },
       { t: 'listen', tag: 'Se apresentar', q: 'Ouça a Julia. Qual é a melhor resposta?', audio: 'media/l3_julia_nice.mp3', o: ['Nice to meet you too!', "I'm fine.", 'Good night!'], a: 0, ok: 'Ela disse “Nice to meet you!”: responda com too no final.', no: 'Ela disse “Nice to meet you!”. Responda: Nice to meet you too!' },
       { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de afternoon?', o: ['AF-ter-noon', 'af-TER-noon', 'af-ter-NOON'], a: 2, ok: 'Isso: af-ter-NUUN, com força no final.', no: 'A sílaba forte é a última: af-ter-NUUN.' }
+    ] },
+  4: { title: 'Falar de outras pessoas', short: "He's, she's, they're", img: 'media/l4_card.png', decks: ['l4'], pdf: 'media/l4_material.pdf',
+    steps: [
+      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l4_video.mp4', poster: 'media/l4_video.jpg' },
+      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 16 países', src: 'media/l4_vocab.mp4', poster: 'media/l4_vocab.jpg', deck: 'l4' },
+      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
+      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l4' }
+    ],
+    ex: [
+      { t: 'choice', tag: "he's / she's", q: 'A Emma é médica. Como dizer isso em inglês?', o: ["She's a doctor.", "He's a doctor.", 'She doctor.'], a: 0, ok: 'Para falar de uma mulher, use she’s.', no: 'A Emma é ela: She’s a doctor.' },
+      { t: 'choice', tag: "he's / she's", q: 'Complete: Diego ___ from Argentina.', o: ['is', 'are', 'am'], a: 0, ok: 'Com uma pessoa (he ou she), o verbo é is.', no: 'Para uma pessoa, use is: Diego is from Argentina.' },
+      { t: 'choice', tag: 'Países', q: 'Qual frase está correta?', o: ["He's from Brazil.", "He's from the Brazil.", 'He from Brazil.'], a: 0, ok: 'Nome de país não leva the.', no: 'O certo é He’s from Brazil, sem the e com o verbo.' },
+      { t: 'order', tag: 'lives / works', q: 'Monte a frase: “Ela mora no Rio.”', w: ['in', 'She', 'Rio.', 'lives'], a: ['She', 'lives', 'in', 'Rio.'], ok: 'Com she, o verbo ganha s: she lives.', no: 'A ordem certa é: She lives in Rio.' },
+      { t: 'listen', tag: "they're", q: 'Ouça a Priya. O que ela disse?', audio: 'media/l4_priya_japan.mp3', o: ['Eles são do Japão.', 'Ela é do Japão.', 'Eles moram na China.'], a: 0, ok: 'They’re from Japan: eles são do Japão.', no: 'Ela disse They’re from Japan: eles são do Japão.' },
+      { t: 'choice', tag: 'Nacionalidades', q: 'Alguém da França é…', o: ['French', 'Francian', 'France'], a: 0, ok: 'France é o país; French é a nacionalidade.', no: 'O país é France; a nacionalidade é French.' },
+      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de Japanese?', o: ['JA-pa-nese', 'ja-PA-nese', 'ja-pa-NESE'], a: 2, ok: 'Isso aí: dja-pa-NÍZ, com força no final.', no: 'A sílaba forte é a última: dja-pa-NÍZ.' }
     ] }
 };
 
@@ -288,6 +306,22 @@ const GAMES = {
       { ask: 'L21', tpl: "Hi! I'm ___.\nI live in ___.\nI'm a ___.\nI work at ___.\nI love ___.", final: true,
         chips: n => [`Hi! I'm ${n}. I live in São Paulo. I'm a designer. I work at a startup. I love coffee.`, `Hi! I'm ${n}. I'm designer.`],
         check: t => [/ (i'm|my name is) [a-z]/, / i live in /, / i'm (a|an) /, / i (work|study) /, / i (love|like) /].filter(r => r.test(t)).length >= 3 ? OK : 'L23' }
+    ] },
+  l4: { lesson: 4, audio: true, title: 'Conversa com o coach', who: '', lines3: 'jogo4', dir: 'media/l4coach/', intro: 'G01', end: 'F1', retry: 'R1',
+    pass: ['C1', 'C6'], tags: ['This is', 'Países', "he's / she's", 'lives / works', "they're", 'Falar de alguém'],
+    stages: [
+      { ask: 'A1', card: 'Diego · Argentina · designer · mora em São Paulo', tpl: 'This is Diego.', model: 'M1', praise: 'P1', chips: () => ['This is Diego.', 'He is Diego.', 'Diego.'],
+        check: t => / this is diego /.test(t) ? OK : / diego /.test(t) ? 'C1' : null },
+      { ask: 'A2', tpl: "He's from Argentina.", model: 'M2', praise: 'P2', chips: () => ["He's from Argentina.", "He's from the Argentina.", 'He from Argentina.'],
+        check: t => / from the argentin/.test(t) ? 'C2' : / (he's|he is) from argentina /.test(t) ? OK : null },
+      { ask: 'A3', tpl: "He's a designer.", model: 'M3', praise: 'P3', chips: () => ["He's a designer.", "She's a designer.", "He's designer."],
+        check: t => / (she's|she is) /.test(t) ? 'C3' : / (he's|he is) a designer /.test(t) ? OK : null },
+      { ask: 'A4', card: 'Ines · Portugal · mora em Lisboa', tpl: 'She lives in Lisbon.', model: 'M4', praise: 'P4', chips: () => ['She lives in Lisbon.', 'She live in Lisbon.', 'She is Lisbon.'],
+        check: t => / she live in /.test(t) ? 'C4' : / (she lives in|she's in|she is in) /.test(t) ? OK : null },
+      { ask: 'A5', card: 'Ken e Yumi · Japão · moram em Tóquio', tpl: "No, they're from Japan.", model: 'M5', praise: 'P5', chips: () => ["No, they're from Japan.", 'No, they is from Japan.', "No, she's from Japan."],
+        check: t => / (they're|they are) from japan /.test(t) ? OK : / japan /.test(t) ? 'C5' : null },
+      { ask: 'A6', tpl: "This is ___. He's / She's ___.", model: 'M6', praise: 'P6', chips: () => ["This is Ana. She's my sister. She lives in Rio.", 'This is Ana.', 'Ana is sister.'],
+        check: t => (t.match(/ (this is|he's|she's|he is|she is|he lives|she lives|he works|she works|they're|they are) /g) || []).length >= 2 ? OK : 'C6' }
     ] },
   l3: { lesson: 3, audio: true, title: 'Conversa com o coach', who: ' · colega', lines3: 'jogo3', dir: 'media/l3coach/', intro: 'G01', end: 'F1', retry: 'R1',
     pass: ['C3'], tags: ['Cumprimentar', 'Se apresentar', 'How about you?', "How's it going?", 'Despedir-se', 'Despedir-se'],
@@ -677,7 +711,7 @@ function coachMessage() {
   const name = U.name;
   if (!lessonStarted(1)) return { text: `Eu sou o Teacher Pedro, o seu coach. Vamos começar a sua primeira lição? Em poucos minutos, você vai se apresentar em inglês.`, cta: 'Começar a Lição 1', act: 'open-step', n: 1, s: 'video', icon: 'play' };
   if (AVAIL.every(lessonDone)) return { text: `Você concluiu todas as lições disponíveis do Start. Que tal manter o ritmo com o mix do dia? A Lição ${AVAIL.length + 1} chega em breve.`, cta: 'Fazer o mix do dia', act: 'mix', icon: 'shuffle' };
-  const msgs = { video: `Hoje tem videoaula da Lição ${n}: ${L.title}. Leva só alguns minutos.`, vocab: `Agora é a vez do vocabulário da Lição ${n}. Ouça, repita e veja como se escreve.`, food: 'Faltam os pratos e as sobremesas. Vamos?', ex: `Só faltam os exercícios da Lição ${n}. São rapidinhos. Vamos nessa?`, conv: n === 2 ? 'Que tal fazer o pedido comigo? Eu sou o garçom, você é o cliente.' : n === 3 ? 'Vamos conversar? Eu sou um colega novo no escritório.' : 'Vamos conversar? Eu pergunto, você responde em inglês.' };
+  const msgs = { video: `Hoje tem videoaula da Lição ${n}: ${L.title}. Leva só alguns minutos.`, vocab: `Agora é a vez do vocabulário da Lição ${n}. Ouça, repita e veja como se escreve.`, food: 'Faltam os pratos e as sobremesas. Vamos?', ex: `Só faltam os exercícios da Lição ${n}. São rapidinhos. Vamos nessa?`, conv: n === 2 ? 'Que tal fazer o pedido comigo? Eu sou o garçom, você é o cliente.' : n === 4 ? 'Vamos conversar? Eu mostro algumas pessoas e você me conta quem são.' : n === 3 ? 'Vamos conversar? Eu sou um colega novo no escritório.' : 'Vamos conversar? Eu pergunto, você responde em inglês.' };
   return { text: msgs[st.id] || 'Vamos continuar?', cta: st.label, act: 'open-step', n, s: st.id, icon: st.icon };
 }
 function vCoach() {
@@ -959,7 +993,7 @@ function renderGame() {
 }
 function gameUpdate() {
   const lg = document.getElementById('glog'); if (!lg) return;
-  lg.innerHTML = G.log.slice(-6).map(m => m.r === 'c' ? `<div class="b-c">${esc(m.t)}</div>` : m.r === 'u' ? `<div class="b-u">${esc(m.t)}</div>` : `<div class="b-t">${esc(m.t)}</div>`).join('');
+  lg.innerHTML = G.log.slice(-6).map(m => m.r === 'c' ? `<div class="b-c">${esc(m.t)}</div>` : m.r === 'k' ? `<div class="b-k"><span>CARTÃO</span>${esc(m.t)}</div>` : m.r === 'u' ? `<div class="b-u">${esc(m.t)}</div>` : `<div class="b-t">${esc(m.t)}</div>`).join('');
   const st = document.getElementById('gstt'); if (st) st.lastChild.textContent = G.status === 'speaking' ? 'Falando' : G.status === 'answer' ? (DICTON ? 'Ouvindo você' : 'Sua vez') : G.status === 'done' ? 'Concluído' : 'Pronto';
   const n = G.def.stages.length, sp = document.getElementById('gsteps');
   if (sp) { sp.setAttribute('aria-label', `Fase ${Math.min(G.i + 1, n)} de ${n}`); sp.style.cssText = `display:grid;grid-template-columns:repeat(${n},1fr);gap:4px`; sp.innerHTML = Array.from({ length: n }, (_, k) => `<span style="height:8px;border-radius:4px;background:${k < G.i ? 'var(--cyan)' : k === G.i && G.status !== 'idle' && G.status !== 'done' ? 'var(--orange)' : '#DDE2EC'}"></span>`).join(''); }
@@ -1000,6 +1034,7 @@ async function ask() {
   await say(G.repeat ? st.model : st.ask);
   if (!V.overlay || V.overlay.type !== 'game') return;
   // a frase-modelo só aparece no 'Repita comigo' ou quando o aluno pede a dica; antes disso, a resposta não fica à mostra
+  if (st.card && !G.repeat && G.tries === 0) G.log.splice(G.log.length - 1, 0, { r: 'k', t: st.card });
   if (G.repeat) G.log.push({ r: 't', t: 'Repita: ' + st.tpl });
   G.status = 'answer'; gameUpdate(); gameInput();
 }
@@ -1072,7 +1107,7 @@ function vPraticar() {
 }
 function vGames() {
   return `<div class="page">${head('Conversa com o coach')}
-  ${[['l3', 3], ['l2', 2], ['l1', 1]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:${GAMES[g].audio ? 'var(--cyan-t)' : 'var(--muted)'}">LIÇÃO ${n} · ${GAMES[g].audio ? 'COM VOZ' : 'SÓ TEXTO, VOZ EM BREVE'}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
+  ${[['l4', 4], ['l3', 3], ['l2', 2], ['l1', 1]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:${GAMES[g].audio ? 'var(--cyan-t)' : 'var(--muted)'}">LIÇÃO ${n} · ${GAMES[g].audio ? 'COM VOZ' : 'SÓ TEXTO, VOZ EM BREVE'}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
   <p class="muted" style="font-size:13px">A conversa livre com a inteligência artificial, sem roteiro, chega no ciclo Pro.</p></div>`;
 }
 function weekDays() {
