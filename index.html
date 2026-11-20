@@ -978,7 +978,7 @@ function gameInput() {
   const st = G.def.stages[G.i];
   const chips = shuffle(st.chips(gameName()));
   el.innerHTML = `<div class="ginput">
-    ${DICTON ? `<p style="color:#fff;font-weight:700;text-align:center;min-height:22px">${esc(DICTTXT || 'Fale agora…')}</p>` : `<p class="small" style="color:var(--muted2)">ESCOLHA, FALE OU DIGITE A SUA RESPOSTA</p>${chips.map(c => `<button class="gchip" data-act="ganswer" data-t="${esc(c)}">${esc(c)}</button>`).join('')}`}
+    ${DICTON ? `<p style="color:#fff;font-weight:700;text-align:center;min-height:22px">${esc(DICTTXT || 'Fale agora…')}</p>` : `<p class="small" style="color:var(--muted2)">SUA VEZ: ESCOLHA, FALE OU DIGITE · <span style="color:var(--cyan)">?</span> MOSTRA UMA DICA</p>${chips.map(c => `<button class="gchip" data-act="ganswer" data-t="${esc(c)}">${esc(c)}</button>`).join('')}`}
     ${G.typing && !DICTON ? `<form class="gtype" id="gform"><input id="gtxt" aria-label="Sua resposta em inglês" placeholder="Escreva em inglês" autocomplete="off"><button type="submit" aria-label="Enviar">${ic('send', 22, '#111A2B', 2.3)}</button></form>` : ''}
     <div class="gtools">
       <button data-act="gtype" aria-label="Digitar a resposta">${ic('keyboard', 24, '#fff', 2.2)}</button>
@@ -999,7 +999,9 @@ async function ask() {
   const st = G.def.stages[G.i];
   await say(G.repeat ? st.model : st.ask);
   if (!V.overlay || V.overlay.type !== 'game') return;
-  G.log.push({ r: 't', t: (G.repeat ? 'Repita: ' : '') + st.tpl }); G.status = 'answer'; gameUpdate(); gameInput();
+  // a frase-modelo só aparece no 'Repita comigo' ou quando o aluno pede a dica; antes disso, a resposta não fica à mostra
+  if (G.repeat) G.log.push({ r: 't', t: 'Repita: ' + st.tpl });
+  G.status = 'answer'; gameUpdate(); gameInput();
 }
 async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(VOC[G.def.lines3] || {}).map(k => G.def.dir + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
 async function evaluate(raw) {
@@ -1194,7 +1196,7 @@ document.addEventListener('click', e => {
   if (a === 'gstart') { gameStart(); return; }
   if (a === 'ganswer') { evaluate(b.dataset.t); return; }
   if (a === 'gtype') { G.typing = !G.typing; gameInput(); return; }
-  if (a === 'ghelp') { const st = G.def.stages[G.i]; G.log.push({ r: 't', t: 'Modelo: ' + st.tpl }); gameUpdate(); return; }
+  if (a === 'ghelp') { const st = G.def.stages[G.i]; G.log.push({ r: 't', t: 'Dica: ' + st.tpl }); gameUpdate(); return; }
   if (a === 'plan-per') { U.plan.perDay = +b.dataset.v; save(); render(); toast('Plano salvo'); return; }
   if (a === 'plan-type') { const k = b.dataset.v; U.plan.types[k] = !U.plan.types[k]; save(); render(); toast('Plano salvo'); return; }
   if (a === 'plan-level') { U.plan.level = +b.dataset.v; save(); render(); toast('Plano salvo'); return; }
