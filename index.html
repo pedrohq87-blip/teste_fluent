@@ -326,7 +326,7 @@ const GAMES = {
   l3: { lesson: 3, audio: true, title: 'Conversa com o coach', who: ' · colega', lines3: 'jogo3', dir: 'media/l3coach/', intro: 'G01', end: 'F1', retry: 'R1',
     pass: ['C3'], tags: ['Cumprimentar', 'Se apresentar', 'How about you?', "How's it going?", 'Despedir-se', 'Despedir-se'],
     stages: [
-      { ask: 'A1', tpl: 'Good morning!', model: 'M1', praise: 'P1', chips: () => ['Good morning!', 'Good night!', 'Good evening!'],
+      { ask: 'A1', tpl: 'Good morning!', model: 'M1', praise: null, chips: () => ['Good morning!', 'Good night!', 'Good evening!'],
         check: t => / good night /.test(t) ? 'C1' : / (good morning|hello|hi|good afternoon|good evening) /.test(t) ? (/ good (afternoon|evening) /.test(t) ? 'C1' : OK) : null },
       { ask: 'A2', tpl: "I'm ____. Nice to meet you.", model: 'M2', praise: 'P2', chips: n => [`I'm ${n}. Nice to meet you.`, `${n}.`, `My name ${n}.`],
         check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'C2' : null) },
@@ -1049,10 +1049,10 @@ async function evaluate(raw) {
     if (r === OK || G.finalTries >= 1) { G.stars[G.i] = r === OK && G.finalTries === 0; logAnswer(r === OK, 'Apresentação completa'); if (r === OK) await say('L22'); return finish(); }
     G.finalTries++; await say(r); G.status = 'answer'; gameUpdate(); gameInput(); return;
   }
-  if (G.repeat) { logAnswer(r === OK, null); await say(st.praise); return nextStage(); }
-  if (r === OK) { G.stars[G.i] = G.tries === 0; logAnswer(true, null); await say(st.praise); return nextStage(); }
+  if (G.repeat) { logAnswer(r === OK, null); if (st.praise) await say(st.praise); return nextStage(); }
+  if (r === OK) { G.stars[G.i] = G.tries === 0; logAnswer(true, null); if (st.praise) await say(st.praise); return nextStage(); }
   logAnswer(false, (G.def.tags || [])[G.i]);
-  if ((G.def.pass || []).includes(r)) { await say(r); await say(st.praise); return nextStage(); }
+  if ((G.def.pass || []).includes(r)) { await say(r); if (st.praise) await say(st.praise); return nextStage(); }
   G.tries++;
   if (G.tries >= 2) { G.repeat = true; return ask(); }
   await say(r || G.def.retry); G.status = 'answer'; gameUpdate(); gameInput();
