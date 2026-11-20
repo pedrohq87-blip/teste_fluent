@@ -204,10 +204,10 @@ const TRACK = [
   { t: 'Indo além', l: ['Dizer o que você sabe fazer', 'Pedir ajuda quando não entende', 'Falar de datas e aniversários', 'Dizer onde você estava', 'Contar como foi', 'Desafio final: apresente-se em 1 minuto'] }
 ];
 const TOTAL = 36;
-let VOC = { l1: [], l2a: [], l2b: [] };
+let VOC = { l1: [], l2a: [], l2b: [], l3: [] };
 
 const LESSONS = {
-  1: { title: 'Falar de você e do que você faz', short: "I'm…, profissões", img: 'media/l1_card.png',
+  1: { title: 'Falar de você e do que você faz', short: "I'm…, profissões", img: 'media/l1_card.png', decks: ['l1'], pdf: 'media/l1_material.pdf',
     steps: [
       { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l1_video.mp4', poster: 'media/l1_video.jpg' },
       { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 20 profissões', src: 'media/l1_vocab.mp4', poster: 'media/l1_vocab.jpg', deck: 'l1' },
@@ -223,7 +223,7 @@ const LESSONS = {
       { t: 'listen', tag: 'Profissões', q: 'Ouça e escolha a profissão.', audio: 'media/accountant_en.mp3', o: ['contador(a)', 'arquiteto(a)', 'advogado(a)'], a: 0, ok: 'Accountant é contador ou contadora: a-KÁUN-tant.', no: 'Você ouviu accountant: contador ou contadora.' },
       { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de engineer?', o: ['EN-dji-nir', 'en-DJI-nir', 'en-dji-NÍR'], a: 2, ok: 'Isso: en-dji-NÍR, com força no final.', no: 'A sílaba forte é a última: en-dji-NÍR.' }
     ] },
-  2: { title: 'Pedir comida no restaurante', short: "I'd like, can / could", img: 'media/l2_card.png',
+  2: { title: 'Pedir comida no restaurante', short: "I'd like, can / could", img: 'media/l2_card.png', decks: ['l2a', 'l2b'],
     steps: [
       { id: 'video', type: 'video', icon: 'video', label: 'Videoaula: o roteiro em 6 passos', src: 'media/l2_video.mp4', poster: 'media/l2_video.jpg' },
       { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: no restaurante', src: 'media/l2_vocab.mp4', poster: 'media/l2_vocab.jpg', deck: 'l2a' },
@@ -240,6 +240,22 @@ const LESSONS = {
       { t: 'choice', tag: 'the bill', q: 'Como pedir a conta?', o: ['Can you bring the account, please?', 'Can you bring the bill, please?', 'Can you bring the count, please?'], a: 1, ok: 'Conta de restaurante é the bill (nos Estados Unidos, também the check).', no: 'Conta de restaurante é the bill: Can you bring the bill, please?' },
       { t: 'choice', tag: 'can / could', q: 'Qual pedido soa mais gentil?', o: ['Can you bring the bill, please?', 'Could you bring the bill, please?'], a: 1, ok: 'Os dois estão certos, mas could (poderia) soa mais gentil.', no: 'Os dois estão certos: can é “pode”, could é “poderia” e soa mais gentil.' },
       { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba forte de dessert (sobremesa)?', o: ['DES-sert', 'di-ZÂRT'], a: 1, ok: 'Força no final: di-ZÂRT.', no: 'É di-ZÂRT. DE-sert, com força no começo, é deserto.' }
+    ] },
+  3: { title: 'Cumprimentar e se despedir', short: 'Hello, how are you?, see you', img: 'media/l3_card.png', decks: ['l3'], pdf: 'media/l3_material.pdf',
+    steps: [
+      { id: 'video', type: 'video', icon: 'video', label: 'Videoaula', src: 'media/l3_video.mp4', poster: 'media/l3_video.jpg' },
+      { id: 'vocab', type: 'vocab', icon: 'book', label: 'Vocabulário: 16 expressões', src: 'media/l3_vocab.mp4', poster: 'media/l3_vocab.jpg', deck: 'l3' },
+      { id: 'ex', type: 'ex', icon: 'pencil', label: 'Exercícios' },
+      { id: 'conv', type: 'conv', icon: 'mic', label: 'Conversa com o coach', game: 'l3' }
+    ],
+    ex: [
+      { t: 'choice', tag: 'Cumprimentar', q: 'São 9 da manhã. Como cumprimentar?', o: ['Good morning!', 'Good afternoon!', 'Good night!'], a: 0, ok: 'Até o meio-dia, use good morning.', no: 'De manhã, diga Good morning!' },
+      { t: 'choice', tag: 'Good evening', q: 'Você chega a um jantar às 20h. O que dizer?', o: ['Good night!', 'Good evening!', 'Good morning!'], a: 1, ok: 'Good evening é para chegar à noite.', no: 'Ao chegar à noite, diga Good evening. Good night é só para ir embora.' },
+      { t: 'listen', tag: 'How about you?', q: 'Ouça o Marcus e escolha a melhor resposta.', audio: 'media/l3_marcus_howareyou.mp3', o: ["I'm good. How about you?", "I'm Julia.", 'Nice to meet you.'], a: 0, ok: 'Ele perguntou como você está: responda e devolva a pergunta.', no: 'Ele disse “How are you?”. Responda: I’m good. How about you?' },
+      { t: 'order', tag: 'How about you?', q: 'Monte a frase: “Estou bem. E você?”', w: ['about', "I'm", 'How', 'good.', 'you?'], a: ["I'm", 'good.', 'How', 'about', 'you?'], ok: 'Responda e devolva a pergunta: é educado.', no: 'A ordem certa é: I’m good. How about you?' },
+      { t: 'choice', tag: 'Despedir-se', q: 'Qual frase é de despedida?', o: ['See you tomorrow!', "How's it going?", 'Good evening!'], a: 0, ok: 'See you tomorrow quer dizer “até amanhã”.', no: 'Para se despedir: See you tomorrow! Bye! Have a good day!' },
+      { t: 'listen', tag: 'Se apresentar', q: 'Ouça a Julia. Qual é a melhor resposta?', audio: 'media/l3_julia_nice.mp3', o: ['Nice to meet you too!', "I'm fine.", 'Good night!'], a: 0, ok: 'Ela disse “Nice to meet you!”: responda com too no final.', no: 'Ela disse “Nice to meet you!”. Responda: Nice to meet you too!' },
+      { t: 'choice', tag: 'Pronúncia', q: 'Qual é a sílaba mais forte de afternoon?', o: ['AF-ter-noon', 'af-TER-noon', 'af-ter-NOON'], a: 2, ok: 'Isso: af-ter-NUUN, com força no final.', no: 'A sílaba forte é a última: af-ter-NUUN.' }
     ] }
 };
 
@@ -258,7 +274,7 @@ function checkJob(t) {
   return nw(t) <= 2 ? 'L10' : null;
 }
 const GAMES = {
-  l1: { lesson: 1, audio: false, title: 'Conversa com o coach', lines: L1_LINES, intro: null, end: 'L24', retry: 'L25',
+  l1: { lesson: 1, audio: false, title: 'Conversa com o coach', lines: L1_LINES, intro: null, end: 'L24', retry: 'L25', pass: [], tags: ["I'm", 'I live in', 'a / an', 'I work', 'I love'],
     stages: [
       { ask: 'L01', tpl: "I'm ____.", model: 'M1', praise: 'P1', chips: n => [`I'm ${n}.`, `${n}.`, `My name ${n}.`],
         check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'L02' : null) },
@@ -273,7 +289,23 @@ const GAMES = {
         chips: n => [`Hi! I'm ${n}. I live in São Paulo. I'm a designer. I work at a startup. I love coffee.`, `Hi! I'm ${n}. I'm designer.`],
         check: t => [/ (i'm|my name is) [a-z]/, / i live in /, / i'm (a|an) /, / i (work|study) /, / i (love|like) /].filter(r => r.test(t)).length >= 3 ? OK : 'L23' }
     ] },
-  l2: { lesson: 2, audio: true, title: 'Conversa com o garçom', intro: 'G01', end: 'F1', retry: 'R1',
+  l3: { lesson: 3, audio: true, title: 'Conversa com o coach', who: ' · colega', lines3: 'jogo3', dir: 'media/l3coach/', intro: 'G01', end: 'F1', retry: 'R1',
+    pass: ['C3'], tags: ['Cumprimentar', 'Se apresentar', 'How about you?', "How's it going?", 'Despedir-se', 'Despedir-se'],
+    stages: [
+      { ask: 'A1', tpl: 'Good morning!', model: 'M1', praise: 'P1', chips: () => ['Good morning!', 'Good night!', 'Good evening!'],
+        check: t => / good night /.test(t) ? 'C1' : / (good morning|hello|hi|good afternoon|good evening) /.test(t) ? (/ good (afternoon|evening) /.test(t) ? 'C1' : OK) : null },
+      { ask: 'A2', tpl: "I'm ____. Nice to meet you.", model: 'M2', praise: 'P2', chips: n => [`I'm ${n}. Nice to meet you.`, `${n}.`, `My name ${n}.`],
+        check: t => / (i'm|my name is|my name's|name is) [a-z]/.test(t) ? OK : (nw(t) <= 2 ? 'C2' : null) },
+      { ask: 'A3', tpl: "I'm good. How about you?", model: 'M3', praise: 'P3', chips: () => ["I'm good. How about you?", "I'm good.", "I'm fine, thanks. And you?"],
+        check: t => / (good|great|fine|ok|okay|well|not bad) /.test(t) ? (/ (how about you|and you|what about you) /.test(t) ? OK : 'C3') : null },
+      { ask: 'A4', tpl: "It's going well.  /  Not bad.", model: 'M4', praise: 'P4', chips: () => ["It's going well.", "I'm going well.", 'Not bad, thanks.'],
+        check: t => / i'm going /.test(t) ? 'C4' : / (going well|not bad|good|great|well|fine) /.test(t) ? OK : 'C4' },
+      { ask: 'A5', tpl: 'OK! Have a good day!', model: 'M5', praise: 'P5', chips: () => ['OK! Have a good day!', 'Good night!', 'See you!'],
+        check: t => / good night /.test(t) ? 'C5' : / (have a good day|have a nice day|have a great day|see you|bye|goodbye) /.test(t) ? OK : null },
+      { ask: 'A6', tpl: 'See you tomorrow! Bye!', model: 'M6', praise: 'P6', chips: () => ['See you tomorrow! Bye!', 'Bye!', 'Good morning!'],
+        check: t => / (see you|bye|goodbye|have a good) /.test(t) ? OK : null }
+    ] },
+  l2: { lesson: 2, audio: true, title: 'Conversa com o garçom', who: ' · garçom', lines3: 'jogo', dir: 'media/l2coach/', pass: ['C9', 'C6'], tags: ['Roteiro do restaurante', 'Roteiro do restaurante', "I'd like", "I'd like", 'Roteiro do restaurante', 'the bill'], intro: 'G01', end: 'F1', retry: 'R1',
     stages: [
       { ask: 'A1', tpl: 'A table for ___, please.', model: 'M1', praise: 'P1', chips: () => ['A table for two, please.', 'Two.', 'I want a table.'],
         check: t => / table for (one|two|three|four|five|six|seven|eight|\w+) /.test(t) ? OK : 'C1' },
@@ -358,9 +390,12 @@ function markStep(n, id, extra) {
   touchDay(); save(true);
   if (!was) toast(lessonDone(n) ? 'Lição ' + n + ' concluída!' : 'Etapa concluída');
 }
-function currentLesson() { for (const n of [1, 2]) if (!lessonDone(n)) return n; return 2; }
+const AVAIL = Object.keys(LESSONS).map(Number).sort((a, b) => a - b);
+function currentLesson() { for (const n of AVAIL) if (!lessonDone(n)) return n; return AVAIL[AVAIL.length - 1]; }
+function openLessons() { return AVAIL.filter(n => n === 1 || lessonStarted(n) || lessonDone(n - 1)); }
+function bestGame() { const n = currentLesson(); const g = LESSONS[n].steps.find(s => s.type === 'conv'); return g && GAMES[g.game].audio ? g.game : 'l2'; }
 function nextStep(n) { const L = LESSONS[n]; return L.steps.find(s => !stepDone(n, s.id)) || null; }
-function lessonsDoneCount() { return [1, 2].filter(lessonDone).length; }
+function lessonsDoneCount() { return AVAIL.filter(lessonDone).length; }
 function streak() {
   if (!U) return 0; let d = new Date(), c = 0;
   const has = k => (U.days[k] || 0) > 0;
@@ -641,8 +676,8 @@ function coachMessage() {
   const n = currentLesson(), L = LESSONS[n], st = nextStep(n);
   const name = U.name;
   if (!lessonStarted(1)) return { text: `Eu sou o Teacher Pedro, o seu coach. Vamos começar a sua primeira lição? Em poucos minutos você vai se apresentar em inglês.`, cta: 'Começar a Lição 1', act: 'open-step', n: 1, s: 'video', icon: 'play' };
-  if (lessonDone(1) && lessonDone(2)) return { text: `Você concluiu as lições disponíveis do Start. Que tal manter a rotina com o mix do dia? A Lição 3 chega em breve.`, cta: 'Fazer o mix do dia', act: 'mix', icon: 'shuffle' };
-  const msgs = { video: `Hoje é dia de assistir à videoaula da Lição ${n}: ${L.title}. São só alguns minutos.`, vocab: `Agora vamos ao vocabulário da Lição ${n}. Ouça, repita e veja como se escreve.`, food: 'Faltam os pratos e as sobremesas. Vamos?', ex: `Faltam só os exercícios da Lição ${n}. São rápidos, vamos?`, conv: n === 2 ? 'Que tal fazer o pedido comigo? Eu sou o garçom, você é o cliente.' : 'Vamos conversar? Eu pergunto, você responde em inglês.' };
+  if (AVAIL.every(lessonDone)) return { text: `Você concluiu as lições disponíveis do Start. Que tal manter a rotina com o mix do dia? A Lição ${AVAIL.length + 1} chega em breve.`, cta: 'Fazer o mix do dia', act: 'mix', icon: 'shuffle' };
+  const msgs = { video: `Hoje é dia de assistir à videoaula da Lição ${n}: ${L.title}. São só alguns minutos.`, vocab: `Agora vamos ao vocabulário da Lição ${n}. Ouça, repita e veja como se escreve.`, food: 'Faltam os pratos e as sobremesas. Vamos?', ex: `Faltam só os exercícios da Lição ${n}. São rápidos, vamos?`, conv: n === 2 ? 'Que tal fazer o pedido comigo? Eu sou o garçom, você é o cliente.' : n === 3 ? 'Vamos conversar? Eu sou um colega novo no escritório.' : 'Vamos conversar? Eu pergunto, você responde em inglês.' };
   return { text: msgs[st.id] || 'Vamos continuar?', cta: st.label, act: 'open-step', n, s: st.id, icon: st.icon };
 }
 function vCoach() {
@@ -659,7 +694,7 @@ function vCoach() {
   <button class="btn cy" data-act="${m.act}" data-n="${m.n || ''}" data-s="${m.s || ''}">${ic(m.icon, 22, '#111A2B', 2.2, m.icon === 'play' ? '#111A2B' : 'none')}${esc(m.cta)}</button>
   <div class="tiles">
     <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="mix">${ic('shuffle', 28, '#FF6A1F', 2.3)}Mix do dia</button>
-    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="game" data-g="${'l2'}">${ic('mic', 28, '#2DD4EF', 2.3)}Conversar</button>
+    <button class="btn dk" style="flex-direction:column;min-height:96px;gap:6px;font-size:14px" data-act="game" data-g="${bestGame()}">${ic('mic', 28, '#2DD4EF', 2.3)}Conversar</button>
   </div>
   <p class="muted center" style="font-size:13px">${ic('bell', 16, '#B8C2D6', 2.3)} Próxima mensagem do coach: <b style="color:#fff">${esc(nextTime)}</b></p>
 </div>${nav('coach')}`;
@@ -714,6 +749,7 @@ function vLicao(n) {
     const extra = s.type === 'ex' && st.score != null ? `${st.score} de ${st.total}` : s.type === 'conv' && st.stars != null ? `${st.stars} ★` : '';
     return `<button class="steprow${cur ? ' cur' : ''}" data-act="open-step" data-n="${n}" data-s="${s.id}"><span class="iconbox" style="width:46px;height:46px;border-radius:14px;background:${d ? 'var(--cyan-l)' : cur ? 'var(--orange)' : '#F2F4F8'}">${ic(s.icon, 24, d ? '#0D5866' : cur ? '#111A2B' : '#7A8599')}</span><span class="grow" style="font-size:15px;font-weight:${cur ? 900 : 800}">${esc(s.label)}</span>${extra ? `<span class="muted" style="font-size:13px">${extra}</span>` : ''}${d ? `<span style="width:30px;height:30px;border-radius:15px;background:var(--cyan);display:flex;align-items:center;justify-content:center">${ic('check', 16, '#111A2B', 3.2)}</span>` : ''}</button>`;
   }).join('')}
+  ${L.pdf ? `<a class="steprow" href="${L.pdf}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span class="iconbox" style="width:46px;height:46px;border-radius:14px;background:#F2F4F8">${ic('file', 24, '#7A8599')}</span><span class="grow" style="font-size:15px;font-weight:800">Material de apoio (PDF)</span>${ic('arrow', 20, '#7A8599')}</a>` : ''}
   ${nx ? `<button class="btn or" data-act="open-step" data-n="${n}" data-s="${nx.id}">${ic('play', 20, '#111A2B', 2, '#111A2B')}Continuar: ${esc(nx.label.split(':')[0])}</button>`
        : `<div class="fb ok"><img src="media/pedro-apontando.png" alt=""><p style="font-weight:800">Lição concluída! Você pode refazer qualquer etapa quando quiser.</p></div>${LESSONS[n + 1] ? `<button class="btn or" data-act="go" data-h="licao-${n + 1}">Ir para a Lição ${n + 1}</button>` : ''}`}
 </div>${nav('trilha')}`;
@@ -845,13 +881,13 @@ function vResult(o) {
 // ---------------- mix e quiz ----------------
 function buildMix(focus) {
   const pool = [];
-  [1, 2].forEach(n => { if (n === 1 || lessonStarted(2) || lessonDone(1)) LESSONS[n].ex.forEach(x => pool.push(x)); });
+  openLessons().forEach(n => LESSONS[n].ex.forEach(x => pool.push(x)));
   const errTags = Object.keys(U.errors).sort((a, b) => U.errors[b] - U.errors[a]);
   let picks = pool.filter(x => errTags.includes(x.tag));
   picks = shuffle(picks).slice(0, focus ? 6 : 3);
   const rest = shuffle(pool.filter(x => !picks.includes(x)));
   while (picks.length < 6 && rest.length) picks.push(rest.pop());
-  const deckPool = VOC.l1.concat(lessonStarted(2) || lessonDone(1) ? VOC.l2a.concat(VOC.l2b) : []);
+  const deckPool = [].concat(...openLessons().map(n => [].concat(...LESSONS[n].decks.map(d => VOC[d] || []))));
   shuffle(deckPool).slice(0, 2).forEach(c => {
     const wrong = shuffle(deckPool.filter(d => d.pt !== c.pt)).slice(0, 2).map(d => d.pt);
     const o = shuffle([c.pt, ...wrong]);
@@ -861,7 +897,7 @@ function buildMix(focus) {
 }
 const QZ = { i: 0, items: [], score: 0, right: 0, left: 1, timer: null, ans: null };
 function startQuiz() {
-  const pool = VOC.l1.concat(lessonStarted(2) || lessonDone(1) ? VOC.l2a.concat(VOC.l2b) : []);
+  const pool = [].concat(...openLessons().map(n => [].concat(...LESSONS[n].decks.map(d => VOC[d] || []))));
   QZ.items = shuffle(pool).slice(0, 10).map(c => { const o = shuffle([c.pt, ...shuffle(pool.filter(d => d.pt !== c.pt)).slice(0, 2).map(d => d.pt)]); return { c, o, a: o.indexOf(c.pt) }; });
   QZ.i = 0; QZ.score = 0; QZ.right = 0; QZ.ans = null; V.overlay = { type: 'quiz' }; render(); quizTick();
 }
@@ -912,7 +948,7 @@ function renderGame() {
   app.innerHTML = `<div class="page" style="padding-bottom:20px">
   ${head(def.title, `<span class="small">Lição ${def.lesson}</span>`)}
   <div class="stage"><canvas class="cloud" data-scale=".2" aria-hidden="true"></canvas>
-    <div class="who"><img src="media/pedro-sorrindo.png" alt="">Teacher Pedro${G.gid === 'l2' ? ' · garçom' : ''}</div>
+    <div class="who"><img src="media/pedro-sorrindo.png" alt="">Teacher Pedro${G.def.who || ''}</div>
     <div class="stt" id="gstt"><i></i><span>Pronto</span></div></div>
   <div id="gsteps" role="img"></div>
   <div class="glog" id="glog" aria-live="polite"></div>
@@ -952,10 +988,10 @@ function gameInput() {
   </div>`;
   const inp = document.getElementById('gtxt'); if (inp) inp.focus();
 }
-function gLine(id) { return G.def.audio ? (VOC.jogo[id] || '') : (G.def.lines[id] || ''); }
+function gLine(id) { return G.def.audio ? ((VOC[G.def.lines3] || {})[id] || '') : (G.def.lines[id] || ''); }
 async function say(id) {
   const text = gLine(id); G.log.push({ r: 'c', t: text }); G.status = 'speaking'; CLOUD.mode = 'coach'; gameUpdate(); gameInput();
-  if (G.def.audio) { ensureAudioGraph(); await playClip('media/l2coach/' + id + '.mp3'); }
+  if (G.def.audio) { ensureAudioGraph(); await playClip(G.def.dir + id + '.mp3'); }
   else await new Promise(r => setTimeout(r, Math.min(4500, Math.max(1300, text.length * 45))));
   CLOUD.mode = 'idle';
 }
@@ -965,7 +1001,7 @@ async function ask() {
   if (!V.overlay || V.overlay.type !== 'game') return;
   G.log.push({ r: 't', t: (G.repeat ? 'Repita: ' : '') + st.tpl }); G.status = 'answer'; gameUpdate(); gameInput();
 }
-async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(VOC.jogo || {}).map(k => 'media/l2coach/' + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
+async function gameStart() { ensureAudioGraph(); if (G.def.audio) preload(Object.keys(VOC[G.def.lines3] || {}).map(k => G.def.dir + k + '.mp3')); G.status = 'speaking'; if (G.def.intro) await say(G.def.intro); await ask(); }
 async function evaluate(raw) {
   const st = G.def.stages[G.i]; const t = norm(raw);
   G.log.push({ r: 'u', t: raw || '(sem resposta)' }); G.status = 'think'; CLOUD.mode = 'think'; G.typing = false; gameUpdate(); gameInput();
@@ -978,8 +1014,8 @@ async function evaluate(raw) {
   }
   if (G.repeat) { logAnswer(r === OK, null); await say(st.praise); return nextStage(); }
   if (r === OK) { G.stars[G.i] = G.tries === 0; logAnswer(true, null); await say(st.praise); return nextStage(); }
-  logAnswer(false, G.gid === 'l2' ? ['Roteiro do restaurante', 'Roteiro do restaurante', "I'd like", "I'd like", 'Roteiro do restaurante', 'the bill'][G.i] : ['I\'m', 'I live in', 'a / an', 'I work', 'I love'][G.i]);
-  if ((G.gid === 'l2' && (r === 'C9' || r === 'C6')) ) { await say(r); await say(st.praise); return nextStage(); }
+  logAnswer(false, (G.def.tags || [])[G.i]);
+  if ((G.def.pass || []).includes(r)) { await say(r); await say(st.praise); return nextStage(); }
   G.tries++;
   if (G.tries >= 2) { G.repeat = true; return ask(); }
   await say(r || G.def.retry); G.status = 'answer'; gameUpdate(); gameInput();
@@ -1034,7 +1070,7 @@ function vPraticar() {
 }
 function vGames() {
   return `<div class="page">${head('Conversa com o coach')}
-  ${[['l2', 2], ['l1', 1]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:${GAMES[g].audio ? 'var(--cyan-t)' : 'var(--muted)'}">LIÇÃO ${n} · ${GAMES[g].audio ? 'COM VOZ' : 'SÓ TEXTO, VOZ EM BREVE'}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
+  ${[['l3', 3], ['l2', 2], ['l1', 1]].map(([g, n]) => `<button class="lrow" data-act="game" data-g="${g}"><img src="${LESSONS[n].img}" alt=""><span class="grow" style="display:flex;flex-direction:column;gap:2px"><span class="small" style="color:${GAMES[g].audio ? 'var(--cyan-t)' : 'var(--muted)'}">LIÇÃO ${n} · ${GAMES[g].audio ? 'COM VOZ' : 'SÓ TEXTO, VOZ EM BREVE'}</span><span style="font-size:15px;font-weight:800">${esc(GAMES[g].title)}</span><span class="muted" style="font-size:12px">${esc(LESSONS[n].title)}</span></span>${ic('play', 22, '#111A2B', 2, '#111A2B')}</button>`).join('')}
   <p class="muted" style="font-size:13px">A conversa livre com a inteligência artificial, sem roteiro, chega no ciclo Pro.</p></div>`;
 }
 function weekDays() {
@@ -1052,7 +1088,7 @@ function vProgresso() {
   <div class="card"><div class="row" style="gap:8px">${ic('clock', 22, '#111A2B', 2.4)}<h2 style="font-size:15px" class="grow">Minutos nesta semana</h2><span class="muted" style="font-size:13px">${wkTot} min</span></div>
   <div class="chart" role="img" aria-label="Minutos de estudo nos últimos 7 dias: ${wk.map(w => w.m).join(', ')}">${wk.map(w => `<div><span>${w.m || ''}</span><i style="height:${w.m ? Math.max(6, w.m / mx * 92) : 4}px;background:${w.today ? 'var(--orange)' : w.m ? 'var(--cyan)' : '#E1E6EE'}"></i><b style="${w.today ? 'color:var(--navy)' : ''}">${w.today ? 'HOJE' : w.label}</b></div>`).join('')}</div></div>
   <div class="card"><div class="row" style="gap:8px">${ic('map', 22, '#111A2B', 2.4)}<h2 style="font-size:15px">Lições</h2></div>
-  ${[1, 2].map(n => `<div class="row"><span class="grow" style="font-size:14px;font-weight:800">${n}. ${esc(LESSONS[n].title)}</span><span class="row" style="gap:4px">${LESSONS[n].steps.map(s => `<span title="${esc(s.label)}" style="width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:${stepDone(n, s.id) ? 'var(--cyan-l)' : '#F2F4F8'}">${ic(s.icon, 15, stepDone(n, s.id) ? '#0D5866' : '#7A8599', 2.2)}</span>`).join('')}</span></div>`).join('')}</div>
+  ${AVAIL.map(n => `<div class="row"><span class="grow" style="font-size:14px;font-weight:800">${n}. ${esc(LESSONS[n].title)}</span><span class="row" style="gap:4px">${LESSONS[n].steps.map(s => `<span title="${esc(s.label)}" style="width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:${stepDone(n, s.id) ? 'var(--cyan-l)' : '#F2F4F8'}">${ic(s.icon, 15, stepDone(n, s.id) ? '#0D5866' : '#7A8599', 2.2)}</span>`).join('')}</span></div>`).join('')}</div>
   <div style="display:flex;flex-direction:column;gap:10px"><div class="row" style="gap:8px">${ic('redo', 24, '#111A2B', 2.4)}<h2 style="font-size:16px">Para revisar</h2></div>
   ${errs.length ? `<div class="chips">${errs.map(([t, n]) => `<span class="row" style="gap:8px;padding:8px 8px 8px 14px;border-radius:14px;background:#fff;font-size:15px;font-weight:800">${esc(t)}<span style="min-width:28px;height:28px;border-radius:9px;background:var(--orange-l);color:var(--orange-t);font-size:13px;display:flex;align-items:center;justify-content:center">${Math.ceil(n)}</span></span>`).join('')}</div>
   <button class="btn cy" data-act="mix-err">${ic('shuffle', 22, '#111A2B', 2.4)}Revisar com o mix</button>` : `<p class="muted">Nada para revisar por enquanto. Os pontos em que você errar aparecem aqui.</p>`}</div>
@@ -1144,7 +1180,7 @@ document.addEventListener('click', e => {
     if (EX.i + 1 < o.items.length) { EX.i++; EX.sel = null; EX.order = []; EX.checked = false; render(); return; }
     const tags = [...new Set(EX.wrongTags)];
     if (o.mode === 'lesson') { markStep(o.n, 'ex', { score: EX.right, total: o.items.length }); V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Exercícios da Lição ' + o.n + ' concluídos', tags, next: nextStepAction(o.n, 'ex') }; }
-    else V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Mix do dia concluído', tags, next: { act: 'game', g: 'l2', label: 'Treinar conversa', icon: 'mic' } };
+    else V.overlay = { type: 'result', score: EX.right, total: o.items.length, sub: 'Mix do dia concluído', tags, next: { act: 'game', g: bestGame(), label: 'Treinar conversa', icon: 'mic' } };
     render(); return;
   }
   if (a === 'mix' || a === 'mix-err') {
